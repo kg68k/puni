@@ -1,0 +1,171 @@
+              ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+              ☆                                              ☆
+              ☆   ぷにぐらま～ずまにゅある  第八版  第Ｘ刷   ☆
+              ☆                                              ☆
+              ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+
+
+☆ これはなに？ ☆
+
+　X680x0 でプログラミング(主にアセンブリ言語)をする時に役立つと思われる資料を
+まとめたものです。
+
+　内容に関しては責任を負いませんが、打ち込みミスなどがあれば連絡していただけれ
+ば幸いです(但し必ず対応できるとは限りません)。
+
+　現在のところ、転載は禁止とします。
+
+
+☆ ファイル解説 ☆
+
+bioswork.man
+  IOCS ワークの一覧(ROM IOCS version 1.10/1.30 対応)。
+  システム代替ソフトウェアの作成用です。
+
+doscall.man
+  DOS コールレファレンス(Human68k version 3.02 対応)。
+  返値の項にレジスタ名が表記されていないものは d0.l が使用されます。
+
+fefunc.man
+  浮動小数点演算ファンクションコールレファレンス(FLOAT V2 対応)。
+  ドライバの不具合動作については、その数が多いことや対象ファイルの種類が多いな
+  どの理由で記述していません。
+
+filesystem.man
+  ファイルシステムの処理ルーチンの解説(Human68k version 3.02 対応)。
+  処理内容の解説は Human68k を解析した結果から推測しています。
+  一部の用語は記述の都合上勝手に決めたものです。
+
+fpcall.man
+  かな漢字変換ファンクションコールレファレンス(ASK68K V2/V3 対応)。
+
+iocscall.man
+  IOCS コールレファレンス(ROM IOCS version 1.10/1.30 対応)。
+  返値の項にレジスタ名が表記されていないものは d0.l が使用されます。
+  また、返値がないものでも d0.l は常に破壊されると考えて下さい。
+
+mmio.man
+  メモリマップドI/O一覧(X68000/X68030 対応)。
+
+number.man
+  整数の表現範囲及び浮動小数点実数の形式。
+
+oswork.man
+  OS ワークの一覧と各種の表の解説(Human68k version 3.02 対応)。
+  システム代替ソフトウェアの作成用です。
+
+programmers.man
+  メモリマップ等。
+  一部内容は mmio.man と重複します。
+
+scsicall.man
+  SCSI IOCS コールレファレンス(ROM IOCS version 1.10/1.30 対応)。
+  未公開コールは X68030 の ROM を解析した結果を参考にしているので、誤りがある
+  かも知れません。
+
+trap.man
+  trap 例外処理マニュアル(ROM IOCS version 1.10/1.30 及び Human68k
+  version 3.02 対応)。
+
+vector.man
+  割り込みベクタ一覧。
+
+code.txt
+  おまけ その1: ANK コード表。
+
+condition.txt
+  おまけ その2: 条件表。
+
+_fdformat.txt
+  おまけ その3: FD フォーマット表。
+
+lang_c.txt
+  おまけ その4: C 言語便利表。エスケープシーケンスと、演算子の優先順位と結合規
+  則です。
+
+_mediabyte.txt
+  おまけ その5: メディアバイト表。
+  filesystem.man から抜き出しただけです。
+
+puni.txt
+  このファイルです。
+
+
+☆ 参考文献 ☆
+
+書籍/雑誌
+  68000 プログラマーズ・ハンドブック            宍倉幸則,技術評論社
+  プログラマーのための X68000 環境ハンドブック  吉沢正敏,市原昌文,工学社
+  Inside X68000                                 桑野雅彦,SOFT BANK
+  Outside X68000                                〃      ,〃
+  X68030 Inside/Out                             〃      ,〃
+  X68k Programming Series #0 X680x0 Develop. & libc II
+  X68k Programming Series #1 X68000 Develop.
+    Vol.1 Programmer's Guide                    中村祐一(他),SOFT BANK
+  Oh!X(各種記事)                                村田敏幸(他),SOFT BANK
+  C COMPILER PRO-68K ver2.0
+    プログラマーズマニュアル                    SHARP
+    アセンブラマニュアル                        〃
+  C COMPILER PRO-68K ver2.1 NEW KIT
+    拡張マニュアル                              〃
+  X68000 XVI・XVI[HD] 取扱説明書                〃
+  プログラミング言語 C 第二版                   B.W.カーニハン,D.M.リッチー
+                                                石田晴久訳,共立出版
+  Mach-2 取扱説明書                             満開製作所
+  SX-68SC 取扱説明書                            SYSTEM SACOM
+  Nereid for X680x0 取扱説明書                  X-PowerStation
+
+ファイル
+  HUMAN.SYS (Human68k version 3.02)             SHARP/Hudson
+  PRNDRV*.SYS (version 1.00～1.03)              〃
+  FDDEVICE.X (version 1.00)                     〃
+  IOCS.X (version 1.50)                         SHARP
+  FLOAT2.X (version 2.03)                       〃
+  FLOAT3.X (version 2.03)                       〃
+  FLOAT4.X (version 1.02)                       〃
+  OPMDRV3.X (version 1.11)                      SHARP/Luvex
+  GPIBDRV.SYS version 1.00                      SHARP
+  9scset.lzh (9SCDRV.X v3.14+2)                 6no8rou
+  sse_121a.lzh (SUSIE.X V1.21A)                 GORRY
+  tw136c14.lzh (TwentyOne Ver 1.36c+14)         GORRY,T.Kawamoto
+  hiocssrc.lzh (HIOCS.X version 1.10+16)        中村祐一
+  has309.lzh (HAS.X versin 3.09)                〃
+  disktut2.lzh                                  清十郎
+  knjtut02.lzh                                  清十郎,シロ
+  callhelp.lzh                                  Epsilon 他
+  iocscall.lzh                                  (著者不明)
+  HUMAN.DOC、FCB.DOC                            (著者不明)
+  X30_SYSPORT.DOC、X68_SRAM.DOC、X68_VECTOR.DOC (著者失念)
+  060turbo.sys (version 0.54)                   鎌田誠
+  has06079.lzh (HAS060.X version 3.09+79)       〃
+  hassrc78.lzh (HAS060.X version 3.09+78)       〃
+  has06085.lzh (HAS060.X version 3.09+85)       〃
+  hassrc85.lzh (〃 ソースコード)                〃
+  ASMDAT03.DOC                                  〃
+  cutils14.tgz (cutils 1.4 - cinfo)             Sandro Sigala
+  eb007.lzh (EB.X version 0.07)                 Shi-MAD.
+  zm302a_s.lzh (Z-MUSIC version 3.02A)          ZENJI SOFT
+  mndrv100.zip (mndrv version 1.00)             S.Tsuyuzaki
+  merv4set.lzh                                  山内千里
+  PSX16750 関係のドキュメント                   東野伸之
+  gmoji14.lzh (GMoji V1.4)                      AIG-Soft
+
+ROM
+  IOCS ROM version 1.00 (X68000 初代、1987-05-07 版)
+  IOCS ROM version 1.00 (X68000 ACE)
+  IOCS ROM version 1.00 (X68000 SUPER)
+  IOCS ROM version 1.10 (X68000 XVI)
+  IOCS ROM version 1.20 (X68000 Compact XVI)
+  IOCS ROM version 1.30 (X68030)
+  IOCS ROM version 1.50 (060turbo、1997-05-29 版)
+
+(順不同、敬称略)
+
+
+☆ 連絡先 ☆
+
+TcbnErik / 立花@桑島技研
+  https://github.com/kg68k/si-ee
+
+
+[EOF]

@@ -1,0 +1,62 @@
+
+・符号なしの表現                [条件成立フラグ状態]
+                                 X:  N:  Z:  V:  C:
+
+ x＜y   HI (High)                -   -   0:  -   0:     HI：成立
+ x≦y   CC (Carry Clear)         -   -   -   -   0:     CC：成立
+ x＞y   CS (Carry Set)           -   -   -   -   1:     CS：成立
+ x≧y   LS (Lower or Same)       -   -   -   -   1:     LS：成立
+        LS (Lower or Same)       -   -   1:  -   -      LS：成立
+
+
+・符号ありの表現                [条件成立フラグ状態]
+                                 X:  N:  Z:  V:  C:
+
+ x＜y   GT (Greater Than)        -   0:  0:  0:  -      GT：成立
+        GT (Greater Than)        -   1:  0:  1:  -      GT：成立
+ x≦y   GE (Greater or Equal)    -   0:  -   0:  -      GE：成立
+        GE (Greater or Equal)    -   1:  -   1:  -      GE：成立
+ x＞y   LT (Less Than)           -   0:  -   1:  -      LT：成立
+        LT (Less Than)           -   1:  -   0:  -      LT：成立
+ x≧y   LE (Less or Equal)       -   0:  -   1:  -      LE：成立
+        LE (Less or Equal)       -   1:  -   0:  -      LE：成立
+        LE (Less or Equal)       -   -   1:  -   -      LE：成立
+
+
+・その他の表現                  [条件成立フラグ状態]
+                                 X:  N:  Z:  V:  C:
+
+ x＝y   EQ (Equal)               -   -   1:  -   -      EQ：成立
+ x≠y   NE (Not Equal)           -   -   0:  -   -      NE：成立
+        PL (Not Minus)           -   0:  -   -   -      PL：成立
+        MI (Minus)               -   1:  -   -   -      MI：成立
+        VC (Overflow Clear)      -   -   -   0:  -      VC：成立
+        VS (Overflow Set)        -   -   -   1:  -      VS：成立
+        T  (True)                -   -   -   -   -      T ：成立
+        F  (False)               -   -   -   -   -      F ：不成立
+
+========================================================================
+
+ﾊﾟﾀｰﾝ   条件                    CC      式(s:d) ｺﾝﾃﾞｨｼｮﾝ
+-----   ----                    --      ------- --------
+0000    always True             T                1
+0001    always False            F                0
+0010    High                    HI      ＜(u)   !C･!Z
+0011    Lower or Same           LS      ≧(u)    C+ Z
+0100    Carry Clear             CC      ≦(u)   !C
+0101    Carry Set               CS      ＞(u)    C
+0110    Not Equal               NE      ≠      !Z
+0111    Equal                   EQ      ＝       Z
+1000    Overflow Clear          VC              !V
+1001    Overflow Set            VS               V
+1010    Plus (Not Minus)        PL              !N
+1011    Minus                   MI               N
+1100    Greater or Equal        GE      ≦(s)    N･ V+!N･!V
+1101    Less Than               LT      ＞(s)    N･!V+!N･ V
+1110    Greater Than            GT      ＜(s)    N･ V･!Z+!N･!V･!Z
+1111    Less or Equal           LE      ≧(s)    N･!V+!N･ V+ Z
+
+注意:
+        　大小比較において、(u)は符号なし、(s)は符号あり。
+        　Bcc 命令において、条件 F に対応するビットパターンの命令($61xx)
+        は bsr になる。また、条件 T の場合は bra と記述する。

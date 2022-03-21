@@ -1,0 +1,123 @@
+$00e9e000 ～ $00e9e01f          コプロセッサ (#0)
+
+$00e9e080 ～ $00e9e09f          コプロセッサ (#1)
+
+$00e9e200 ～ $00e9e3ff          TS-6BGA
+
+$00e9f000 ～ $00e9f000          EX68
+│
+$00e9f000 ～ $00e9f7ff          040Excel(試作版)
+
+$00ea0000 ～ $00ea1fff          SCSIボード
+│                ┌┘
+$00ea0000 ～ $00ea7fff          Mach-2
+┌┘              └┐
+$00ea2000 ～ $00ea3fff          WD33C93 SCSIボード(実在するのは一枚!?)
+
+$00eaf900 ～ $00eaf93f          FAXボード
+
+$00eafa00 ～ $00eafa0f          MIDIボード (#0)
+
+$00eafa10 ～ $00eafa1f          MIDIボード (#1)
+
+$00eafb00 ～ $00eafb0f          パラレルボード (#0)
+
+$00eafb10 ～ $00eafb1f          パラレルボード (#1)
+
+$00eafc00 ～ $00eafc0f          RS-232Cボード (#0)
+
+$00eafc10 ～ $00eafc1f          RS-232Cボード (#1)
+
+$00eafc20 ～ $00eafc2f          RS-232Cボード (#2)
+
+$00eafc30 ～ $00eafc3f          RS-232Cボード (#3)
+
+$00eafd00 ～ $00eafd03          ユニバーサルI/Oボード (#0)
+
+$00eafd04 ～ $00eafd07          ユニバーサルI/Oボード (#1)
+
+$00eafd08 ～ $00eafd0b          ユニバーサルI/Oボード (#2)
+
+$00eafd0c ～ $00eafd0f          ユニバーサルI/Oボード (#3)
+
+$00eafe00 ～ $00eafe1f          GP-IBボード
+
+$00eaff80 ～ $00eaff8f          拡張エリアセット
+
+○以下、ユーザI/O
+
+$00ec0000 ～ $00ec8001─┐      AWESOME-X
+│                └┐  │
+$00ec0000 ～ $00ec0007  │      X68K-PPI
+│                ┌┘  │
+$00ec0000 ～ $00ec3fff  │      Xellent30 (#0)
+                        │
+$00ec4000 ～ $00ec7fff  │      Xellent30 (#1)
+                        │
+$00ec8000 ～ $00ecbfff─┘      Xellent30 (#2)
+
+$00ecc000 ～ $00ecffff─┐      Xellent30 (#3)
+│                      │
+$00ecc000 ～ $00ecc0ff  │      Mercury-Unit (～V3.5)
+┌┘                │  │
+$00ecc080 ～ $00ecc0ff  │      Mercury-Unit V4
+                        │
+$00ece000 ～ $00ece3ff  │      Neptune-X (#0)
+┌┘              └┐  │
+$00ece300 ～ $00ece33f  │      Nereid (#0)
+                        │
+$00ece400 ～ $00ece7ff  │      Neptune-X (#1)
+                        │
+$00eceb00 ～ $00eceb3f  │      Nereid (#1)
+                        │
+$00ecf000 ～ $00ecf00f  │      VENUS-X
+                        │
+$00ecffff ～ $00ecffff─┘      バンクメモリ (レジスタ)
+
+○以上、ユーザI/O
+
+$00ed0000 ～ $00ed3fff          本体SRAM
+$00ed4000 ～ $00edffff          予備
+
+$00ee0000 ～ $00eeffff          Nereid (バンクメモリ #0)
+│                  │
+$00ee0000 ～ $00eeffff          TS-6BGA (G-RAMバンク #0)
+
+$00ef0000 ～ $00efffff          Nereid (バンクメモリ #1)
+│                  │
+$00ef0000 ～ $00efffff─┐      TS-6BGA (G-RAM バンク #1)
+┌┘              └┐  │
+$00eff800 ～ $00eff83f  │      POLYPHON (#0)
+                        │
+$00eff880 ～ $00eff8bf  │      POLYPHON (#1)
+                        │
+$00efff00 ～ $00efffff─┘      PSX16550 / PSX16750
+
+$01000000 ～                    各種ハイメモリ/仮想メモリ
+
+$01000000 ～ $01100000          JUPITER-X (SRAM)
+$01800000 ～ $01800003          JUPITER-X (システムレジスタ)
+$02000000 ～ $02ffffff          JUPITER-X (XRAM)
+
+$00b00000 ～ $00b1ffff          V70 アクセラレータ (共有SRAM)
+$00b20000 ～ $00b20000                             (I/Oポート1)
+$00b20001 ～ $00b20001                             (I/Oポート2)
+$00b20002 ～ $00bfffff                             (未使用)
+
+
+--------
+
+・不明(資料求む)
+
+$00?????? ～ $00??????          X68K-SCAN
+
+
+--------
+
+・情報源メモ
+
+Neptune-Xのアドレス変更に関しては下記ページ参照.
+http://www.amy.hi-ho.ne.jp/shimada/neptune/data.html
+
+
+[EOF]
