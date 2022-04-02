@@ -10,7 +10,7 @@ $00e9f000 ～ $00e9f7ff          040Excel(試作版)
 ┌┘              └┐
 $00e9f020 ～ $00e9f03f          XEiJ (X68000 Emulator in Java)
 
-$00e9f800 ～ $00e9f803          PhantomX
+$00e9f800 ～ $00e9ffff          PhantomX
 
 $00ea0000 ～ $00ea1fff          SCSIボード
 │                ┌┘
