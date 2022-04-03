@@ -11,10 +11,11 @@ $00e9f000 ～ $00e9f7ff          040Excel(試作版)
 $00e9f020 ～ $00e9f03f          XEiJ (X68000 Emulator in Java)
 
 $00e9f800 ～ $00e9ffff          PhantomX
+                                http://retropc.net/gimons/phantomx/index.html
 
 $00ea0000 ～ $00ea1fff          SCSIボード
-│                ┌┘
-$00ea0000 ～ $00ea7fff          Mach-2
+┌┘              ┌┘
+$00ea0020 ～ $00ea7fff          Mach-2
 ┌┘              └┐
 $00ea2000 ～ $00ea3fff          WD33C93 SCSIボード(実在するのは一枚!?)
 
@@ -67,6 +68,7 @@ $00ecc000 ～ $00ecc0ff  │      Mercury-Unit (～V3.5)
 $00ecc080 ～ $00ecc0ff  │      Mercury-Unit V4
                         │
 $00ece000 ～ $00ece3ff  │      Neptune-X (#0)
+  │              │    │      http://www.amy.hi-ho.ne.jp/shimada/neptune/data.html
 ┌┘              └┐  │
 $00ece300 ～ $00ece33f  │      Nereid (#0)
                         │
@@ -114,14 +116,6 @@ $00b20002 ～ $00bfffff                             (未使用)
 ・不明(資料求む)
 
 $00?????? ～ $00??????          X68K-SCAN
-
-
---------
-
-・情報源メモ
-
-Neptune-Xのアドレス変更に関しては下記ページ参照.
-http://www.amy.hi-ho.ne.jp/shimada/neptune/data.html
 
 
 [EOF]
