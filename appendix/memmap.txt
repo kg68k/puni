@@ -10,14 +10,14 @@ $00e9f000 ～ $00e9f7ff          040Excel(試作版)
 ┌┘              └┐
 $00e9f020 ～ $00e9f03f          XEiJ (X68000 Emulator in Java)
 
-$00e9f800 ～ $00e9ffff          PhantomX
-                                http://retropc.net/gimons/phantomx/index.html
-
 $00ea0000 ～ $00ea1fff          SCSIボード
 ┌┘              ┌┘
 $00ea0020 ～ $00ea7fff          Mach-2
 ┌┘              └┐
 $00ea2000 ～ $00ea3fff          WD33C93 SCSIボード(実在するのは一枚!?)
+
+$00ea8000 ～ $00ea9fff          PhantomX (version 1.00RC3)
+                                http://retropc.net/gimons/phantomx/index.html
 
 $00eaf900 ～ $00eaf93f          FAXボード
 
