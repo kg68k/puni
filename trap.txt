@@ -9,7 +9,7 @@ trap    #1      〃        (bgdrv, mpcm)
 trap    #2      〃        (pcm8*)
 trap    #3      〃        (zmusic, zmsc3, middrv)
 trap    #4      〃        (mxdrv, madrv, mld, mcdrv, mndrv)
-trap    #5      〃        (cdc)
+trap    #5      〃        (cdc, PIlib)
 trap    #6      〃
 trap    #7      〃
 
