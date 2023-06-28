@@ -20,56 +20,59 @@
 
 ☆ ファイル解説 ☆
 
-bioswork.man
+bioswork.txt
   IOCS ワークの一覧(ROM IOCS version 1.10/1.30 対応)。
   システム代替ソフトウェアの作成用です。
 
-doscall.man
+doscall.txt
   DOS コールレファレンス(Human68k version 3.02 対応)。
   返値の項にレジスタ名が表記されていないものは d0.l が使用されます。
 
-fefunc.man
+fefunc.txt
   浮動小数点演算ファンクションコールレファレンス(FLOAT V2 対応)。
   ドライバの不具合動作については、その数が多いことや対象ファイルの種類が多いな
   どの理由で記述していません。
 
-filesystem.man
+filesystem.txt
   ファイルシステムの処理ルーチンの解説(Human68k version 3.02 対応)。
   処理内容の解説は Human68k を解析した結果から推測しています。
   一部の用語は記述の都合上勝手に決めたものです。
 
-fpcall.man
+fpcall.txt
   かな漢字変換ファンクションコールレファレンス(ASK68K V2/V3 対応)。
 
-iocscall.man
+iocscall.txt
   IOCS コールレファレンス(ROM IOCS version 1.10/1.30 対応)。
   返値の項にレジスタ名が表記されていないものは d0.l が使用されます。
   また、返値がないものでも d0.l は常に破壊されると考えて下さい。
 
-mmio.man
+kbdctrl.txt
+  キーボード制御コマンドコード。
+
+mmio.txt
   メモリマップドI/O一覧(X68000/X68030 対応)。
 
-number.man
+number.txt
   整数の表現範囲及び浮動小数点実数の形式。
 
-oswork.man
+oswork.txt
   OS ワークの一覧と各種の表の解説(Human68k version 3.02 対応)。
   システム代替ソフトウェアの作成用です。
 
-programmers.man
+programmers.txt
   メモリマップ等。
-  一部内容は mmio.man と重複します。
+  一部内容は mmio.txt と重複します。
 
-scsicall.man
+scsicall.txt
   SCSI IOCS コールレファレンス(ROM IOCS version 1.10/1.30 対応)。
   未公開コールは X68030 の ROM を解析した結果を参考にしているので、誤りがある
   かも知れません。
 
-trap.man
+trap.txt
   trap 例外処理マニュアル(ROM IOCS version 1.10/1.30 及び Human68k
   version 3.02 対応)。
 
-vector.man
+vector.txt
   割り込みベクタ一覧。
 
 code.txt
@@ -87,7 +90,7 @@ lang_c.txt
 
 _mediabyte.txt
   おまけ その5: メディアバイト表。
-  filesystem.man から抜き出しただけです。
+  filesystem.txt から抜き出しただけです。
 
 puni.txt
   このファイルです。
