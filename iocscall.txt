@@ -243,7 +243,8 @@ $ff     _ABORTJOB       アボート
         b       ひら    INS     CAPS    コード  ﾛ-ﾏ字   かな    XF5     XF4
         c       F5      F4      F3      F2      F1      COPY    BREAK   全角
         d                               F10     F9      F8      F7      F6
-        e                                       OPT.2   OPT.1   CTRL    SHIFT
+        e                               NUM     OPT.2   OPT.1   CTRL    SHIFT
+        f
 
         スキャンコード = キーコードグループ×8＋キー入力状態ビット
 
@@ -251,7 +252,7 @@ $ff     _ABORTJOB       アボート
 01:ESC    11:Q      21:F      31:,<     41:*      51:.      61:BREAK  71:CTRL
 02:1!     12:W      22:G      32:.>     42:-      52:記号   62:COPY   72:OPT.1
 03:2"     13:E      23:H      33:/?     43:7      53:登録   63:F1     73:OPT.2
-04:3#     14:R      24:J      34:_      44:8      54:HELP   64:F2
+04:3#     14:R      24:J      34:_      44:8      54:HELP   64:F2     74:NUM
 05:4$     15:T      25:K      35:SPACE  45:9      55:XF1    65:F3
 06:5%     16:Y      26:L      36:HOME   46:+      56:XF2    66:F4
 07:6&     17:U      27:;+     37:DEL    47:4      57:XF3    67:F5
