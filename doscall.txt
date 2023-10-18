@@ -388,19 +388,19 @@ $ff0c   _KFLUSH         バッファフラッシュ後キーボードから入�
 MODE = 1,7,8
         move    MODE,-(sp)
         DOS     _KFLUSH
-        adddq.l #2,sp
+        addq.l  #2,sp
 
 MODE = 6
         move    CODE,-(sp)
         move    MODE,-(sp)
         DOS     _KFLUSH
-        adddq.l #4,sp
+        addq.l  #4,sp
 
 MODE = 10
         pea     (BUFFER)
         move    MODE,-(sp)
         DOS     _KFLUSH
-        adddq.l #6,sp
+        addq.l  #6,sp
 
 ==============================================================================
 
