@@ -3501,6 +3501,10 @@ $fffb   _SUSPEND_PR     スレッドを強制的にスリープ状態にする
     　このファンクションコールの処理アドレスを変更することはできない(ベクタを
     書き換えても無視される)。
 
+    　なお、XC の DOSCALL.MAC では _SUSPEND というシンボル名で定義されている。
+    プログラマーズマニュアルの記載は _SUSPEND_PR、C言語用の関数(DOSLIB)は
+    SUSPEND_PR() であるので、_SUSPEND_PR が正しいシンボル名と思われる。
+
 コード例
     move ID,-(sp)
     DOS _SUSPEND_PR
