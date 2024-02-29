@@ -1,28 +1,27 @@
 ・メディアバイト
 
-$e0  2DDx(2DD/10) *1
-$e5  1D/9         *1
-$e6  2D/9         *1
-$e7  1D/8         *1
-$e8  2D/8         *1
-$e9  2HQx(2HQ16)  *1
-$ea  2HT          *1
-$eb  2HS          *1
-$ec  2HDE         *1
-$ee  1DD/9        *1
-$ef  1DD/8        *1
-
-$f0  DMF          *1
-$f4  DAT
-$f5  CD-ROM
-$f6  MO
-$f7  SCSI-HD
-$f8  SASI-HD
-$f9  RAMDISK
-$fa  2HQ
-$fb  2DD/8
-$fc  2DD/9
-$fd  2HC
-$fe  2HD
-
-*1 9SCDRV.X による拡張。
+$e0     2DDx(2DD/10)  ┐ 9SCDRV.X による拡張
+$e5     1D/9          │
+$e6     2D/9          │
+$e7     1D/8          │
+$e8     2D/8          │
+$e9     2HQx(2HQ16)   │
+$ea     2HT           │
+$eb     2HS           │
+$ec     2HDE          │
+$ee     1DD/9         │
+$ef     1DD/8         │
+                      │
+$f0     DMF           ┘
+$f3     WINDRV        ─ WinX68k による拡張
+$f4     DAT、NFS      ─ NFS は NFS.x による拡張
+$f5     CD-ROM
+$f6     MO
+$f7     SCSI-HD
+$f8     SASI-HD
+$f9     RAMDISK
+$fa     2HQ
+$fb     2DD/8
+$fc     2DD/9
+$fd     2HC
+$fe     2HD
