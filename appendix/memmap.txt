@@ -6,7 +6,7 @@ $00e9e200 ～ $00e9e3ff          TS-6BGA
 
 $00e9f000 ～ $00e9f000          EX68
 │
-$00e9f000 ～ $00e9f7ff          040Excel(試作版)
+$00e9f000 ～ $00e9f7ff          040Excel (試作版)
 ┌┘              └┐
 $00e9f020 ～ $00e9f03f          XEiJ (X68000 Emulator in Java)
 
@@ -14,7 +14,7 @@ $00ea0000 ～ $00ea1fff          SCSIボード
 ┌┘              ┌┘
 $00ea0020 ～ $00ea7fff          Mach-2
 ┌┘              └┐
-$00ea2000 ～ $00ea3fff          WD33C93 SCSIボード(実在するのは一枚!?)
+$00ea2000 ～ $00ea3fff          WD33C93 SCSIボード (実在するのは一枚!?)
 
 $00ea8000 ～ $00ea9fff          PhantomX (version 1.00RC3)
                                 http://retropc.net/gimons/phantomx/index.html
@@ -51,34 +51,38 @@ $00eaff80 ～ $00eaff8f          拡張エリアセット
 
 ○以下、ユーザI/O
 
-$00ec0000 ～ $00ec8001─┐      AWESOME-X
-│                └┐  │
-$00ec0000 ～ $00ec0007  │      X68K-PPI
-│                ┌┘  │
-$00ec0000 ～ $00ec3fff  │      Xellent30 (#0)
-                        │
-$00ec4000 ～ $00ec7fff  │      Xellent30 (#1)
-                        │
-$00ec8000 ～ $00ecbfff─┘      Xellent30 (#2)
+$00ec0000 ～ $00ec8001 ─┐     AWESOME-X
+│                └┐   │
+$00ec0000 ～ $00ec0007   │     X68K-PPI
+│                ┌┘   │
+$00ec0000 ～ $00ec3fff   │     Xellent30 (#0)
+                         │
+$00ec4000 ～ $00ec7fff   │     Xellent30 (#1)
+                         │
+$00ec8000 ～ $00ecbfff ─┘     Xellent30 (#2)
+┌┘                │
+$00ecb000 ～ $00ecbfff          Kepler X (壱號機～参號機)
+                                (Mercury-Unit V4、MIDIボードのアドレスも有効)
+                                https://keplerx.ohnaka.jp/
 
-$00ecc000 ～ $00ecffff─┐      Xellent30 (#3)
-│                      │
-$00ecc000 ～ $00ecc0ff  │      Mercury-Unit (～V3.5)
-┌┘                │  │
-$00ecc080 ～ $00ecc0ff  │      Mercury-Unit V4
-                        │
-$00ece000 ～ $00ece3ff  │      Neptune-X (#0)
-  │              │    │      http://www.amy.hi-ho.ne.jp/shimada/neptune/data.html
-┌┘              └┐  │
-$00ece300 ～ $00ece33f  │      Nereid (#0)
-                        │
-$00ece400 ～ $00ece7ff  │      Neptune-X (#1)
-                        │
-$00eceb00 ～ $00eceb3f  │      Nereid (#1)
-                        │
-$00ecf000 ～ $00ecf00f  │      VENUS-X
-                        │
-$00ecffff ～ $00ecffff─┘      バンクメモリ (レジスタ)
+$00ecc000 ～ $00ecffff ─┐     Xellent30 (#3)
+│                       │
+$00ecc000 ～ $00ecc0ff   │     Mercury-Unit (～V3.5)
+┌┘                │   │
+$00ecc080 ～ $00ecc0ff   │     Mercury-Unit V4
+                         │
+$00ece000 ～ $00ece3ff   │     Neptune-X (#0)
+  │              │     │     http://www.amy.hi-ho.ne.jp/shimada/neptune/data.html
+┌┘              └┐   │
+$00ece300 ～ $00ece33f   │     Nereid (#0)
+                         │
+$00ece400 ～ $00ece7ff   │     Neptune-X (#1)
+                         │
+$00eceb00 ～ $00eceb3f   │     Nereid (#1)
+                         │
+$00ecf000 ～ $00ecf00f   │     VENUS-X
+                         │
+$00ecffff ～ $00ecffff ─┘     バンクメモリ (レジスタ)
 
 ○以上、ユーザI/O
 
@@ -91,13 +95,13 @@ $00ee0000 ～ $00eeffff          TS-6BGA (G-RAMバンク #0)
 
 $00ef0000 ～ $00efffff          Nereid (バンクメモリ #1)
 │                  │
-$00ef0000 ～ $00efffff─┐      TS-6BGA (G-RAM バンク #1)
-┌┘              └┐  │
-$00eff800 ～ $00eff83f  │      POLYPHON (#0)
-                        │
-$00eff880 ～ $00eff8bf  │      POLYPHON (#1)
-                        │
-$00efff00 ～ $00efffff─┘      PSX16550 / PSX16750
+$00ef0000 ～ $00efffff ─┐     TS-6BGA (G-RAM バンク #1)
+┌┘              └┐   │
+$00eff800 ～ $00eff83f   │     POLYPHON (#0)
+                         │
+$00eff880 ～ $00eff8bf   │     POLYPHON (#1)
+                         │
+$00efff00 ～ $00efffff ─┘     PSX16550 / PSX16750
 
 ○各種ハイメモリ/仮想メモリ($01000000～)
 
