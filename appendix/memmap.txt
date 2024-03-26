@@ -82,6 +82,8 @@ $00eceb00 ～ $00eceb3f   │     Nereid (#1)
                          │
 $00ecf000 ～ $00ecf00f   │     VENUS-X
                          │
+$00ecf020 ～ $00ecf02f   │     MK-HM2
+                         │
 $00ecffff ～ $00ecffff ─┘     バンクメモリ (レジスタ)
 
 ○以上、ユーザI/O
@@ -110,6 +112,13 @@ $01000000 ～ $01ffffff          TS-6BE16
 $01000000 ～ $01100000          JUPITER-X (SRAM)
 $01800000 ～ $01800003          JUPITER-X (システムレジスタ)
 $02000000 ～ $02ffffff          JUPITER-X (XRAM)
+
+$10000000 ～ $17ffffff          MK-HM2 (満開製作所製 未発売ハイメモリボード)
+                                https://twitter.com/punohito/status/1769933805710868481
+                                  $00ecf020 'VM01'
+                                  $00ecf024 REFRESH CONTROLLER
+                                  $00ecf028 MEMORY CLOCK REGISTER
+                                  $00ecf02c MEMORY BASE ADDRESS REGISTER
 
 $10000000 ～ $1fffffff          060turbo ※ハードウェア仕様上は128MBまで
                                            ($10000000 ～ $17ffffff)
