@@ -2278,30 +2278,34 @@ SEL 信号 H($e96007):
 
 ==============================================================================
 
-・SPC
+・SPC (SCSI プロトコルコントローラ; MB89352)
 
-address size    R/W
-$e96021 1.b     R       BDID (Bus Device ID)
-〃      〃        W     〃
-$e96023 1.b     R/W     SCTL (SPC Control)
-$e96025 1.b     R/W     SCMD (SPC Command)
-$e96029 1.b     R       INTS (Interrupt Sense)
-〃      〃        W     〃
-$e9602b 1.b     R       PSNS (Phase Sense)
-〃      〃        W     SDGC (SPC Diag Control)
-$e9602d 1.b     R       SSTS (SPC Status)
-$e9602f 1.b     R       SERR (SPC Error Status)
-$e96031 1.b     R/W     PCTL (Phase Control)
-$e96033 1.b     R       MBC  (Modified Byte Counter)
-$e96035 1.b     R/W     DREG (Data Register)
-$e96037 1.b     R       TEMP (Temporary Register)
-〃      〃        W     〃
-$e96039 1.b     R/W     TCH  (Transfer Counter High)
-$e9603b 1.b     R/W     TCM  (Transfer Counter Mid)
-$e9603d 1.b     R/W     TCL  (Transfer Counter Low)
+SCSIIN (X68000 SUPER 以降の内蔵 SCSI)  ベースアドレス $e96020
+SCSIEX (SCSI ボード CZ-6BS1)           ベースアドレス $ea0000
 
-※SCSI ボードの場合は $ea0001～$ea001d。
+offset  SCSIIN   SCSIEX   size  R/W
++$01    $e96021  $ea0001  1.b   R    BDID (Bus Device ID)
+                                  W       (読み込み時と内容が異なる)
++$03    $e96023  $ea0003  1.b   R/W  SCTL (SPC Control)
++$05    $e96025  $ea0005  1.b   R/W  SCMD (Command)
++$07                                 N/A (Open)
++$09    $e96029  $ea0009  1.b   R    INTS (Interrupt Sense)
+                                  W       (Reset Interrupt)
++$0b    $e9602b  $ea000b  1.b   R    PSNS (Phase Sense)
+                                  W  SDGC (SPC Diagnostic Control)
++$0d    $e9602d  $ea000d  1.b   R    SSTS (SPC Status)
++$0f    $e9602f  $ea000f  1.b   R    SERR (SPC Error Status)
++$11    $e96031  $ea0011  1.b   R/W  PCTL (Phase Control)
++$13    $e96033  $ea0013  1.b   R    MBC  (Modified Byte Counter)
++$15    $e96035  $ea0015  1.b   R/W  DREG (Data Register)
++$17    $e96037  $ea0017  1.b   R/W  TEMP (Temporary Register)
++$19    $e96039  $ea0019  1.b   R/W  TCH  (Transfer Counter High)
++$1b    $e9603b  $ea001b  1.b   R/W  TCM  (Transfer Counter Middle)
++$1d    $e9603d  $ea001d  1.b   R/W  TCL  (Transfer Counter Low)
++$1f                                 N/A
 
+※N/A の部分は、SPC MB87030/31/33 はレジスタの割り当てがあるが(+$07 TOMD、+$1f
+  EXBF)、MB89352 では削除されている。
 
 BDID read($e96021):
         bit  7   6   5   4   3   2   1   0

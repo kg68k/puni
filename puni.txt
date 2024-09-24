@@ -119,9 +119,14 @@ puni.txt
   X68000 XVI・XVI[HD] 取扱説明書                〃
   プログラミング言語 C 第二版                   B.W.カーニハン,D.M.リッチー
                                                 石田晴久訳,共立出版
+  Nereid for X680x0 取扱説明書                  X-PowerStation
+
+SCSI
   Mach-2 取扱説明書                             満開製作所
   SX-68SC 取扱説明書                            SYSTEM SACOM
-  Nereid for X680x0 取扱説明書                  X-PowerStation
+  sse_121a.lzh (SUSIE.X V1.21A)                 GORRY
+  1989_SCSI_Product_Guide.pdf                   Fujitsu Microelectronics, Inc.
+  MB89352.pdf
 
 ファイル
   HUMAN.SYS (Human68k version 3.02)             SHARP/Hudson
@@ -134,7 +139,6 @@ puni.txt
   OPMDRV3.X (version 1.11)                      SHARP/Luvex
   GPIBDRV.SYS version 1.00                      SHARP
   9scset.lzh (9SCDRV.X v3.14+2)                 6no8rou
-  sse_121a.lzh (SUSIE.X V1.21A)                 GORRY
   tw136c14.lzh (TwentyOne Ver 1.36c+14)         GORRY,T.Kawamoto
   hiocssrc.lzh (HIOCS.X version 1.10+16)        中村祐一
   has309.lzh (HAS.X versin 3.09)                〃
