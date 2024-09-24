@@ -1,62 +1,66 @@
+        - CONDITION CODE -
 
-・符号なしの表現                [条件成立フラグ状態]
-                                 X:  N:  Z:  V:  C:
+==============================================================================
 
- x＜y   HI (High)                -   -   0:  -   0:     HI：成立
- x≦y   CC (Carry Clear)         -   -   -   -   0:     CC：成立
- x＞y   CS (Carry Set)           -   -   -   -   1:     CS：成立
- x≧y   LS (Lower or Same)       -   -   -   -   1:     LS：成立
-        LS (Lower or Same)       -   -   1:  -   -      LS：成立
+cmp src,dst とした場合の成立条件
 
+・符号なしの表現
+                                    X  N  Z  V  C
+src＜dst   HI (High)                -  -  0  -  0
+src≦dst   CC (Carry Clear)         -  -  -  -  0
+src＞dst   CS (Carry Set)           -  -  -  -  1
+src≧dst   LS (Low or Same)         -  -  -  -  1
+           LS (Lor or Same)         -  -  1  -  -
 
-・符号ありの表現                [条件成立フラグ状態]
-                                 X:  N:  Z:  V:  C:
+・符号ありの表現
+                                    X  N  Z  V  C
+src＜dst   GT (Greater Than)        -  0  0  0  -
+           GT (Greater Than)        -  1  0  1  -
+src≦dst   GE (Greater or Equal)    -  0  -  0  -
+           GE (Greater or Equal)    -  1  -  1  -
+src＞dst   LT (Less Than)           -  0  -  1  -
+           LT (Less Than)           -  1  -  0  -
+src≧dst   LE (Less or Equal)       -  0  -  1  -
+           LE (Less or Equal)       -  1  -  0  -
+           LE (Less or Equal)       -  -  1  -  -
 
- x＜y   GT (Greater Than)        -   0:  0:  0:  -      GT：成立
-        GT (Greater Than)        -   1:  0:  1:  -      GT：成立
- x≦y   GE (Greater or Equal)    -   0:  -   0:  -      GE：成立
-        GE (Greater or Equal)    -   1:  -   1:  -      GE：成立
- x＞y   LT (Less Than)           -   0:  -   1:  -      LT：成立
-        LT (Less Than)           -   1:  -   0:  -      LT：成立
- x≧y   LE (Less or Equal)       -   0:  -   1:  -      LE：成立
-        LE (Less or Equal)       -   1:  -   0:  -      LE：成立
-        LE (Less or Equal)       -   -   1:  -   -      LE：成立
-
-
-・その他の表現                  [条件成立フラグ状態]
-                                 X:  N:  Z:  V:  C:
-
- x＝y   EQ (Equal)               -   -   1:  -   -      EQ：成立
- x≠y   NE (Not Equal)           -   -   0:  -   -      NE：成立
-        PL (Not Minus)           -   0:  -   -   -      PL：成立
-        MI (Minus)               -   1:  -   -   -      MI：成立
-        VC (Overflow Clear)      -   -   -   0:  -      VC：成立
-        VS (Overflow Set)        -   -   -   1:  -      VS：成立
-        T  (True)                -   -   -   -   -      T ：成立
-        F  (False)               -   -   -   -   -      F ：不成立
+・その他の表現
+                                    X  N  Z  V  C
+src＝dst   EQ (Equal)               -  -  1  -  -
+src≠dst   NE (Not Equal)           -  -  0  -  -
+           PL (Plus)                -  0  -  -  -  (実際には Not Minus)
+           MI (Minus)               -  1  -  -  -
+           VC (Overflow Clear)      -  -  -  0  -
+           VS (Overflow Set)        -  -  -  1  -
+           T  (True)                -  -  -  -  -  (常に成立)
+           F  (False)               -  -  -  -  -  (常に不成立)
 
 ========================================================================
 
-ﾊﾟﾀｰﾝ   条件                    CC      式(s:d) ｺﾝﾃﾞｨｼｮﾝ
------   ----                    --      ------- --------
-0000    always True             T                1
-0001    always False            F                0
-0010    High                    HI      ＜(u)   !C･!Z
-0011    Lower or Same           LS      ≧(u)    C+ Z
-0100    Carry Clear             CC      ≦(u)   !C
-0101    Carry Set               CS      ＞(u)    C
-0110    Not Equal               NE      ≠      !Z
-0111    Equal                   EQ      ＝       Z
-1000    Overflow Clear          VC              !V
-1001    Overflow Set            VS               V
-1010    Plus (Not Minus)        PL              !N
-1011    Minus                   MI               N
-1100    Greater or Equal        GE      ≦(s)    N･ V+!N･!V
-1101    Less Than               LT      ＞(s)    N･!V+!N･ V
-1110    Greater Than            GT      ＜(s)    N･ V･!Z+!N･!V･!Z
-1111    Less or Equal           LE      ≧(s)    N･!V+!N･ V+ Z
+・エンコード順
 
-注意:
-        　大小比較において、(u)は符号なし、(s)は符号あり。
-        　Bcc 命令において、条件 F に対応するビットパターンの命令($61xx)
-        は bsr になる。また、条件 T の場合は bra と記述する。
+エンコード     条件          関係式        テスト
+----  ---------------------  ------------  --------
+0000  T  (True)              常に成立      1
+0001  F  (False)             常に不成立    0
+0010  HI (High)              src＜dst (u)  !C && !Z
+0011  LS (Low or Same)       src≧dst (u)   C ||  Z
+0100  CC (Carry Clear)       src≦dst (u)  !C
+0101  CS (Carry Set)         src＞dst (u)   C
+0110  NE (Not Equal)         src≠dst      !Z
+0111  EQ (Equal)             src＝dst       Z
+1000  VC (Overflow Clear)                  !V
+1001  VS (Overflow Set)                     V
+1010  PL (Plus)              (Not Minus)   !N
+1011  MI (Minus)                            N
+1100  GE (Greater or Equal)  src≦dst (s)  (N &&  V) || (!N && !V)
+1101  LT (Less Than)         src＞dst (s)  (N && !V) || (!N &&  V)
+1110  GT (Greater Than)      src＜dst (s)  (N && V && !Z) || (!N && !V && !Z)
+1111  LE (Less or Equal)     src≧dst (s)  (N && !V) || (!N && V) || Z
+
+　(u)は符号なし、(s)は符号あり。
+
+　Bcc 命令には条件 T、F に対応する命令がなく、それぞれのビットパターンには
+bra ($60xx)、bsr ($61xx) が割り当てられている。
+
+========================================================================
