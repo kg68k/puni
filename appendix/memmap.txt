@@ -16,6 +16,9 @@ $00ea0020 ～ $00ea7fff          Mach-2
 ┌┘              └┐
 $00ea2000 ～ $00ea3fff          WD33C93 SCSIボード (実在するのは一枚!?)
 
+$00ea4000 ～ $00ea8000          X68000 Z ZUSB レジスタ
+                                https://github.com/yunkya2/x68kz-zusb
+
 $00ea8000 ～ $00ea9fff          PhantomX (version 1.00RC3)
                                 http://retropc.net/gimons/phantomx/index.html
 
@@ -47,7 +50,7 @@ $00eafd0c ～ $00eafd0f          ユニバーサルI/Oボード (#3)
 
 $00eafe00 ～ $00eafe1f          GP-IBボード
 
-$00eaff80 ～ $00eaff8f          拡張エリアセット
+$00eaff80 ～ $00eaff8f          拡張エリアセット(X68030、CZ-6BEn、PIO-6BEn)
 
 ○以下、ユーザI/O
 
