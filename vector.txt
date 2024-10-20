@@ -212,7 +212,7 @@ $0003e8   $fa   PARA    パラレルボード (#1)
 $0003ec   $fb   USB     Nereid (#0) USB
 $0003f0   $fc   U-I/O   ユニバーサル I/O (#0)
 $0003f4   $fd   U-I/O   ユニバーサル I/O (#1)
-$0003f8   $fe   U-I/O   ユニバーサル I/O (#2)
+$0003f8   $fe   U-I/O   ユニバーサル I/O (#2) / CONCERT-X68K
 $0003fc   $ff   U-I/O   ユニバーサル I/O (#3)
                 MU      MK-MU1O(Mercury-Unit V4 OPNA) OPNA タイマ割り込み
 
