@@ -20,6 +20,11 @@
 
 ☆ ファイル解説 ☆
 
+assembler.txt:
+  アセンブラマニュアル(HAS060 v3.09+91 対応)。HAS.X や HAS060.X の拡張部分の詳
+  細についてはそれぞれのドキュメントを参照してください。ColdFire に関しては省
+  略しています。
+
 bioswork.txt
   IOCS ワークの一覧(ROM IOCS version 1.10/1.30 対応)。
   システム代替ソフトウェアの作成用です。
@@ -141,7 +146,6 @@ SCSI
   9scset.lzh (9SCDRV.X v3.14+2)                 6no8rou
   tw136c14.lzh (TwentyOne Ver 1.36c+14)         GORRY,T.Kawamoto
   hiocssrc.lzh (HIOCS.X version 1.10+16)        中村祐一
-  has309.lzh (HAS.X versin 3.09)                〃
   disktut2.lzh                                  清十郎
   knjtut02.lzh                                  清十郎,シロ
   callhelp.lzh                                  Epsilon 他
@@ -149,11 +153,7 @@ SCSI
   HUMAN.DOC、FCB.DOC                            (著者不明)
   X30_SYSPORT.DOC、X68_SRAM.DOC、X68_VECTOR.DOC (著者失念)
   060turbo.sys (version 0.54)                   鎌田誠
-  has06079.lzh (HAS060.X version 3.09+79)       〃
-  hassrc78.lzh (HAS060.X version 3.09+78)       〃
-  has06085.lzh (HAS060.X version 3.09+85)       〃
-  hassrc85.lzh (〃 ソースコード)                〃
-  ASMDAT03.DOC                                  〃
+  ASMDAT03.DOC                                  鎌田誠
   cutils14.tgz (cutils 1.4 - cinfo)             Sandro Sigala
   eb007.lzh (EB.X version 0.07)                 Shi-MAD.
   zm302a_s.lzh (Z-MUSIC version 3.02A)          ZENJI SOFT
@@ -161,6 +161,10 @@ SCSI
   merv4set.lzh                                  山内千里
   PSX16750 関係のドキュメント                   東野伸之
   gmoji14.lzh (GMoji V1.4)                      AIG-Soft
+
+アセンブラ
+  has309.lzh (HAS.X versin 3.09)                中村祐一
+  has06091.lzh hassrc91.lzh (HAS060.X version 3.09+91)  M.Kamada
 
 ROM
   IOCS ROM version 1.00 (X68000 初代、1987-05-07 版)
