@@ -4,163 +4,163 @@
 
 ・FE コール一覧
 
-$fe00   __LMUL          signed int 乗算                 d0 *= d1
-$fe01   __LDIV          signed int 除算                 d0 /= d1
-$fe02   __LMOD          signed int 除算の剰余           d0 %= d1
-$fe04   __UMUL          unsigned int 乗算               d0 *= d1
-$fe05   __UDIV          unsigned int 除算               d0 /= d1
-$fe06   __UMOD          unsigned int 除算の剰余         d0 %= d1
-$fe08   __IMUL          unsigned int 乗算               d0d1 = d0*d1
-$fe09   __IDIV          unsigned int 除算               d0...d1 = d0/d1
-$fe0c   __RANDOMIZE     signed short 乱数初期化         seed = d0(-32768～32767)
-$fe0d   __SRAND         unsigned short 乱数初期化       seed = d0(0～65535)
-$fe0e   __RAND          signed int 乱数                 d0 = rand()
+$fe00  __LMUL       signed int 乗算             d0 *= d1
+$fe01  __LDIV       signed int 除算             d0 /= d1
+$fe02  __LMOD       signed int 除算の剰余       d0 %= d1
+$fe04  __UMUL       unsigned int 乗算           d0 *= d1
+$fe05  __UDIV       unsigned int 除算           d0 /= d1
+$fe06  __UMOD       unsigned int 除算の剰余     d0 %= d1
+$fe08  __IMUL       unsigned int 乗算           d0:d1 = d0*d1
+$fe09  __IDIV       unsigned int 除算           d0...d1 = d0/d1
+$fe0c  __RANDOMIZE  signed short 乱数初期化     seed = d0(-32768～32767)
+$fe0d  __SRAND      unsigned short 乱数初期化   seed = d0(0～65535)
+$fe0e  __RAND       signed int 乱数             d0 = rand()
 
-$fe10   __STOL          10進文字列 → signed int        d0 = (a0)～
-$fe11   __LTOS          signed int → 10進文字列        (a0)～ = d0
-$fe12   __STOH          16進文字列 → unsigned int      d0 = (a0)～
-$fe13   __HTOS          unsigned int → 16進文字列      (a0)～ = d0
-$fe14   __STOO          8進文字列 → unsigned int       d0 = (a0)～
-$fe15   __OTOS          unsigned int → 8進文字列       (a0)～ = d0
-$fe16   __STOB          2進文字列 → unsigned int       d0 = (a0)～
-$fe17   __BTOS          unsigned int → 2進文字列       (a0)～ = d0
-$fe18   __IUSING        signed int → 10進文字列        (a0)～ = d0,d1桁
-$fe1a   __LTOD          signed int → double            d0d1 = d0
-$fe1b   __DTOL          double → signed int            d0 = d0d1
-$fe1c   __LTOF          signed int → float             d0 = d0
-$fe1d   __FTOL          float → signed int             d0 = d0
-$fe1e   __FTOD          float → double                 d0d1 = d0
-$fe1f   __DTOF          double → float                 d0 = d0d1
+$fe10  __STOL       10進文字列 → signed int    d0 = (a0)～
+$fe11  __LTOS       signed int → 10進文字列    (a0)～ = d0
+$fe12  __STOH       16進文字列 → unsigned int  d0 = (a0)～
+$fe13  __HTOS       unsigned int → 16進文字列  (a0)～ = d0
+$fe14  __STOO       8進文字列 → unsigned int   d0 = (a0)～
+$fe15  __OTOS       unsigned int → 8進文字列   (a0)～ = d0
+$fe16  __STOB       2進文字列 → unsigned int   d0 = (a0)～
+$fe17  __BTOS       unsigned int → 2進文字列   (a0)～ = d0
+$fe18  __IUSING     signed int → 10進文字列    (a0)～ = d0,d1桁
+$fe1a  __LTOD       signed int → double        d0:d1 = d0
+$fe1b  __DTOL       double → signed int        d0 = d0:d1
+$fe1c  __LTOF       signed int → float         d0 = d0
+$fe1d  __FTOL       float → signed int         d0 = d0
+$fe1e  __FTOD       float → double             d0:d1 = d0
+$fe1f  __DTOF       double → float             d0 = d0:d1
 
-$fe20   __VAL           文字列 → double                d0d1 = (a0)～
-$fe21   __USING         double → 10進文字列            (a0)～ = d0d1,d2.d3,d4
-$fe22   __STOD          10進文字列 → double            d0d1,d2,d3 = (a0)～
-$fe23   __DTOS          double → 10進文字列            (a0)～ = d0d1
-$fe24   __ECVT          double → 文字列                (a0),d0,d1 = d0d1,d2全体桁
-$fe25   __FCVT          double → 文字列                (a0),d0,d1 = d0d1,d2小数点桁
-$fe26   __GCVT          double → 文字列                (a0)～ = d0d1,d2全体桁
-$fe28   __DTST          double 0 比較                   Z,N = d0d1
-$fe29   __DCMP          double 比較                     Z,C = d0d1-d2d3
-$fe2a   __DNEG          double 符号反転                 d0d1 = neg(d0d1)
-$fe2b   __DADD          double 加算                     d0d1 += d2d3
-$fe2c   __DSUB          double 減算                     d0d1 -= d2d3
-$fe2d   __DMUL          double 乗算                     d0d1 *= d2d3
-$fe2e   __DDIV          double 除算                     d0d1 /= d2d3
-$fe2f   __DMOD          double 除算の剰余               d0d1 %= d2d3
-$fe30   __DABS          double 絶対値                   d0d1 = abs(d0d1)
-$fe31   __DCEIL         double 小数切上                 d0d1 = ceil(d0d1)
-$fe32   __DFIX          double 整数部                   d0d1 = fix(d0d1)
-$fe33   __DFLOOR        double 小数切捨                 d0d1 = floor(d0d1)
-$fe34   __DFRAC         double 小数部                   d0d1 = frac(d0d1)
-$fe35   __DSGN          double 正負零                   d0d1 = sgn(d0d1)
-$fe36   __SIN           double 正弦                     d0d1 = sin(d0d1)
-$fe37   __COS           double 余弦                     d0d1 = cos(d0d1)
-$fe38   __TAN           double 正接                     d0d1 = tan(d0d1)
-$fe39   __ATAN          double 逆正接                   d0d1 = atan(d0d1)
-$fe3a   __LOG           double 自然対数                 d0d1 = ln(d0d1)
-$fe3b   __EXP           double 指数関数                 d0d1 = exp(d0d1)
-$fe3c   __SQR           double 平方根                   d0d1 = sqr(d0d1)
-$fe3d   __PI            double 円周率                   d0d1 = pi()
-$fe3e   __NPI           double 円周率乗算               d0d1 = pi(d0d1)
-$fe3f   __POWER         double 羃乗                     d0d1 = pow(d0d1,d2d3)
-$fe40   __RND           double 乱数                     d0d1 = rnd()
-$fe41   __SINH          double 双曲正弦                 d0d1 = sinh(d0d1)
-$fe42   __COSH          double 双曲余弦                 d0d1 = cosh(d0d1)
-$fe43   __TANH          double 双曲正接                 d0d1 = tanh(d0d1)
-$fe44   __ATANH         double 双曲逆正接               d0d1 = atanh(d0d1)
-$fe45   __ASIN          double 逆正弦                   d0d1 = asin(d0d1)
-$fe46   __ACOS          double 逆余弦                   d0d1 = acos(d0d1)
-$fe47   __LOG10         double 常用対数                 d0d1 = log10(d0d1)
-$fe48   __LOG2          double 対数(底2)                d0d1 = log2(d0d1)
-$fe49   __DFREXP        double 仮数指数分割             d0d1,d2 = d0d1
-$fe4a   __DLDEXP        double 仮数指数結合             d0d1 = d0d1,d2
-$fe4b   __DADDONE       double 1 加算                   d0d1 += 1.0#
-$fe4c   __DSUBONE       double 1 減算                   d0d1 -= 1.0#
-$fe4d   __DDIVTWO       double 2 除算                   d0d1 /= 2.0#
-$fe4e   __DIEECNV       double SHARP → IEEE            d0d1 = d0d1
-$fe4f   __IEEDCNV       double IEEE → SHARP            d0d1 = d0d1
+$fe20  __VAL        文字列 → double            d0:d1 = (a0)～
+$fe21  __USING      double → 10進文字列        (a0)～ = d0:d1,d2.d3,d4
+$fe22  __STOD       10進文字列 → double        d0:d1,d2,d3 = (a0)～
+$fe23  __DTOS       double → 10進文字列        (a0)～ = d0:d1
+$fe24  __ECVT       double → 文字列            (a0),d0,d1 = d0:d1,d2全体桁
+$fe25  __FCVT       double → 文字列            (a0),d0,d1 = d0:d1,d2小数点桁
+$fe26  __GCVT       double → 文字列            (a0)～ = d0:d1,d2全体桁
+$fe28  __DTST       double 0 比較               Z,N = d0:d1
+$fe29  __DCMP       double 比較                 Z,C = d0:d1-d2:d3
+$fe2a  __DNEG       double 符号反転             d0:d1 = neg(d0:d1)
+$fe2b  __DADD       double 加算                 d0:d1 += d2:d3
+$fe2c  __DSUB       double 減算                 d0:d1 -= d2:d3
+$fe2d  __DMUL       double 乗算                 d0:d1 *= d2:d3
+$fe2e  __DDIV       double 除算                 d0:d1 /= d2:d3
+$fe2f  __DMOD       double 除算の剰余           d0:d1 %= d2:d3
+$fe30  __DABS       double 絶対値               d0:d1 = abs(d0:d1)
+$fe31  __DCEIL      double 小数切上             d0:d1 = ceil(d0:d1)
+$fe32  __DFIX       double 整数部               d0:d1 = fix(d0:d1)
+$fe33  __DFLOOR     double 小数切捨             d0:d1 = floor(d0:d1)
+$fe34  __DFRAC      double 小数部               d0:d1 = frac(d0:d1)
+$fe35  __DSGN       double 正負零               d0:d1 = sgn(d0:d1)
+$fe36  __SIN        double 正弦                 d0:d1 = sin(d0:d1)
+$fe37  __COS        double 余弦                 d0:d1 = cos(d0:d1)
+$fe38  __TAN        double 正接                 d0:d1 = tan(d0:d1)
+$fe39  __ATAN       double 逆正接               d0:d1 = atan(d0:d1)
+$fe3a  __LOG        double 自然対数             d0:d1 = ln(d0:d1)
+$fe3b  __EXP        double 指数関数             d0:d1 = exp(d0:d1)
+$fe3c  __SQR        double 平方根               d0:d1 = sqr(d0:d1)
+$fe3d  __PI         double 円周率               d0:d1 = pi()
+$fe3e  __NPI        double 円周率乗算           d0:d1 = pi(d0:d1)
+$fe3f  __POWER      double 羃乗                 d0:d1 = pow(d0:d1,d2:d3)
+$fe40  __RND        double 乱数                 d0:d1 = rnd()
+$fe41  __SINH       double 双曲正弦             d0:d1 = sinh(d0:d1)
+$fe42  __COSH       double 双曲余弦             d0:d1 = cosh(d0:d1)
+$fe43  __TANH       double 双曲正接             d0:d1 = tanh(d0:d1)
+$fe44  __ATANH      double 双曲逆正接           d0:d1 = atanh(d0:d1)
+$fe45  __ASIN       double 逆正弦               d0:d1 = asin(d0:d1)
+$fe46  __ACOS       double 逆余弦               d0:d1 = acos(d0:d1)
+$fe47  __LOG10      double 常用対数             d0:d1 = log10(d0:d1)
+$fe48  __LOG2       double 対数(底2)            d0:d1 = log2(d0:d1)
+$fe49  __DFREXP     double 仮数指数分割         d0:d1,d2 = d0:d1
+$fe4a  __DLDEXP     double 仮数指数結合         d0:d1 = d0:d1,d2
+$fe4b  __DADDONE    double 1 加算               d0:d1 += 1.0
+$fe4c  __DSUBONE    double 1 減算               d0:d1 -= 1.0
+$fe4d  __DDIVTWO    double 2 除算               d0:d1 /= 2.0
+$fe4e  __DIEECNV    double SHARP → IEEE        d0:d1 = d0:d1
+$fe4f  __IEEDCNV    double IEEE → SHARP        d0:d1 = d0:d1
 
-$fe50   __FVAL          文字列 → float                 d0 = (a0)～
-$fe51   __FUSING        float → 10進文字列             (a0)～ = d0,d2.d3,d4
-$fe52   __STOF          10進文字列 → float             d0,d2,d3 = (a0)～
-$fe53   __FTOS          float → 10進文字列             (a0)～ = d0
-$fe54   __FECVT         float → 文字列                 (a0),d0,d1 = d0,d2全体桁
-$fe55   __FFCVT         float → 文字列                 (a0),d0,d1 = d0,d2小数点桁
-$fe56   __FGCVT         float → 文字列                 (a0)～ = d0,d2全体桁
-$fe58   __FTST          float 0 比較                    Z,N = d0
-$fe59   __FCMP          float 比較                      Z,C = d0-d1
-$fe5a   __FNEG          float 符号反転                  d0 = neg(d0)
-$fe5b   __FADD          float 加算                      d0 += d1
-$fe5c   __FSUB          float 減算                      d0 -= d1
-$fe5d   __FMUL          float 乗算                      d0 *= d1
-$fe5e   __FDIV          float 除算                      d0 /= d1
-$fe5f   __FMOD          float 除算の剰余                d0 %= d1
-$fe60   __FABS          float 絶対値                    d0 = abs(d0)
-$fe61   __FCEIL         float 小数切上                  d0 = ceil(d0)
-$fe62   __FFIX          float 整数部                    d0 = fix(d0)
-$fe63   __FFLOOR        float 小数切捨                  d0 = floor(d0)
-$fe64   __FFRAC         float 小数部                    d0 = frac(d0)
-$fe65   __FSGN          float 正負零                    d0 = sgn(d0)
-$fe66   __FSIN          float 正弦                      d0 = sin(d0)
-$fe67   __FCOS          float 余弦                      d0 = cos(d0)
-$fe68   __FTAN          float 正接                      d0 = tan(d0)
-$fe69   __FATAN         float 逆正接                    d0 = atan(d0)
-$fe6a   __FLOG          float 自然対数                  d0 = ln(d0)
-$fe6b   __FEXP          float 指数関数                  d0 = exp(d0)
-$fe6c   __FSQR          float 平方根                    d0 = sqr(d0)
-$fe6d   __FPI           float 円周率                    d0 = pi()
-$fe6e   __FNPI          float 円周率乗算                d0 = pi(d0)
-$fe6f   __FPOWER        float 羃乗                      d0 = pow(d0,d1)
-$fe70   __FRND          float 乱数                      d0 = rnd()
-$fe71   __FSINH         float 正弦                      d0 = sinh(d0)
-$fe72   __FCOSH         float 双曲余弦                  d0 = cosh(d0)
-$fe73   __FTANH         float 双曲正接                  d0 = tanh(d0)
-$fe74   __FATANH        float 双曲逆正接                d0 = atanh(d0)
-$fe75   __FASIN         float 逆正弦                    d0 = asin(d0)
-$fe76   __FACOS         float 逆余弦                    d0 = acos(d0)
-$fe77   __FLOG10        float 常用対数                  d0 = log10(d0)
-$fe78   __FLOG2         float 対数(底2)                 d0 = log2(d0)
-$fe79   __FFREXP        float 仮数指数分割              d0,d1 = d0
-$fe7a   __FLDEXP        float 仮数指数結合              d0 = d0,d1
-$fe7b   __FADDONE       float 1 加算                    d0 += 1.0#
-$fe7c   __FSUBONE       float 1 減算                    d0 -= 1.0#
-$fe7d   __FDIVTWO       float 2 除算                    d0 /= 2.0#
-$fe7e   __FIEECNV       float SHARP → IEEE             d0 = d0
-$fe7f   __IEEFCNV       float IEEE → SHARP             d0 = d0
+$fe50  __FVAL       文字列 → float             d0 = (a0)～
+$fe51  __FUSING     float → 10進文字列         (a0)～ = d0,d2.d3,d4
+$fe52  __STOF       10進文字列 → float         d0,d2,d3 = (a0)～
+$fe53  __FTOS       float → 10進文字列         (a0)～ = d0
+$fe54  __FECVT      float → 文字列             (a0),d0,d1 = d0,d2全体桁
+$fe55  __FFCVT      float → 文字列             (a0),d0,d1 = d0,d2小数点桁
+$fe56  __FGCVT      float → 文字列             (a0)～ = d0,d2全体桁
+$fe58  __FTST       float 0 比較                Z,N = d0
+$fe59  __FCMP       float 比較                  Z,C = d0-d1
+$fe5a  __FNEG       float 符号反転              d0 = neg(d0)
+$fe5b  __FADD       float 加算                  d0 += d1
+$fe5c  __FSUB       float 減算                  d0 -= d1
+$fe5d  __FMUL       float 乗算                  d0 *= d1
+$fe5e  __FDIV       float 除算                  d0 /= d1
+$fe5f  __FMOD       float 除算の剰余            d0 %= d1
+$fe60  __FABS       float 絶対値                d0 = abs(d0)
+$fe61  __FCEIL      float 小数切上              d0 = ceil(d0)
+$fe62  __FFIX       float 整数部                d0 = fix(d0)
+$fe63  __FFLOOR     float 小数切捨              d0 = floor(d0)
+$fe64  __FFRAC      float 小数部                d0 = frac(d0)
+$fe65  __FSGN       float 正負零                d0 = sgn(d0)
+$fe66  __FSIN       float 正弦                  d0 = sin(d0)
+$fe67  __FCOS       float 余弦                  d0 = cos(d0)
+$fe68  __FTAN       float 正接                  d0 = tan(d0)
+$fe69  __FATAN      float 逆正接                d0 = atan(d0)
+$fe6a  __FLOG       float 自然対数              d0 = ln(d0)
+$fe6b  __FEXP       float 指数関数              d0 = exp(d0)
+$fe6c  __FSQR       float 平方根                d0 = sqr(d0)
+$fe6d  __FPI        float 円周率                d0 = pi()
+$fe6e  __FNPI       float 円周率乗算            d0 = pi(d0)
+$fe6f  __FPOWER     float 羃乗                  d0 = pow(d0,d1)
+$fe70  __FRND       float 乱数                  d0 = rnd()
+$fe71  __FSINH      float 正弦                  d0 = sinh(d0)
+$fe72  __FCOSH      float 双曲余弦              d0 = cosh(d0)
+$fe73  __FTANH      float 双曲正接              d0 = tanh(d0)
+$fe74  __FATANH     float 双曲逆正接            d0 = atanh(d0)
+$fe75  __FASIN      float 逆正弦                d0 = asin(d0)
+$fe76  __FACOS      float 逆余弦                d0 = acos(d0)
+$fe77  __FLOG10     float 常用対数              d0 = log10(d0)
+$fe78  __FLOG2      float 対数(底2)             d0 = log2(d0)
+$fe79  __FFREXP     float 仮数指数分割          d0,d1 = d0
+$fe7a  __FLDEXP     float 仮数指数結合          d0 = d0,d1
+$fe7b  __FADDONE    float 1 加算                d0 += 1.0
+$fe7c  __FSUBONE    float 1 減算                d0 -= 1.0
+$fe7d  __FDIVTWO    float 2 除算                d0 /= 2.0
+$fe7e  __FIEECNV    float SHARP → IEEE         d0 = d0
+$fe7f  __IEEFCNV    float IEEE → SHARP         d0 = d0
 
-$fee0   __CLMUL         signed int 乗算                 (sp) *= (4,sp)
-$fee1   __CLDIV         signed int 除算                 (sp) /= (4,sp)
-$fee2   __CLMOD         signed int 除算の剰余           (sp) %= (4,sp)
-$fee3   __CUMUL         unsigned int 乗算               (sp) *= (4,sp)
-$fee4   __CUDIV         unsigned int 除算               (sp) /= (4,sp)
-$fee5   __CUMOD         unsigned int 除算の剰余         (sp) %= (4,sp)
-$fee6   __CLTOD         signed int → double            (sp)(4,sp) = (sp)
-$fee7   __CDTOL         double → signed int            (sp) = (sp)(4,sp)
-$fee8   __CLTOF         signed int → float             (sp) = (sp)
-$fee9   __CFTOL         float → signed int             (sp) = (sp)
-$feea   __CFTOD         float → double                 (sp)(4,sp) = (sp)
-$feeb   __CDTOF         double → float                 (sp) = (sp)(4,sp)
-$feec   __CDCMP         double 比較                     Z,C = (sp)(4,sp)-(8,sp)(12,sp)
-$feed   __CDADD         double 加算                     (sp)(4,sp) += (8,sp)(12,sp)
-$feee   __CDSUB         double 減算                     (sp)(4,sp) -= (8,sp)(12,sp)
-$feef   __CDMUL         double 乗算                     (sp)(4,sp) *= (8,sp)(12,sp)
-$fef0   __CDDIV         double 除算                     (sp)(4,sp) /= (8,sp)(12,sp)
-$fef1   __CDMOD         double 除算の剰余               (sp)(4,sp) %= (8,sp)(12,sp)
-$fef2   __CFCMP         float 比較                      Z,C = (sp)-(4,sp)
-$fef3   __CFADD         float 加算                      (sp) += (4,sp)
-$fef4   __CFSUB         float 減算                      (sp) -= (4,sp)
-$fef5   __CFMUL         float 乗算                      (sp) *= (4,sp)
-$fef6   __CFDIV         float 除算                      (sp) /= (4,sp)
-$fef7   __CFMOD         float 除算の剰余                (sp) %= (4,sp)
-$fef8   __CDTST         double 0 比較                   Z,N = (sp)(4,sp)
-$fef9   __CFTST         float 0 比較                    Z,N = (sp)
-$fefa   __CDINC         double 1 加算                   (sp)(4,sp) += 1.0#
-$fefb   __CFINC         float 1 加算                    (sp) += 1.0#
-$fefc   __CDDEC         double 1 減算                   (sp)(4,sp) -= 1.0#
-$fefd   __CFDEC         float 1 減算                    (sp) -= 1.0#
+$fee0  __CLMUL      signed int 乗算             (sp) *= (4,sp)
+$fee1  __CLDIV      signed int 除算             (sp) /= (4,sp)
+$fee2  __CLMOD      signed int 除算の剰余       (sp) %= (4,sp)
+$fee3  __CUMUL      unsigned int 乗算           (sp) *= (4,sp)
+$fee4  __CUDIV      unsigned int 除算           (sp) /= (4,sp)
+$fee5  __CUMOD      unsigned int 除算の剰余     (sp) %= (4,sp)
+$fee6  __CLTOD      signed int → double        (sp):(4,sp) = (sp)
+$fee7  __CDTOL      double → signed int        (sp) = (sp):(4,sp)
+$fee8  __CLTOF      signed int → float         (sp) = (sp)
+$fee9  __CFTOL      float → signed int         (sp) = (sp)
+$feea  __CFTOD      float → double             (sp):(4,sp) = (sp)
+$feeb  __CDTOF      double → float             (sp) = (sp):(4,sp)
+$feec  __CDCMP      double 比較                 Z,C = (sp):(4,sp)-(8,sp):(12,sp)
+$feed  __CDADD      double 加算                 (sp):(4,sp) += (8,sp):(12,sp)
+$feee  __CDSUB      double 減算                 (sp):(4,sp) -= (8,sp):(12,sp)
+$feef  __CDMUL      double 乗算                 (sp):(4,sp) *= (8,sp):(12,sp)
+$fef0  __CDDIV      double 除算                 (sp):(4,sp) /= (8,sp):(12,sp)
+$fef1  __CDMOD      double 除算の剰余           (sp):(4,sp) %= (8,sp):(12,sp)
+$fef2  __CFCMP      float 比較                  Z,C = (sp)-(4,sp)
+$fef3  __CFADD      float 加算                  (sp) += (4,sp)
+$fef4  __CFSUB      float 減算                  (sp) -= (4,sp)
+$fef5  __CFMUL      float 乗算                  (sp) *= (4,sp)
+$fef6  __CFDIV      float 除算                  (sp) /= (4,sp)
+$fef7  __CFMOD      float 除算の剰余            (sp) %= (4,sp)
+$fef8  __CDTST      double 0 比較               Z,N = (sp):(4,sp)
+$fef9  __CFTST      float 0 比較                Z,N = (sp)
+$fefa  __CDINC      double 1 加算               (sp):(4,sp) += 1.0
+$fefb  __CFINC      float 1 加算                (sp) += 1.0
+$fefc  __CDDEC      double 1 減算               (sp):(4,sp) -= 1.0
+$fefd  __CFDEC      float 1 減算                (sp) -= 1.0
 
-$fefe   __FEVARG        数値演算ドライバ種別検査        d0,d1={HS86,IEEE},{SOFT,FPCP}
-$feff   __FEVECS        処理アドレス変更                d0 = intvcs(d0,a0)
+$fefe  __FEVARG     数値演算ドライバ種別検査    d0,d1 = [FORMAT],[MODE]
+$feff  __FEVECS     処理アドレス変更            d0 = intvcs(d0,a0)
 
 ==============================================================================
 
@@ -190,33 +190,34 @@ $feff   __FEVECS        処理アドレス変更                d0 = intvcs(d0,a
         | ↑ |  指数部 11bit  |  仮数部 52bit  |
           仮数部の符号
 
-仕様                    単精度          倍精度
-  正規化数の表現        -1*1.f*2・・・・    -1*1.f*2・・・・・
-非〃                    -1*0.f*2・・・・      -1*0.f*2・・・・・
+仕様                単精度              倍精度
+正規化数の表現      -1s*1.f*2^(e-127)   -1s*1.f*2^(e-1023)
+非正規化数の表現    -1s*0.f*2^(e-126)   -1s*0.f*2^(e-1022)
 表現可能な数の絶対値(概数)
-  正規化数最大          3.4*10・・      1.8*10・・・
-  〃      最小          1.2*10・・・    2.2*10・・・・
-非正規化数最小          1.4*10・・・    4.9*10・・・・
-(s:仮数部の符号,f:仮数部,e:指数部)
+正規化数最大値      3.4*10^38           1.8*10^307
+正規化数最小値      1.2*10^(-38)        2.2*10^(-308)
+非正規化数最小値    1.4*10^(-45)        4.9*10^(-324)
+    (s:仮数部の符号,f:仮数部,e:指数部)
 
 ・実際の表現方法
 
-  実数を ±(1.mmmm‥‥)*2^(±eeee‥‥) と表わす。その時先頭の符号が仮数部の符
-号、mmmm‥‥ が仮数となる。指数部は、単/倍精度で (±eeee‥‥)+$7F / (±eeee‥‥
-)+$3ff を与える。これはそれぞれ 1～$fe / 1～$7fe の範囲でなければならない。
+　実数を ±(1.mmmm‥‥)*2^(±eeee‥‥) と表わす。そのとき先頭の符号が仮数部の
+符号、mmmm‥‥ が仮数となる。指数部は単精度で (±eeee‥‥)+$7F、倍精度で
+(±eeee‥‥)+$3ff を与える。これはそれぞれ 1～$fe、1～$7fe の範囲でなければな
+らない。
 
-  演算の結果、指数が最大で仮数が 0 ならば±∞を表わす(符号は MSB による)。また、
-指数が最大で仮数が 0 以外ならば非数を表わす。指数・仮数ともに 0 の場合は、数値
-0 を表わす。
+　演算の結果、指数が最大で仮数が0ならば±∞を表わす(符号は MSB による)。また、
+指数が最大で仮数が0以外ならば非数を表わす。指数・仮数ともに0の場合は、数値0を
+表わす。
 
 特殊な実数データのフォーマット
         指数            仮数
- 最小値<指数<最大値     任意のビットパタン              正規化数(通常)
-        0               All 0 以外の任意のビットパタン  非正規化数
-                                                        (アンダフロー限界付近の値)
+ 最小値<指数<最大値     任意のビットパターン            正規化数(通常)
+        0               オール0以外の任意のパターン     非正規化数
+                                                    (アンダフロー限界付近の値)
         0               0                               零
         最大値          0                               無限大
-        〃              All 0 以外の任意のビットパタン  NAN(Not A Number)
+        最大値          オール0以外の任意のパターン     NaN(Not A Number)
 
 ・非数及び無限大の文字列表現
 
@@ -228,7 +229,7 @@ $feff   __FEVECS        処理アドレス変更                d0 = intvcs(d0,a
 
 ==============================================================================
 
-$fe00   __LMUL          signed int 乗算                 d0 *= d1
+$fe00  __LMUL       signed int 乗算             d0 *= d1
 
 引数    d0.l    被乗数
         d1.l    乗数
@@ -246,7 +247,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe01   __LDIV          signed int 除算                 d0 /= d1
+$fe01  __LDIV       signed int 除算             d0 /= d1
 
 引数    d0.l    被除数
         d1.l    除数
@@ -264,7 +265,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe02   __LMOD          signed int 除算の剰余           d0 %= d1
+$fe02  __LMOD       signed int 除算の剰余       d0 %= d1
 
 引数    d0.l    被除数
         d1.l    除数
@@ -282,7 +283,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe04   __UMUL          unsigned int 乗算               d0 *= d1
+$fe04  __UMUL       unsigned int 乗算           d0 *= d1
 
 引数    d0.l    被乗数
         d1.l    乗数
@@ -300,7 +301,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe05   __UDIV          unsigned int 除算               d0 /= d1
+$fe05  __UDIV       unsigned int 除算           d0 /= d1
 
 引数    d0.l    被除数
         d1.l    除数
@@ -318,7 +319,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe06   __UMOD          unsigned int 除算の剰余         d0 %= d1
+$fe06  __UMOD       unsigned int 除算の剰余     d0 %= d1
 
 引数    d0.l    被除数
         d1.l    除数
@@ -336,7 +337,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe08   __IMUL          unsigned int 乗算               d0d1 = d0*d1
+$fe08  __IMUL       unsigned int 乗算           d0:d1 = d0*d1
 
 引数    d0.l    被乗数
         d1.l    乗数
@@ -349,7 +350,7 @@ $fe08   __IMUL          unsigned int 乗算               d0d1 = d0*d1
 
 ==============================================================================
 
-$fe09   __IDIV          unsigned int 除算               d0...d1 = d0/d1
+$fe09  __IDIV       unsigned int 除算           d0...d1 = d0/d1
 
 引数    d0.l    被除数
         d1.l    除数
@@ -364,39 +365,39 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe0c   __RANDOMIZE     signed short 乱数初期化         seed = d0(-32768～32767)
+$fe0c  __RANDOMIZE  signed short 乱数初期化     seed = d0(-32768～32767)
 
 引数    d0.l    ランダム・シード
 
 破壊    d0.l
 
-        -3,2768～3,2767 の範囲でランダム・シードを与え、乱数を初期化する。
+        -32,768～32,767 の範囲でランダム・シードを与え、乱数を初期化する。
         引数の上位ワードは無視され、d0.l の値が範囲外であっても下位ワードだけ
         が参照されて常に初期化が行われる。
 
 ==============================================================================
 
-$fe0d   __SRAND         unsigned short 乱数初期化       seed = d0(0～65535)
+$fe0d  __SRAND      unsigned short 乱数初期化   seed = d0(0～65535)
 
 引数    d0.l    ランダム・シード
 
 破壊    d0.l
 
-        0～6,5535 の範囲でランダム・シードを与え、乱数を初期化する。
+        0～65,535 の範囲でランダム・シードを与え、乱数を初期化する。
         引数の上位ワードは無視され、d0.l の値が範囲外であっても下位ワードだけ
         が参照されて常に初期化が行われる。
 
 ==============================================================================
 
-$fe0e   __RAND          signed int 乱数                 d0 = rand()
+$fe0e  __RAND       signed int 乱数             d0 = rand()
 
-返値    d0.l    乱数(0～3,2767)
+返値    d0.l    乱数(0～32,767)
 
         ロングワード符号付き整数の乱数を返す。
 
 ==============================================================================
 
-$fe10   __STOL          10進文字列 → signed int        d0 = (a0)～
+$fe10  __STOL       10進文字列 → signed int    d0 = (a0)～
 
 引数    a0.l    文字列のアドレス
 
@@ -411,7 +412,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe11   __LTOS          signed int → 10進文字列        (a0)～ = d0
+$fe11  __LTOS       signed int → 10進文字列    (a0)～ = d0
 
 引数    d0.l    ロングワード符号付き整数
         a0.l    バッファのアドレス
@@ -423,7 +424,7 @@ $fe11   __LTOS          signed int → 10進文字列        (a0)～ = d0
 
 ==============================================================================
 
-$fe12   __STOH          16進文字列 → unsigned int      d0 = (a0)～
+$fe12  __STOH       16進文字列 → unsigned int  d0 = (a0)～
 
 引数    a0.l    文字列のアドレス
 
@@ -438,7 +439,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe13   __HTOS          unsigned int → 16進文字列      (a0)～ = d0
+$fe13  __HTOS       unsigned int → 16進文字列  (a0)～ = d0
 
 引数    d0.l    ロングワード符号なし整数
         a0.l    バッファのアドレス
@@ -450,7 +451,7 @@ $fe13   __HTOS          unsigned int → 16進文字列      (a0)～ = d0
 
 ==============================================================================
 
-$fe14   __STOO          8進文字列 → unsigned int       d0 = (a0)～
+$fe14  __STOO       8進文字列 → unsigned int   d0 = (a0)～
 
 引数    a0.l    文字列のアドレス
 
@@ -465,7 +466,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe15   __OTOS          unsigned int → 8進文字列       (a0)～ = d0
+$fe15  __OTOS       unsigned int → 8進文字列   (a0)～ = d0
 
 引数    d0.l    ロングワード符号なし整数
         a0.l    バッファのアドレス
@@ -477,7 +478,7 @@ $fe15   __OTOS          unsigned int → 8進文字列       (a0)～ = d0
 
 ==============================================================================
 
-$fe16   __STOB          2進文字列 → unsigned int       d0 = (a0)～
+$fe16  __STOB       2進文字列 → unsigned int   d0 = (a0)～
 
 引数    a0.l    文字列のアドレス
 
@@ -492,7 +493,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe17   __BTOS          unsigned int → 2進文字列       (a0)～ = d0
+$fe17  __BTOS       unsigned int → 2進文字列   (a0)～ = d0
 
 引数    d0.l    ロングワード符号なし整数
         a0.l    バッファのアドレス
@@ -504,7 +505,7 @@ $fe17   __BTOS          unsigned int → 2進文字列       (a0)～ = d0
 
 ==============================================================================
 
-$fe18   __IUSING        signed int → 10進文字列        (a0)～ = d0,d1桁
+$fe18  __IUSING     signed int → 10進文字列    (a0)～ = d0,d1桁
 
 引数    d0.l    ロングワード符号付き整数
         d1.l    桁数
@@ -520,19 +521,19 @@ $fe18   __IUSING        signed int → 10進文字列        (a0)～ = d0,d1桁
 
 ==============================================================================
 
-$fe1a   __LTOD          signed int → double            d0d1 = d0
+$fe1a  __LTOD       signed int → double        d0:d1 = d0
 
 引数    d0.l    ロングワード符号付き整数
 
-返値    d0/d1   変換された倍精度浮動小数点数
+返値    d0:d1   変換された倍精度浮動小数点数
 
         ロングワード符号付き整数を倍精度浮動小数点数に変換する。
 
 ==============================================================================
 
-$fe1b   __DTOL          double → signed int            d0 = d0d1
+$fe1b  __DTOL       double → signed int        d0 = d0:d1
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
 返値    d0.l    変換されたロングワード符号付き整数
 
@@ -544,7 +545,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe1c   __LTOF          signed int → float             d0 = d0
+$fe1c  __LTOF       signed int → float         d0 = d0
 
 引数    d0.l    ロングワード符号付き整数
 
@@ -554,7 +555,7 @@ $fe1c   __LTOF          signed int → float             d0 = d0
 
 ==============================================================================
 
-$fe1d   __FTOL          float → signed int             d0 = d0
+$fe1d  __FTOL       float → signed int         d0 = d0
 
 引数    d0.l    単精度浮動小数点数
 
@@ -568,19 +569,19 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe1e   __FTOD          float → double                 d0d1 = d0
+$fe1e  __FTOD       float → double             d0:d1 = d0
 
 引数    d0.l    単精度浮動小数点数
 
-返値    d0/d1   変換された倍精度浮動小数点数
+返値    d0:d1   変換された倍精度浮動小数点数
 
         単精度浮動小数点数を倍精度浮動小数点数に変換する。
 
 ==============================================================================
 
-$fe1f   __DTOF          double → float                 d0 = d0d1
+$fe1f  __DTOF       double → float             d0 = d0:d1
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
 返値    d0.l    変換された単精度浮動小数点数
 
@@ -591,11 +592,11 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe20   __VAL           文字列 → double                d0d1 = (a0)～
+$fe20  __VAL        文字列 → double            d0:d1 = (a0)～
 
 引数    a0.l    文字列のアドレス
 
-返値    d0/d1   変換された倍精度浮動小数点数
+返値    d0:d1   変換された倍精度浮動小数点数
         d2.w    整数フラグ(文字列が10進数だった場合に有効)
         d3.l    整数値    (〃)
         a0.l    数値の末尾桁の次のアドレス
@@ -612,9 +613,9 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe21   __USING         double → 10進文字列            (a0)～ = d0d1,d2.d3,d4
+$fe21  __USING      double → 10進文字列        (a0)～ = d0:d1,d2.d3,d4
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
         d2.l    整数部の桁数
         d3.l    小数部の桁数
         d4.l    属性
@@ -644,11 +645,11 @@ $fe21   __USING         double → 10進文字列            (a0)～ = d0d1,d2.d
 
 ==============================================================================
 
-$fe22   __STOD          10進文字列 → double            d0d1,d2,d3 = (a0)～
+$fe22  __STOD       10進文字列 → double        d0:d1,d2,d3 = (a0)～
 
 引数    a0.l    文字列のアドレス
 
-返値    d0/d1   変換された倍精度浮動小数点数
+返値    d0:d1   変換された倍精度浮動小数点数
         d2.w    整数フラグ
         d3.l    整数値
         a0.l    数値の末尾桁の次のアドレス
@@ -664,9 +665,9 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe23   __DTOS          double → 10進文字列            (a0)～ = d0d1
+$fe23  __DTOS       double → 10進文字列        (a0)～ = d0:d1
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
         a0.l    バッファのアドレス
 
 返値    (a0)～  変換された文字列
@@ -680,9 +681,9 @@ $fe23   __DTOS          double → 10進文字列            (a0)～ = d0d1
 
 ==============================================================================
 
-$fe24   __ECVT          double → 文字列                (a0),d0,d1 = d0d1,d2全体桁
+$fe24  __ECVT       double → 文字列            (a0),d0,d1 = d0:d1,d2全体桁
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
         d2.b    全体の桁数
         a0.l    バッファのアドレス
 
@@ -697,9 +698,9 @@ $fe24   __ECVT          double → 文字列                (a0),d0,d1 = d0d1,d2
 
 ==============================================================================
 
-$fe25   __FCVT          double → 文字列                (a0),d0,d1 = d0d1,d2小数点桁
+$fe25  __FCVT       double → 文字列            (a0),d0,d1 = d0:d1,d2小数点桁
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
         d2.b    小数点以下の桁数
         a0.l    バッファのアドレス
 
@@ -723,9 +724,9 @@ $fe25   __FCVT          double → 文字列                (a0),d0,d1 = d0d1,d2
 
 ==============================================================================
 
-$fe26   __GCVT          double → 文字列                (a0)～ = d0d1,d2全体桁
+$fe26  __GCVT       double → 文字列            (a0)～ = d0:d1,d2全体桁
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
         d2.b    全体の桁数
         a0.l    バッファのアドレス
 
@@ -742,52 +743,52 @@ $fe26   __GCVT          double → 文字列                (a0)～ = d0d1,d2全
 
 ==============================================================================
 
-$fe28   __DTST          double 0 比較                   Z,N = d0d1
+$fe28  __DTST       double 0 比較               Z,N = d0:d1
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
-CCR     Z : d0/d1 が 0 の時セット
-        N : d0/d1 が負数の時セット
+CCR     Z : d0:d1 が 0 の時セット
+        N : d0:d1 が負数の時セット
 
-        d0/d1 で与える倍精度浮動小数点数と 0 を比較し、結果をフラグで返す。
+        d0:d1 で与える倍精度浮動小数点数と 0 を比較し、結果をフラグで返す。
 
 ==============================================================================
 
-$fe29   __DCMP          double 比較                     Z,C = d0d1-d2d3
+$fe29  __DCMP       double 比較                 Z,C = d0:d1-d2:d3
 
-引数    d0/d1   被比較数
-        d2/d3   比較数
+引数    d0:d1   被比較数
+        d2:d3   比較数
 
 CCR     N : 比較した結果が負数の時セット
         Z :     〃          0 の時セット
         C : ボローが発生した時セット
 
-        倍精度浮動小数点数同士を比較する。被比較数 d0/d1 から比較数 d2/d3 を引
+        倍精度浮動小数点数同士を比較する。被比較数 d0:d1 から比較数 d2:d3 を引
         いた結果がフラグにのみ返される。
         フラグの結果によって次のような関係を導き出すことが出来る。
 
-        d0/d1 > d2/d3   C=0,Z=0,N=0
-        d0/d1 = d2/d3   C=0,Z=1,N=0
-        d0/d1 < d2/d3   C=1,Z=0,N=1
+        d0:d1 > d2:d3   C=0,Z=0,N=0
+        d0:d1 = d2:d3   C=0,Z=1,N=0
+        d0:d1 < d2:d3   C=1,Z=0,N=1
 
 ==============================================================================
 
-$fe2a   __DNEG          double 符号反転                 d0d1 = neg(d0d1)
+$fe2a  __DNEG       double 符号反転             d0:d1 = neg(d0:d1)
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
         倍精度浮動小数点数の符号を反転する。
 
 ==============================================================================
 
-$fe2b   __DADD          double 加算                     d0d1 += d2d3
+$fe2b  __DADD       double 加算                 d0:d1 += d2:d3
 
-引数    d0/d1   被加算数
-        d2/d3   加算数
+引数    d0:d1   被加算数
+        d2:d3   加算数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
         V : (C = 1)オーバーフローの場合はセット、アンダーフローの場合はクリア
@@ -796,12 +797,12 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe2c   __DSUB          double 減算                     d0d1 -= d2d3
+$fe2c  __DSUB       double 減算                 d0:d1 -= d2:d3
 
-引数    d0/d1   被減算数
-        d2/d3   減算数
+引数    d0:d1   被減算数
+        d2:d3   減算数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
         V : (C = 1)オーバーフローの場合はセット、アンダーフローの場合はクリア
@@ -810,12 +811,12 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe2d   __DMUL          double 乗算                     d0d1 *= d2d3
+$fe2d  __DMUL       double 乗算                 d0:d1 *= d2:d3
 
-引数    d0/d1   被乗数
-        d2/d3   乗数
+引数    d0:d1   被乗数
+        d2:d3   乗数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
         V : (C = 1)オーバーフローの場合はセット、アンダーフローの場合はクリア
@@ -824,12 +825,12 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe2e   __DDIV          double 除算                     d0d1 /= d2d3
+$fe2e  __DDIV       double 除算                 d0:d1 /= d2:d3
 
-引数    d0/d1   被除数
-        d2/d3   除数
+引数    d0:d1   被除数
+        d2:d3   除数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
         V : (C = 1)オーバーフローの場合はセット、アンダーフローの場合はクリア
@@ -839,12 +840,12 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe2f   __DMOD          double 除算の剰余               d0d1 %= d2d3
+$fe2f  __DMOD       double 除算の剰余           d0:d1 %= d2:d3
 
-引数    d0/d1   被除数
-        d2/d3   除数
+引数    d0:d1   被除数
+        d2:d3   除数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
         V : (C = 1)オーバーフローの場合はセット、アンダーフローの場合はクリア
@@ -854,93 +855,93 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe30   __DABS          double 絶対値                   d0d1 = abs(d0d1)
+$fe30  __DABS       double 絶対値               d0:d1 = abs(d0:d1)
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
         倍精度浮動小数点数の絶対値を求める。
 
 ==============================================================================
 
-$fe31   __DCEIL         double 小数切上                 d0d1 = ceil(d0d1)
+$fe31  __DCEIL      double 小数切上             d0:d1 = ceil(d0:d1)
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
-        d0/d1 で与えた倍精度浮動小数点数と等しいか、それ以上の最小の整数を返す。
-
-==============================================================================
-
-$fe32   __DFIX          double 整数部                   d0d1 = fix(d0d1)
-
-引数    d0/d1   倍精度浮動小数点数
-
-返値    d0/d1   演算結果
-
-        d0/d1 で与えた倍精度浮動小数点数の整数部を求める。
+        d0:d1 で与えた倍精度浮動小数点数と等しいか、それ以上の最小の整数を返す。
 
 ==============================================================================
 
-$fe33   __DFLOOR        double 小数切捨                 d0d1 = floor(d0d1)
+$fe32  __DFIX       double 整数部               d0:d1 = fix(d0:d1)
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
-        d0/d1 で与えた倍精度浮動小数点数と等しいか、それより小さい最大の整数を
+        d0:d1 で与えた倍精度浮動小数点数の整数部を求める。
+
+==============================================================================
+
+$fe33  __DFLOOR     double 小数切捨             d0:d1 = floor(d0:d1)
+
+引数    d0:d1   倍精度浮動小数点数
+
+返値    d0:d1   演算結果
+
+        d0:d1 で与えた倍精度浮動小数点数と等しいか、それより小さい最大の整数を
         返す。
 
 ==============================================================================
 
-$fe34   __DFRAC         double 小数部                   d0d1 = frac(d0d1)
+$fe34  __DFRAC      double 小数部               d0:d1 = frac(d0:d1)
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
-        d0/d1 で与えた倍精度浮動小数点数の小数部を求める。
+        d0:d1 で与えた倍精度浮動小数点数の小数部を求める。
 
 ==============================================================================
 
-$fe35   __DSGN          double 正負零                   d0d1 = sgn(d0d1)
+$fe35  __DSGN       double 正負零               d0:d1 = sgn(d0:d1)
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
-返値    d0/d1   結果(倍精度浮動小数点数)
+返値    d0:d1   結果(倍精度浮動小数点数)
 
-        d0/d1 で与えた倍精度浮動小数点数が正か負か 0 かを調べる。
+        d0:d1 で与えた倍精度浮動小数点数が正か負か 0 かを調べる。
         正なら +1.0、負なら -1.0、0 なら 0.0 を返す。
 
 ==============================================================================
 
-$fe36   __SIN           double 正弦                     d0d1 = sin(d0d1)
+$fe36  __SIN        double 正弦                 d0:d1 = sin(d0:d1)
 
-引数    d0/d1   角度(ラジアン単位、倍精度浮動小数点数)
+引数    d0:d1   角度(ラジアン単位、倍精度浮動小数点数)
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
         角度(ラジアン単位)を与えて正弦を計算する。
 
 ==============================================================================
 
-$fe37   __COS           double 余弦                     d0d1 = cos(d0d1)
+$fe37  __COS        double 余弦                 d0:d1 = cos(d0:d1)
 
-引数    d0/d1   角度(ラジアン単位、倍精度浮動小数点数)
+引数    d0:d1   角度(ラジアン単位、倍精度浮動小数点数)
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
         角度(ラジアン単位)を与えて余弦を計算する。
 
 ==============================================================================
 
-$fe38   __TAN           double 正接                     d0d1 = tan(d0d1)
+$fe38  __TAN        double 正接                 d0:d1 = tan(d0:d1)
 
-引数    d0/d1   角度(ラジアン単位、倍精度浮動小数点数)
+引数    d0:d1   角度(ラジアン単位、倍精度浮動小数点数)
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
 
@@ -949,21 +950,21 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe39   __ATAN          double 逆正接                   d0d1 = atan(d0d1)
+$fe39  __ATAN       double 逆正接               d0:d1 = atan(d0:d1)
 
-引数    d0/d1   角度(ラジアン単位、倍精度浮動小数点数)
+引数    d0:d1   角度(ラジアン単位、倍精度浮動小数点数)
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
         角度(ラジアン単位)を与えて逆正接を計算する。
 
 ==============================================================================
 
-$fe3a   __LOG           double 自然対数                 d0d1 = ln(d0d1)
+$fe3a  __LOG        double 自然対数             d0:d1 = ln(d0:d1)
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
         Z : (C = 1)引数が 0 の場合セット
@@ -972,11 +973,11 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe3b   __EXP           double 指数関数                 d0d1 = exp(d0d1)
+$fe3b  __EXP        double 指数関数             d0:d1 = exp(d0:d1)
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
 
@@ -984,11 +985,11 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe3c   __SQR           double 平方根                   d0d1 = sqr(d0d1)
+$fe3c  __SQR        double 平方根               d0:d1 = sqr(d0:d1)
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
         Z : (C = 1)引数が 0 の場合セット
@@ -997,19 +998,19 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe3d   __PI            double 円周率                   d0d1 = pi()
+$fe3d  __PI         double 円周率               d0:d1 = pi()
 
-返値    d0/d1   円周率
+返値    d0:d1   円周率
 
         円周率を倍精度浮動小数点数の範囲内で返す。
 
 ==============================================================================
 
-$fe3e   __NPI           double 円周率乗算               d0d1 = pi(d0d1)
+$fe3e  __NPI        double 円周率乗算           d0:d1 = pi(d0:d1)
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
 
@@ -1018,12 +1019,12 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe3f   __POWER         double 羃乗                     d0d1 = pow(d0d1,d2d3)
+$fe3f  __POWER      double 羃乗                 d0:d1 = pow(d0:d1,d2:d3)
 
-引数    d0/d1   被羃乗数
-        d2/d3   羃乗数
+引数    d0:d1   被羃乗数
+        d2:d3   羃乗数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
         V : (C = 1)オーバーフローの場合はセット、アンダーフローの場合はクリア
@@ -1033,19 +1034,19 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe40   __RND           double 乱数                     d0d1 = rnd()
+$fe40  __RND        double 乱数                 d0:d1 = rnd()
 
-返値    d0/d1   乱数(倍精度浮動小数点数)
+返値    d0:d1   乱数(倍精度浮動小数点数)
 
         倍精度浮動小数点数で 0.0 以上 +1.0 未満の乱数を返す。
 
 ==============================================================================
 
-$fe41   __SINH          double 双曲正弦                 d0d1 = sinh(d0d1)
+$fe41  __SINH       double 双曲正弦             d0:d1 = sinh(d0:d1)
 
-引数    d0/d1   角度(ラジアン単位、倍精度浮動小数点数)
+引数    d0:d1   角度(ラジアン単位、倍精度浮動小数点数)
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
         V : (C = 1)オーバーフローの時セット
@@ -1054,11 +1055,11 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe42   __COSH          double 双曲余弦                 d0d1 = cosh(d0d1)
+$fe42  __COSH       double 双曲余弦             d0:d1 = cosh(d0:d1)
 
-引数    d0/d1   角度(ラジアン単位、倍精度浮動小数点数)
+引数    d0:d1   角度(ラジアン単位、倍精度浮動小数点数)
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
         V : (C = 1)オーバーフローの時セット
@@ -1067,11 +1068,11 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe43   __TANH          double 双曲正接                 d0d1 = tanh(d0d1)
+$fe43  __TANH       double 双曲正接             d0:d1 = tanh(d0:d1)
 
-引数    d0/d1   角度(ラジアン単位、倍精度浮動小数点数)
+引数    d0:d1   角度(ラジアン単位、倍精度浮動小数点数)
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
         V : (C = 1)オーバーフローの時セット
@@ -1080,11 +1081,11 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe44   __ATANH         double 双曲逆正接               d0d1 = atanh(d0d1)
+$fe44  __ATANH      double 双曲逆正接           d0:d1 = atanh(d0:d1)
 
-引数    d0/d1   角度(ラジアン単位、倍精度浮動小数点数)
+引数    d0:d1   角度(ラジアン単位、倍精度浮動小数点数)
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
 
@@ -1092,11 +1093,11 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe45   __ASIN          double 逆正弦                   d0d1 = asin(d0d1)
+$fe45  __ASIN       double 逆正弦               d0:d1 = asin(d0:d1)
 
-引数    d0/d1   角度(ラジアン単位、倍精度浮動小数点数)
+引数    d0:d1   角度(ラジアン単位、倍精度浮動小数点数)
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
 
@@ -1104,11 +1105,11 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe46   __ACOS          double 逆余弦                   d0d1 = acos(d0d1)
+$fe46  __ACOS       double 逆余弦               d0:d1 = acos(d0:d1)
 
-引数    d0/d1   角度(ラジアン単位、倍精度浮動小数点数)
+引数    d0:d1   角度(ラジアン単位、倍精度浮動小数点数)
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
 
@@ -1116,11 +1117,11 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe47   __LOG10         double 常用対数                 d0d1 = log10(d0d1)
+$fe47  __LOG10      double 常用対数             d0:d1 = log10(d0:d1)
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
         Z : (C = 1)引数が 0 の場合セット
@@ -1129,11 +1130,11 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe48   __LOG2          double 対数(底2)                d0d1 = log2(d0d1)
+$fe48  __LOG2       double 対数(底2)            d0:d1 = log2(d0:d1)
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
         Z : (C = 1)引数が 0 の場合セット
@@ -1142,57 +1143,57 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe49   __DFREXP        double 仮数指数分割             d0d1,d2 = d0d1
+$fe49  __DFREXP     double 仮数指数分割         d0:d1,d2 = d0:d1
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
-返値    d0/d1   仮数部を示す倍精度浮動小数点数
+返値    d0:d1   仮数部を示す倍精度浮動小数点数
         d2.l    指数部を示すロングワード符号付き整数
 
         倍精度浮動小数点数の仮数部と指数部を分ける。
-        返値の d0/d1 は、引数の仮数部はそのままで指数部を 1 に変えたものを返す。
+        返値の d0:d1 は、引数の仮数部はそのままで指数部を 1 に変えたものを返す。
 
 ==============================================================================
 
-$fe4a   __DLDEXP        double 仮数指数結合             d0d1 = d0d1,d2
+$fe4a  __DLDEXP     double 仮数指数結合         d0:d1 = d0:d1,d2
 
-引数    d0/d1   仮数部データ(倍精度浮動小数点数)
+引数    d0:d1   仮数部データ(倍精度浮動小数点数)
         d2.l    指数部データ(ロングワード符号付き整数)
 
-返値    d0/d1   引数を結合した倍精度浮動小数点数
+返値    d0:d1   引数を結合した倍精度浮動小数点数
 
 CCR     C : エラーの時セット
 
-        引数の仮数部データ d0/d1 と指数部データ d2 を結合した倍精度浮動小数点
+        引数の仮数部データ d0:d1 と指数部データ d2 を結合した倍精度浮動小数点
         数を返す。
 
 ==============================================================================
 
-$fe4b   __DADDONE       double 1 加算                   d0d1 += 1.0#
+$fe4b  __DADDONE    double 1 加算               d0:d1 += 1.0
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
         引数の倍精度浮動小数点数に 1.0 を加える。
 
 ==============================================================================
 
-$fe4c   __DSUBONE       double 1 減算                   d0d1 -= 1.0#
+$fe4c  __DSUBONE    double 1 減算               d0:d1 -= 1.0
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
         引数の倍精度浮動小数点数から 1.0 を引く。
 
 ==============================================================================
 
-$fe4d   __DDIVTWO       double 2 除算                   d0d1 /= 2.0#
+$fe4d  __DDIVTWO    double 2 除算               d0:d1 /= 2.0
 
-引数    d0/d1   倍精度浮動小数点数
+引数    d0:d1   倍精度浮動小数点数
 
-返値    d0/d1   演算結果
+返値    d0:d1   演算結果
 
 CCR     C : エラーの時セット
 
@@ -1201,29 +1202,29 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe4e   __DIEECNV       double SHARP → IEEE            d0d1 = d0d1
+$fe4e  __DIEECNV    double SHARP → IEEE        d0:d1 = d0:d1
 
-引数    d0/d1   SHARP フォーマット倍精度浮動小数点数
+引数    d0:d1   SHARP フォーマット倍精度浮動小数点数
 
-返値    d0/d1   IEEE 〃
-
-        SHARP フォーマット倍精度浮動小数点数を IEEE フォーマットに変換する。
-        FLOAT1.X 以外では意味を持たない。
-
-==============================================================================
-
-$fe4f   __IEEDCNV       double IEEE → SHARP            d0d1 = d0d1
-
-引数    d0/d1   IEEE フォーマット倍精度浮動小数点数
-
-返値    d0/d1   SHARP 〃
+返値    d0:d1   IEEE 〃
 
         SHARP フォーマット倍精度浮動小数点数を IEEE フォーマットに変換する。
         FLOAT1.X 以外では意味を持たない。
 
 ==============================================================================
 
-$fe50   __FVAL          文字列 → float                 d0 = (a0)～
+$fe4f  __IEEDCNV    double IEEE → SHARP        d0:d1 = d0:d1
+
+引数    d0:d1   IEEE フォーマット倍精度浮動小数点数
+
+返値    d0:d1   SHARP 〃
+
+        SHARP フォーマット倍精度浮動小数点数を IEEE フォーマットに変換する。
+        FLOAT1.X 以外では意味を持たない。
+
+==============================================================================
+
+$fe50  __FVAL       文字列 → float             d0 = (a0)～
 
 引数    a0.l    文字列のアドレス
 
@@ -1244,7 +1245,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe51   __FUSING        float → 10進文字列             (a0)～ = d0,d2.d3,d4
+$fe51  __FUSING     float → 10進文字列         (a0)～ = d0,d2.d3,d4
 
 引数    d0.l    単精度浮動小数点数
         d2.l    整数部の桁数
@@ -1269,7 +1270,7 @@ $fe51   __FUSING        float → 10進文字列             (a0)～ = d0,d2.d3,
 
 ==============================================================================
 
-$fe52   __STOF          10進文字列 → float             d0,d2,d3 = (a0)～
+$fe52  __STOF       10進文字列 → float         d0,d2,d3 = (a0)～
 
 引数    a0.l    文字列のアドレス
 
@@ -1289,7 +1290,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe53   __FTOS          float → 10進文字列             (a0)～ = d0
+$fe53  __FTOS       float → 10進文字列         (a0)～ = d0
 
 引数    d0.l    単精度浮動小数点数
         a0.l    バッファのアドレス
@@ -1305,7 +1306,7 @@ $fe53   __FTOS          float → 10進文字列             (a0)～ = d0
 
 ==============================================================================
 
-$fe54   __FECVT         float → 文字列                 (a0),d0,d1 = d0,d2全体桁
+$fe54  __FECVT      float → 文字列             (a0),d0,d1 = d0,d2全体桁
 
 引数    d0.l    単精度浮動小数点数
         d2.b    全体の桁数
@@ -1322,7 +1323,7 @@ $fe54   __FECVT         float → 文字列                 (a0),d0,d1 = d0,d2�
 
 ==============================================================================
 
-$fe55   __FFCVT         float → 文字列                 (a0),d0,d1 = d0,d2小数点桁
+$fe55  __FFCVT      float → 文字列             (a0),d0,d1 = d0,d2小数点桁
 
 引数    d0.l    単精度浮動小数点数
         d2.b    小数点以下の桁数
@@ -1339,7 +1340,7 @@ $fe55   __FFCVT         float → 文字列                 (a0),d0,d1 = d0,d2�
 
 ==============================================================================
 
-$fe56   __FGCVT         float → 文字列                 (a0)～ = d0,d2全体桁
+$fe56  __FGCVT      float → 文字列             (a0)～ = d0,d2全体桁
 
 引数    d0.l    単精度浮動小数点数
         d2.b    全体の桁数
@@ -1358,7 +1359,7 @@ $fe56   __FGCVT         float → 文字列                 (a0)～ = d0,d2全�
 
 ==============================================================================
 
-$fe58   __FTST          float 0 比較                    Z,N = d0
+$fe58  __FTST       float 0 比較                Z,N = d0
 
 引数    d0.l    単精度浮動小数点数
 
@@ -1369,7 +1370,7 @@ CCR     Z : d0 が 0 の時セット
 
 ==============================================================================
 
-$fe59   __FCMP          float 比較                      Z,C = d0-d1
+$fe59  __FCMP       float 比較                  Z,C = d0-d1
 
 引数    d0.l    被比較数
         d1.l    比較数
@@ -1388,7 +1389,7 @@ CCR     N : 比較した結果が負数の時セット
 
 ==============================================================================
 
-$fe5a   __FNEG          float 符号反転                  d0 = neg(d0)
+$fe5a  __FNEG       float 符号反転              d0 = neg(d0)
 
 引数    d0.l    単精度浮動小数点数
 
@@ -1398,7 +1399,7 @@ $fe5a   __FNEG          float 符号反転                  d0 = neg(d0)
 
 ==============================================================================
 
-$fe5b   __FADD          float 加算                      d0 += d1
+$fe5b  __FADD       float 加算                  d0 += d1
 
 引数    d0.l    被加算数
         d1.l    加算数
@@ -1412,7 +1413,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe5c   __FSUB          float 減算                      d0 -= d1
+$fe5c  __FSUB       float 減算                  d0 -= d1
 
 引数    d0.l    被減算数
         d1.l    減算数
@@ -1426,7 +1427,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe5d   __FMUL          float 乗算                      d0 *= d1
+$fe5d  __FMUL       float 乗算                  d0 *= d1
 
 引数    d0.l    被乗数
         d1.l    乗数
@@ -1440,7 +1441,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe5e   __FDIV          float 除算                      d0 /= d1
+$fe5e  __FDIV       float 除算                  d0 /= d1
 
 引数    d0.l    被除数
         d1.l    除数
@@ -1455,7 +1456,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe5f   __FMOD          float 除算の剰余                d0 %= d1
+$fe5f  __FMOD       float 除算の剰余            d0 %= d1
 
 引数    d0.l    被除数
         d1.l    除数
@@ -1470,7 +1471,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe60   __FABS          float 絶対値                    d0 = abs(d0)
+$fe60  __FABS       float 絶対値                d0 = abs(d0)
 
 引数    d0.l    単精度浮動小数点数
 
@@ -1480,7 +1481,7 @@ $fe60   __FABS          float 絶対値                    d0 = abs(d0)
 
 ==============================================================================
 
-$fe61   __FCEIL         float 小数切上                  d0 = ceil(d0)
+$fe61  __FCEIL      float 小数切上              d0 = ceil(d0)
 
 引数    d0.l    単精度浮動小数点数
 
@@ -1490,7 +1491,7 @@ $fe61   __FCEIL         float 小数切上                  d0 = ceil(d0)
 
 ==============================================================================
 
-$fe62   __FFIX          float 整数部                    d0 = fix(d0)
+$fe62  __FFIX       float 整数部                d0 = fix(d0)
 
 引数    d0.l    単精度浮動小数点数
 
@@ -1500,7 +1501,7 @@ $fe62   __FFIX          float 整数部                    d0 = fix(d0)
 
 ==============================================================================
 
-$fe63   __FFLOOR        float 小数切捨                  d0 = floor(d0)
+$fe63  __FFLOOR     float 小数切捨              d0 = floor(d0)
 
 引数    d0.l    単精度浮動小数点数
 
@@ -1511,7 +1512,7 @@ $fe63   __FFLOOR        float 小数切捨                  d0 = floor(d0)
 
 ==============================================================================
 
-$fe64   __FFRAC         float 小数部                    d0 = frac(d0)
+$fe64  __FFRAC      float 小数部                d0 = frac(d0)
 
 引数    d0.l    単精度浮動小数点数
 
@@ -1521,7 +1522,7 @@ $fe64   __FFRAC         float 小数部                    d0 = frac(d0)
 
 ==============================================================================
 
-$fe65   __FSGN          float 正負零                    d0 = sgn(d0)
+$fe65  __FSGN       float 正負零                d0 = sgn(d0)
 
 引数    d0.l    単精度浮動小数点数
 
@@ -1532,7 +1533,7 @@ $fe65   __FSGN          float 正負零                    d0 = sgn(d0)
 
 ==============================================================================
 
-$fe66   __FSIN          float 正弦                      d0 = sin(d0)
+$fe66  __FSIN       float 正弦                  d0 = sin(d0)
 
 引数    d0.l    角度(ラジアン単位、単精度浮動小数点数)
 
@@ -1542,7 +1543,7 @@ $fe66   __FSIN          float 正弦                      d0 = sin(d0)
 
 ==============================================================================
 
-$fe67   __FCOS          float 余弦                      d0 = cos(d0)
+$fe67  __FCOS       float 余弦                  d0 = cos(d0)
 
 引数    d0.l    角度(ラジアン単位、単精度浮動小数点数)
 
@@ -1552,7 +1553,7 @@ $fe67   __FCOS          float 余弦                      d0 = cos(d0)
 
 ==============================================================================
 
-$fe68   __FTAN          float 正接                      d0 = tan(d0)
+$fe68  __FTAN       float 正接                  d0 = tan(d0)
 
 引数    d0.l    角度(ラジアン単位、単精度浮動小数点数)
 
@@ -1565,7 +1566,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe69   __FATAN         float 逆正接                    d0 = atan(d0)
+$fe69  __FATAN      float 逆正接                d0 = atan(d0)
 
 引数    d0.l    角度(ラジアン単位、単精度浮動小数点数)
 
@@ -1575,7 +1576,7 @@ $fe69   __FATAN         float 逆正接                    d0 = atan(d0)
 
 ==============================================================================
 
-$fe6a   __FLOG          float 自然対数                  d0 = ln(d0)
+$fe6a  __FLOG       float 自然対数              d0 = ln(d0)
 
 引数    d0.l    単精度浮動小数点数
 
@@ -1588,7 +1589,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe6b   __FEXP          float 指数関数                  d0 = exp(d0)
+$fe6b  __FEXP       float 指数関数              d0 = exp(d0)
 
 引数    d0.l    単精度浮動小数点数
 
@@ -1600,7 +1601,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe6c   __FSQR          float 平方根                    d0 = sqr(d0)
+$fe6c  __FSQR       float 平方根                d0 = sqr(d0)
 
 引数    d0.l    単精度浮動小数点数
 
@@ -1613,7 +1614,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe6d   __FPI           float 円周率                    d0 = pi()
+$fe6d  __FPI        float 円周率                d0 = pi()
 
 返値    d0.l    円周率
 
@@ -1621,7 +1622,7 @@ $fe6d   __FPI           float 円周率                    d0 = pi()
 
 ==============================================================================
 
-$fe6e   __FNPI          float 円周率乗算                d0 = pi(d0)
+$fe6e  __FNPI       float 円周率乗算            d0 = pi(d0)
 
 引数    d0.l    単精度浮動小数点数
 
@@ -1634,7 +1635,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe6f   __FPOWER        float 羃乗                      d0 = pow(d0,d1)
+$fe6f  __FPOWER     float 羃乗                  d0 = pow(d0,d1)
 
 引数    d0.l    被羃乗数
         d1.l    羃乗数
@@ -1649,7 +1650,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe70   __FRND          float 乱数                      d0 = rnd()
+$fe70  __FRND       float 乱数                  d0 = rnd()
 
 返値    d0.l    乱数(単精度浮動小数点数)
 
@@ -1657,7 +1658,7 @@ $fe70   __FRND          float 乱数                      d0 = rnd()
 
 ==============================================================================
 
-$fe71   __FSINH         float 正弦                      d0 = sinh(d0)
+$fe71  __FSINH      float 正弦                  d0 = sinh(d0)
 
 引数    d0.l    角度(ラジアン単位、単精度浮動小数点数)
 
@@ -1670,7 +1671,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe72   __FCOSH         float 双曲余弦                  d0 = cosh(d0)
+$fe72  __FCOSH      float 双曲余弦              d0 = cosh(d0)
 
 引数    d0.l    角度(ラジアン単位、単精度浮動小数点数)
 
@@ -1683,7 +1684,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe73   __FTANH         float 双曲正接                  d0 = tanh(d0)
+$fe73  __FTANH      float 双曲正接              d0 = tanh(d0)
 
 引数    d0.l    角度(ラジアン単位、単精度浮動小数点数)
 
@@ -1696,7 +1697,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe74   __FATANH        float 双曲逆正接                d0 = atanh(d0)
+$fe74  __FATANH     float 双曲逆正接            d0 = atanh(d0)
 
 引数    d0.l    角度(ラジアン単位、単精度浮動小数点数)
 
@@ -1708,7 +1709,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe75   __FASIN         float 逆正弦                    d0 = asin(d0)
+$fe75  __FASIN      float 逆正弦                d0 = asin(d0)
 
 引数    d0.l    角度(ラジアン単位、単精度浮動小数点数)
 
@@ -1720,7 +1721,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe76   __FACOS         float 逆余弦                    d0 = acos(d0)
+$fe76  __FACOS      float 逆余弦                d0 = acos(d0)
 
 引数    d0.l    角度(ラジアン単位、単精度浮動小数点数)
 
@@ -1732,7 +1733,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe77   __FLOG10        float 常用対数                  d0 = log10(d0)
+$fe77  __FLOG10     float 常用対数              d0 = log10(d0)
 
 引数    d0.l    単精度浮動小数点数
 
@@ -1745,7 +1746,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe78   __FLOG2         float 対数(底2)                 d0 = log2(d0)
+$fe78  __FLOG2      float 対数(底2)             d0 = log2(d0)
 
 引数    d0.l    単精度浮動小数点数
 
@@ -1758,7 +1759,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe79   __FFREXP        float 仮数指数分割              d0,d1 = d0
+$fe79  __FFREXP     float 仮数指数分割          d0,d1 = d0
 
 引数    d0.l    単精度浮動小数点数
 
@@ -1770,7 +1771,7 @@ $fe79   __FFREXP        float 仮数指数分割              d0,d1 = d0
 
 ==============================================================================
 
-$fe7a   __FLDEXP        float 仮数指数結合              d0 = d0,d1
+$fe7a  __FLDEXP     float 仮数指数結合          d0 = d0,d1
 
 引数    d0.l    仮数部データ(単精度浮動小数点数)
         d1.l    指数部データ(ロングワード符号付き整数)
@@ -1784,7 +1785,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe7b   __FADDONE       float 1 加算                    d0 += 1.0#
+$fe7b  __FADDONE    float 1 加算                d0 += 1.0
 
 引数    d0.l    単精度浮動小数点数
 
@@ -1794,7 +1795,7 @@ $fe7b   __FADDONE       float 1 加算                    d0 += 1.0#
 
 ==============================================================================
 
-$fe7c   __FSUBONE       float 1 減算                    d0 -= 1.0#
+$fe7c  __FSUBONE    float 1 減算                d0 -= 1.0
 
 引数    d0.l    単精度浮動小数点数
 
@@ -1804,7 +1805,7 @@ $fe7c   __FSUBONE       float 1 減算                    d0 -= 1.0#
 
 ==============================================================================
 
-$fe7d   __FDIVTWO       float 2 除算                    d0 /= 2.0#
+$fe7d  __FDIVTWO    float 2 除算                d0 /= 2.0
 
 引数    d0.l    単精度浮動小数点数
 
@@ -1817,7 +1818,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fe7e   __FIEECNV       float SHARP → IEEE             d0 = d0
+$fe7e  __FIEECNV    float SHARP → IEEE         d0 = d0
 
 引数    d0.l    SHARP フォーマット単精度浮動小数点数
 
@@ -1828,7 +1829,7 @@ $fe7e   __FIEECNV       float SHARP → IEEE             d0 = d0
 
 ==============================================================================
 
-$fe7f   __IEEFCNV       float IEEE → SHARP             d0 = d0
+$fe7f  __IEEFCNV    float IEEE → SHARP         d0 = d0
 
 引数    d0.l    IEEE フォーマット単精度浮動小数点数
 
@@ -1839,7 +1840,7 @@ $fe7f   __IEEFCNV       float IEEE → SHARP             d0 = d0
 
 ==============================================================================
 
-$fee0   __CLMUL         signed int 乗算                 (sp) *= (4,sp)
+$fee0  __CLMUL      signed int 乗算             (sp) *= (4,sp)
 
 引数    (sp).l          被乗数
         (4,sp).l        乗数
@@ -1853,7 +1854,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fee1   __CLDIV         signed int 除算                 (sp) /= (4,sp)
+$fee1  __CLDIV      signed int 除算             (sp) /= (4,sp)
 
 引数    (sp).l          被除数
         (4,sp).l        除数
@@ -1869,7 +1870,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fee2   __CLMOD         signed int 除算の剰余           (sp) %= (4,sp)
+$fee2  __CLMOD      signed int 除算の剰余       (sp) %= (4,sp)
 
 引数    (sp).l          被除数
         (4,sp).l        除数
@@ -1885,7 +1886,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fee3   __CUMUL         unsigned int 乗算               (sp) *= (4,sp)
+$fee3  __CUMUL      unsigned int 乗算           (sp) *= (4,sp)
 
 引数    (sp).l          被乗数
         (4,sp).l        乗数
@@ -1901,7 +1902,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fee4   __CUDIV         unsigned int 除算               (sp) /= (4,sp)
+$fee4  __CUDIV      unsigned int 除算           (sp) /= (4,sp)
 
 引数    (sp).l          被除数
         (4,sp).l        除数
@@ -1917,7 +1918,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fee5   __CUMOD         unsigned int 除算の剰余         (sp) %= (4,sp)
+$fee5  __CUMOD      unsigned int 除算の剰余     (sp) %= (4,sp)
 
 引数    (sp).l          被除数
         (4,sp).l        除数
@@ -1933,20 +1934,20 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fee6   __CLTOD         signed int → double            (sp)(4,sp) = (sp)
+$fee6  __CLTOD      signed int → double        (sp):(4,sp) = (sp)
 
 引数    (sp).l          ロングワード符号付き整数
 
-返値    (sp)/(4,sp)     変換された倍精度浮動小数点数
+返値    (sp):(4,sp)     変換された倍精度浮動小数点数
 
         ロングワード符号付き整数を倍精度浮動小数点数に変換する。
         引数は 4 バイト、返値は 8 バイトであることに注意すること。
 
 ==============================================================================
 
-$fee7   __CDTOL         double → signed int            (sp) = (sp)(4,sp)
+$fee7  __CDTOL      double → signed int        (sp) = (sp):(4,sp)
 
-引数    (sp)/(4,sp)     倍精度浮動小数点数
+引数    (sp):(4,sp)     倍精度浮動小数点数
 
 返値    (sp).l          変換されたロングワード符号付き整数
 
@@ -1959,7 +1960,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fee8   __CLTOF         signed int → float             (sp) = (sp)
+$fee8  __CLTOF      signed int → float         (sp) = (sp)
 
 引数    (sp).l          ロングワード符号付き整数
 
@@ -1969,7 +1970,7 @@ $fee8   __CLTOF         signed int → float             (sp) = (sp)
 
 ==============================================================================
 
-$fee9   __CFTOL         float → signed int             (sp) = (sp)
+$fee9  __CFTOL      float → signed int         (sp) = (sp)
 
 引数    (sp).l          単精度浮動小数点数
 
@@ -1982,20 +1983,20 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$feea   __CFTOD         float → double                 (sp)(4,sp) = (sp)
+$feea  __CFTOD      float → double             (sp):(4,sp) = (sp)
 
 引数    (sp).l          単精度浮動小数点数
 
-返値    (sp)/(4,sp)     変換された倍精度浮動小数点数
+返値    (sp):(4,sp)     変換された倍精度浮動小数点数
 
         単精度浮動小数点数を倍精度浮動小数点数に変換する。
         引数は 4 バイト、返値は 8 バイトであることに注意すること。
 
 ==============================================================================
 
-$feeb   __CDTOF         double → float                 (sp) = (sp)(4,sp)
+$feeb  __CDTOF      double → float             (sp) = (sp):(4,sp)
 
-引数    (sp)/(4,sp)     倍精度浮動小数点数
+引数    (sp):(4,sp)     倍精度浮動小数点数
 
 返値    (sp).l          変換された単精度浮動小数点数
 
@@ -2006,33 +2007,33 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$feec   __CDCMP         double 比較                     Z,C = (sp)(4,sp)-(8,sp)(12,sp)
+$feec  __CDCMP      double 比較                 Z,C = (sp):(4,sp)-(8,sp):(12,sp)
 
-引数      (sp)/(4,sp)   被比較数
-        (8,sp)/(12,sp)  比較数
+引数      (sp):(4,sp)   被比較数
+        (8,sp):(12,sp)  比較数
 
-返値    (sp)/(4,sp)     演算結果
+返値    (sp):(4,sp)     演算結果
 
 CCR     N : 比較した結果が負数の時セット
         Z :     〃          0 の時セット
         C : ボローが発生した時セット
 
-        倍精度浮動小数点数同士を比較する。被比較数 (sp)/(4,sp) から比較数
-        (8,sp)/(12,sp) を引いた結果がフラグにのみ返される。
+        倍精度浮動小数点数同士を比較する。被比較数 (sp):(4,sp) から比較数
+        (8,sp):(12,sp) を引いた結果がフラグにのみ返される。
         フラグの結果によって次のような関係を導き出すことが出来る。
 
-        (sp)/(4,sp) > (8,sp)/(12,sp)    C=0,Z=0,N=0
-        (sp)/(4,sp) = (8,sp)/(12,sp)    C=0,Z=1,N=0
-        (sp)/(4,sp) < (8,sp)/(12,sp)    C=1,Z=0,N=1
+        (sp):(4,sp) > (8,sp):(12,sp)    C=0,Z=0,N=0
+        (sp):(4,sp) = (8,sp):(12,sp)    C=0,Z=1,N=0
+        (sp):(4,sp) < (8,sp):(12,sp)    C=1,Z=0,N=1
 
 ==============================================================================
 
-$feed   __CDADD         double 加算                     (sp)(4,sp) += (8,sp)(12,sp)
+$feed  __CDADD      double 加算                 (sp):(4,sp) += (8,sp):(12,sp)
 
-引数      (sp)/(4,sp)   被加算数
-        (8,sp)/(12,sp)  加算数
+引数      (sp):(4,sp)   被加算数
+        (8,sp):(12,sp)  加算数
 
-返値    (sp)/(4,sp)     演算結果
+返値    (sp):(4,sp)     演算結果
 
 CCR     C : エラーの時セット
         V : (C = 1)オーバーフローの場合はセット、アンダーフローの場合はクリア
@@ -2041,12 +2042,12 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$feee   __CDSUB         double 減算                     (sp)(4,sp) -= (8,sp)(12,sp)
+$feee  __CDSUB      double 減算                 (sp):(4,sp) -= (8,sp):(12,sp)
 
-引数      (sp)/(4,sp)   被減算数
-        (8,sp)/(12,sp)  減算数
+引数      (sp):(4,sp)   被減算数
+        (8,sp):(12,sp)  減算数
 
-返値    (sp)/(4,sp)     演算結果
+返値    (sp):(4,sp)     演算結果
 
 CCR     C : エラーの時セット
         V : (C = 1)オーバーフローの場合はセット、アンダーフローの場合はクリア
@@ -2055,12 +2056,12 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$feef   __CDMUL         double 乗算                     (sp)(4,sp) *= (8,sp)(12,sp)
+$feef  __CDMUL      double 乗算                 (sp):(4,sp) *= (8,sp):(12,sp)
 
-引数      (sp)/(4,sp)   被乗数
-        (8,sp)/(12,sp)  乗数
+引数      (sp):(4,sp)   被乗数
+        (8,sp):(12,sp)  乗数
 
-返値    (sp)/(4,sp)     演算結果
+返値    (sp):(4,sp)     演算結果
 
 CCR     C : エラーの時セット
         V : (C = 1)オーバーフローの場合はセット、アンダーフローの場合はクリア
@@ -2069,12 +2070,12 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fef0   __CDDIV         double 除算                     (sp)(4,sp) /= (8,sp)(12,sp)
+$fef0  __CDDIV      double 除算                 (sp):(4,sp) /= (8,sp):(12,sp)
 
-引数      (sp)/(4,sp)   被除数
-        (8,sp)/(12,sp)  除数
+引数      (sp):(4,sp)   被除数
+        (8,sp):(12,sp)  除数
 
-返値    (sp)/(4,sp)     演算結果
+返値    (sp):(4,sp)     演算結果
 
 CCR     C : エラーの時セット
         V : (C = 1)オーバーフローの場合はセット、アンダーフローの場合はクリア
@@ -2084,12 +2085,12 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fef1   __CDMOD         double 除算の剰余               (sp)(4,sp) %= (8,sp)(12,sp)
+$fef1  __CDMOD      double 除算の剰余           (sp):(4,sp) %= (8,sp):(12,sp)
 
-引数      (sp)/(4,sp)   被除数
-        (8,sp)/(12,sp)  除数
+引数      (sp):(4,sp)   被除数
+        (8,sp):(12,sp)  除数
 
-返値    (sp)/(4,sp)     演算結果
+返値    (sp):(4,sp)     演算結果
 
 CCR     C : エラーの時セット
         V : (C = 1)オーバーフローの場合はセット、アンダーフローの場合はクリア
@@ -2099,7 +2100,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fef2   __CFCMP         float 比較                      Z,C = (sp)-(4,sp)
+$fef2  __CFCMP      float 比較                  Z,C = (sp)-(4,sp)
 
 引数    (sp).l          被比較数
         (4,sp).l        比較数
@@ -2118,7 +2119,7 @@ CCR     N : 比較した結果が負数の時セット
 
 ==============================================================================
 
-$fef3   __CFADD         float 加算                      (sp) += (4,sp)
+$fef3  __CFADD      float 加算                  (sp) += (4,sp)
 
 引数    (sp).l          被加算数
         (4,sp).l        加算数
@@ -2132,7 +2133,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fef4   __CFSUB         float 減算                      (sp) -= (4,sp)
+$fef4  __CFSUB      float 減算                  (sp) -= (4,sp)
 
 引数    (sp).l          被減算数
         (4,sp).l        減算数
@@ -2146,7 +2147,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fef5   __CFMUL         float 乗算                      (sp) *= (4,sp)
+$fef5  __CFMUL      float 乗算                  (sp) *= (4,sp)
 
 引数    (sp).l          被乗数
         (4,sp).l        乗数
@@ -2160,7 +2161,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fef6   __CFDIV         float 除算                      (sp) /= (4,sp)
+$fef6  __CFDIV      float 除算                  (sp) /= (4,sp)
 
 引数    (sp).l          被除数
         (4,sp).l        除数
@@ -2175,7 +2176,7 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fef7   __CFMOD         float 除算の剰余                (sp) %= (4,sp)
+$fef7  __CFMOD      float 除算の剰余            (sp) %= (4,sp)
 
 引数    (sp).l          被除数
         (4,sp).l        除数
@@ -2190,19 +2191,19 @@ CCR     C : エラーの時セット
 
 ==============================================================================
 
-$fef8   __CDTST         double 0 比較                   Z,N = (sp)(4,sp)
+$fef8  __CDTST      double 0 比較               Z,N = (sp):(4,sp)
 
-引数    (sp)/(4,sp)     倍精度浮動小数点数
+引数    (sp):(4,sp)     倍精度浮動小数点数
 
-CCR     Z : (sp)/(4,sp) が 0 の時セット
-        N : (sp)/(4,sp) が負数の時セット
+CCR     Z : (sp):(4,sp) が 0 の時セット
+        N : (sp):(4,sp) が負数の時セット
 
-        (sp)/(4,sp) で与える倍精度浮動小数点数と 0 を比較し、結果をフラグで返
+        (sp):(4,sp) で与える倍精度浮動小数点数と 0 を比較し、結果をフラグで返
         す。
 
 ==============================================================================
 
-$fef9   __CFTST         float 0 比較                    Z,N = (sp)
+$fef9  __CFTST      float 0 比較                Z,N = (sp)
 
 引数    (sp).l  単精度浮動小数点数
 
@@ -2213,17 +2214,17 @@ CCR     Z : (sp) が 0 の時セット
 
 ==============================================================================
 
-$fefa   __CDINC         double 1 加算                   (sp)(4,sp) += 1.0#
+$fefa  __CDINC      double 1 加算               (sp):(4,sp) += 1.0
 
-引数    (sp)/(4,sp)     倍精度浮動小数点数
+引数    (sp):(4,sp)     倍精度浮動小数点数
 
-返値    (sp)/(4,sp)     演算結果
+返値    (sp):(4,sp)     演算結果
 
         引数の倍精度浮動小数点数に 1.0 を加える。
 
 ==============================================================================
 
-$fefb   __CFINC         float 1 加算                    (sp) += 1.0#
+$fefb  __CFINC      float 1 加算                (sp) += 1.0
 
 引数    (sp).l  単精度浮動小数点数
 
@@ -2233,17 +2234,17 @@ $fefb   __CFINC         float 1 加算                    (sp) += 1.0#
 
 ==============================================================================
 
-$fefc   __CDDEC         double 1 減算                   (sp)(4,sp) -= 1.0#
+$fefc  __CDDEC      double 1 減算               (sp):(4,sp) -= 1.0
 
-引数    (sp)/(4,sp)     倍精度浮動小数点数
+引数    (sp):(4,sp)     倍精度浮動小数点数
 
-返値    (sp)/(4,sp)     演算結果
+返値    (sp):(4,sp)     演算結果
 
         引数の倍精度浮動小数点数から 1.0 を引く。
 
 ==============================================================================
 
-$fefd   __CFDEC         float 1 減算                    (sp) -= 1.0#
+$fefd  __CFDEC      float 1 減算                (sp) -= 1.0
 
 引数    (sp).l  単精度浮動小数点数
 
@@ -2253,7 +2254,7 @@ $fefd   __CFDEC         float 1 減算                    (sp) -= 1.0#
 
 ==============================================================================
 
-$fefe   __FEVARG        数値演算ドライバ種別検査        d0,d1=[FORMAT],[MODE]
+$fefe  __FEVARG     数値演算ドライバ種別検査    d0,d1 = [FORMAT],[MODE]
 
 返値    d0.l    数値演算ドライバ名(1)
         d1.l            〃        (2)
@@ -2265,13 +2266,13 @@ $fefe   __FEVARG        数値演算ドライバ種別検査        d0,d1=[FORMA
         FLOAT2.X        'IEEE'  'SOFT'
         FLOAT3.X        'IEEE'  'FPCP'
         FLOAT4.X        'IEEE'  'FP20'
-        FLOAT040.X      'IEEE'  'SOFT'  (FLOAT2.X ベースである為)
+        FLOAT040.X      'IEEE'  'SOFT'  (FLOAT2.X ベースであるため)
         060turbo.sys    'IEEE'  'FPSP'
         (FLOATEML.L)    'IEEE'  'CLIB'
 
 ==============================================================================
 
-$feff   __FEVECS        処理アドレス変更                d0 = intvcs(d0,a0)
+$feff  __FEVECS     処理アドレス変更            d0 = intvcs(d0,a0)
 
 引数    d0.l    FETBL 番号($fe00～$fefe)
         a0.l    処理アドレス
