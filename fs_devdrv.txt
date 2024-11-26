@@ -331,6 +331,11 @@ $fe     2HD
       「X680x0 SCSI HDD 埋め込みドライバについて」(yunkya2 氏)
       https://github.com/yunkya2/windrvxm-boot/blob/master/SCSIHDDdrv.md
 
+    不具合
+        該当環境: Human68k v3.02 (これ以外は未調査)
+        　最初のブロックデバイスすなわち A: ドライブの場合、リクエストヘッダの
+        オフセット22のドライブ番号は$01が設定される(B: ドライブと同じ値)。
+
 コマンド $01    メディア交換検査
     in      (offset size)
              0      1.b     定数(26)
