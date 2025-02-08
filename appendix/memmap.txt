@@ -21,8 +21,10 @@ $00e9e080 ～ $00e9e09f          コプロセッサ (#1)
 
 $00e9e200 ～ $00e9e3ff          TS-6BGA
 
-$00e9f000 ～ $00e9f000          EX68
-│
+$00e9f000 ～ $00e9f000          EX68 (Windrv)
+
+$00e9f001 ～ $00e9f001          WindrvXM
+└┐              ┌┘
 $00e9f000 ～ $00e9f7ff          040Excel (試作版)
 ┌┘              └┐
 $00e9f020 ～ $00e9f03f          XEiJ (X68000 Emulator in Java)
