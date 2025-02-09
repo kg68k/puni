@@ -35,9 +35,6 @@ $00ea0020 ～ $00ea7fff          Mach-2
 ┌┘              └┐
 $00ea2000 ～ $00ea3fff          WD33C93 SCSIボード (実在するのは一枚!?)
 
-$00ea4000 ～ $00ea7fff          X68000 Z ZUSB レジスタ
-                                https://github.com/yunkya2/x68kz-zusb
-
 $00ea8000 ～ $00ea9fff          PhantomX (version 1.00RC3)
                                 http://retropc.net/gimons/phantomx/index.html
 
@@ -74,11 +71,14 @@ $00eaff80 ～ $00eaff8f          拡張エリアセット(X68030、CZ-6BEn、PIO
 ○ 以下、ユーザI/O
 
 $00ec0000 ～ $00ec8001 ─┐     AWESOME-X
-│                └┐   │
+│                ┌┘   │
 $00ec0000 ～ $00ec0007   │     X68K-PPI
 │                ┌┘   │
 $00ec0000 ～ $00ec3fff   │     Xellent30 (#0)
-                         │
+│                ┌┘   │
+$00ec0000 ～ $00ea7fff   │     X68000 Z ZUSB レジスタ
+  │                │   │     https://github.com/yunkya2/x68kz-zusb
+┌┘                │   │
 $00ec4000 ～ $00ec7fff   │     Xellent30 (#1)
                          │
 $00ec8000 ～ $00ecbfff ─┘     Xellent30 (#2)
