@@ -1,164 +1,184 @@
+※左端の罫線は他のデバイスとアドレス領域が重複する目安。
+
 ○ メインメモリ領域
 
-$00b00000 ～ $00b1ffff          V70 アクセラレータ (共有SRAM)
-$00b20000 ～ $00b20000                             (I/Oポート1)
-$00b20001 ～ $00b20001                             (I/Oポート2)
-$00b20002 ～ $00bfffff                             (未使用)
+           $00b00000-$00b1ffff  V70 アクセラレータ (共有SRAM)
+           $00b20000-$00b20000  V70 アクセラレータ (I/Oポート1)
+           $00b20001-$00b20001  V70 アクセラレータ (I/Oポート2)
+           $00b20002-$00bfffff  V70 アクセラレータ (未使用)
 
-$00bc0000 ～ $00bfffff          Xellent30 (ローカルSRAM)
-$00fc0000 ～ $00ffffff                    (ROM割り当て時)
+           $00bc0000-$00bfffff  Xellent30 (ローカルSRAM)
+           $00fc0000-$00ffffff  Xellent30 (ROM割り当て時)
 
-$00be0000 ～ $00be7fff          CONCERTO-X68K (#0)
-$00be8000 ～ $00beffff          CONCERTO-X68K (#1)
-$00bf0000 ～ $00bf7fff          CONCERTO-X68K (#2)
-$00bf8000 ～ $00bfffff          CONCERTO-X68K (#3)
+           $00be0000-$00be7fff  CONCERTO-X68K (#0)
+           $00be8000-$00beffff  CONCERTO-X68K (#1)
+           $00bf0000-$00bf7fff  CONCERTO-X68K (#2)
+           $00bf8000-$00bfffff  CONCERTO-X68K (#3)
 
 ○ システムI/O
 
-$00e9e000 ～ $00e9e01f          コプロセッサ (#0)
+           $00e9e000-$00e9e01f  コプロセッサ (#0)
 
-$00e9e080 ～ $00e9e09f          コプロセッサ (#1)
+           $00e9e080-$00e9e09f  コプロセッサ (#1)
 
-$00e9e200 ～ $00e9e3ff          TS-6BGA
+           $00e9e200-$00e9e3ff  TS-6BGA (制御ポート)
 
-$00e9f000 ～ $00e9f000          EX68 (Windrv)
+┌──── $00e9f000-$00e9f7ff  040Excel (試作版)
+│
+│         $00e9f000-$00e9f000  EX68 (Windrv)
+│
+│         $00e9f001-$00e9f001  WindrvXM
+│
+│         $00e9f020-$00e9f03f  XEiJ (X68000 Emulator in Java)
+└
+┌──── $00ea0000-$00ea1fff  CZ-6BS1 および互換SCSIボード
+│
+│┌─── $00ea0020-$00ea7fff  Mach-2 / Mach2p
+└│
+  │       $00ea2000-$00ea3fff  WD33C93 SCSIボード (実在するのは一枚!?)
+  └
+           $00ea8000-$00ea9fff  PhantomX  [URL後述]
 
-$00e9f001 ～ $00e9f001          WindrvXM
-└┐              ┌┘
-$00e9f000 ～ $00e9f7ff          040Excel (試作版)
-┌┘              └┐
-$00e9f020 ～ $00e9f03f          XEiJ (X68000 Emulator in Java)
+           $00eaf900-$00eaf93f  CZ-6BC1 (FAXボード)
 
-$00ea0000 ～ $00ea1fff          SCSIボード
-┌┘              ┌┘
-$00ea0020 ～ $00ea7fff          Mach-2
-┌┘              └┐
-$00ea2000 ～ $00ea3fff          WD33C93 SCSIボード (実在するのは一枚!?)
+           $00eafa00-$00eafa0f  CZ-6BM1 および互換MIDIボード (#0)
 
-$00ea8000 ～ $00ea9fff          PhantomX (version 1.00RC3)
-                                http://retropc.net/gimons/phantomx/index.html
+           $00eafa10-$00eafa1f  CZ-6BM1 および互換MIDIボード (#1)
 
-$00eaf900 ～ $00eaf93f          FAXボード
+           $00eafb00-$00eafb0f  CZ-6BN1 (パラレルボード) (#0)
 
-$00eafa00 ～ $00eafa0f          MIDIボード (#0)
+           $00eafb10-$00eafb1f  CZ-6BN1 (パラレルボード) (#1)
 
-$00eafa10 ～ $00eafa1f          MIDIボード (#1)
+           $00eafc00-$00eafc0f  CZ-6BF1 (RS-232Cボード) (#0)
 
-$00eafb00 ～ $00eafb0f          パラレルボード (#0)
+           $00eafc10-$00eafc1f  CZ-6BF1 (RS-232Cボード) (#1)
 
-$00eafb10 ～ $00eafb1f          パラレルボード (#1)
+           $00eafc20-$00eafc2f  CZ-6BF1 (RS-232Cボード) (#2)
 
-$00eafc00 ～ $00eafc0f          RS-232Cボード (#0)
+           $00eafc30-$00eafc3f  CZ-6BF1 (RS-232Cボード) (#3)
 
-$00eafc10 ～ $00eafc1f          RS-232Cボード (#1)
+           $00eafd00-$00eafd03  CZ-6BU1 (ユニバーサルI/Oボード) (#0)
 
-$00eafc20 ～ $00eafc2f          RS-232Cボード (#2)
+           $00eafd04-$00eafd07  CZ-6BU1 (ユニバーサルI/Oボード) (#1)
 
-$00eafc30 ～ $00eafc3f          RS-232Cボード (#3)
+           $00eafd08-$00eafd0b  CZ-6BU1 (ユニバーサルI/Oボード) (#2)
 
-$00eafd00 ～ $00eafd03          ユニバーサルI/Oボード (#0)
+           $00eafd0c-$00eafd0f  CZ-6BU1 (ユニバーサルI/Oボード) (#3)
 
-$00eafd04 ～ $00eafd07          ユニバーサルI/Oボード (#1)
+           $00eafe00-$00eafe1f  CZ-6BG1 (GP-IBボード)
 
-$00eafd08 ～ $00eafd0b          ユニバーサルI/Oボード (#2)
-
-$00eafd0c ～ $00eafd0f          ユニバーサルI/Oボード (#3)
-
-$00eafe00 ～ $00eafe1f          GP-IBボード
-
-$00eaff80 ～ $00eaff8f          拡張エリアセット(X68030、CZ-6BEn、PIO-6BEn)
+           $00eaff80-$00eaff8f  拡張エリアセット(X68030、CZ-6BEn、PIO-6BEn)
 
 ○ 以下、ユーザI/O
 
-$00ec0000 ～ $00ec8001 ─┐     AWESOME-X
-│                ┌┘   │
-$00ec0000 ～ $00ec0007   │     X68K-PPI
-│                ┌┘   │
-$00ec0000 ～ $00ec3fff   │     Xellent30 (#0)
-│                ┌┘   │
-$00ec0000 ～ $00ea7fff   │     X68000 Z ZUSB レジスタ
-  │                │   │     https://github.com/yunkya2/x68kz-zusb
-┌┘                │   │
-$00ec4000 ～ $00ec7fff   │     Xellent30 (#1)
-                         │
-$00ec8000 ～ $00ecbfff ─┘     Xellent30 (#2)
-┌┘                │
-$00ecb000 ～ $00ecbfff          Kepler X (壱號機～参號機)
-                                (Mercury-Unit V4、MIDIボードのアドレスも有効)
-                                https://keplerx.ohnaka.jp/
+┌──── $00ec0000-$00ecffff  64180ボード (Oh!X 1989年01月号)
+(重複省略)
+┌──── $00ec0000-$00ec8001  AWESOME-X
+││││
+│├─── $00ec0000-$00ec0007  X68K-PPI
+││││
+││├── $00ec0000-$00ec3fff  Xellent30 (#0)
+││││
+│└└├─ $00ec0000-$00ea7fff  X68000 Z ZUSB レジスタ  [URL後述]
+│    │
+│    │   $00ec4000-$00ec7fff  Xellent30 (#1)
+│    └
+└┌─── $00ec8000-$00ecbfff  Xellent30 (#2)
+  │
+  │       $00ecb000-$00ecbfff  Kepler X (壱號機～参號機)  [URL後述]
+  └                            (Mercury-Unit V4、MIDIボードのアドレスも有効)
 
-$00ecc000 ～ $00ecffff ─┐     Xellent30 (#3)
-│                       │
-$00ecc000 ～ $00ecc0ff   │     Mercury-Unit (～V3.5)
-┌┘                │   │
-$00ecc080 ～ $00ecc0ff   │     Mercury-Unit V4
-                         │
-$00ece000 ～ $00ece3ff   │     Neptune-X (#0)
-  │              │     │     http://www.amy.hi-ho.ne.jp/shimada/neptune/data.html
-┌┘              └┐   │
-$00ece300 ～ $00ece33f   │     Nereid (#0)
-                         │
-$00ece400 ～ $00ece7ff   │     Neptune-X (#1)
-                         │
-$00eceb00 ～ $00eceb3f   │     Nereid (#1)
-                         │
-$00ecf000 ～ $00ecf00f   │     VENUS-X
-                         │
-$00ecf020 ～ $00ecf02f   │     MK-HM2
-                         │
-$00ecffff ～ $00ecffff ─┘     バンクメモリ (レジスタ)
-
-$00ec0000 ～ $00ecffff          64180ボード (Oh!X 1989年01月号)
+┌──── $00ecc000-$00ecffff  Xellent30 (#3)
+││
+│├─── $00ecc000-$00ecc0ff  Mercury-Unit (～V3.5)
+││
+││       $00ecc080-$00ecc0ff  Mercury-Unit V4
+│└
+│┌─── $00ece000-$00ece3ff  Neptune-X (#0) URL後述
+││
+││       $00ece300-$00ece33f  Nereid (#0)
+│└
+│         $00ece400-$00ece7ff  Neptune-X (#1)
+│
+│         $00eceb00-$00eceb3f  Nereid (#1)
+│
+│         $00ecf000-$00ecf00f  VENUS-X
+│
+│         $00ecf020-$00ecf02f  MK-HM2 (制御ポート)  [参考情報後述]
+│
+│         $00ecffff-$00ecffff バンクメモリ (レジスタ)
+└
 
 ○ 以上、ユーザI/O
 
-$00ed0000 ～ $00ed3fff          本体SRAM
-$00ed4000 ～ $00edffff          予備
+           $00ed0000-$00ed3fff  本体SRAM
+           $00ed4000-$00edffff  予備(SRAM増設)
 
 ○ 未使用領域
 
-$00ee0000 ～ $00eeffff          Nereid (バンクメモリ #0)
-│                  │
-$00ee0000 ～ $00eeffff          TS-6BGA (G-RAMバンク #0)
-
-$00ef0000 ～ $00efffff          Nereid (バンクメモリ #1)
-│                  │
-$00ef0000 ～ $00efffff ─┐     TS-6BGA (G-RAM バンク #1)
-┌┘              └┐   │
-$00eff800 ～ $00eff83f   │     POLYPHON (#0)
-                         │
-$00eff880 ～ $00eff8bf   │     POLYPHON (#1)
-                         │
-$00efff00 ～ $00efffff ─┘     PSX16550 / PSX16750
+┌──── $00ee0000-$00eeffff  Nereid (バンクメモリ #0)
+││
+│└─── $00ee0000-$00eeffff  TS-6BGA (G-RAMバンク #0)
+└
+┌──── $00ef0000-$00efffff  Nereid (バンクメモリ #1)
+││
+│├─── $00ef0000-$00efffff  TS-6BGA (G-RAM バンク #1)
+││
+││       $00eff800-$00eff83f  POLYPHON (#0)
+││
+││       $00eff880-$00eff8bf  POLYPHON (#1)
+││
+││       $00efff00-$00efffff  PSX16550 / PSX16750
+└└
 
 ○ 各種ハイメモリ/仮想メモリ($01000000～)
 
-$01000000 ～ $01ffffff          TS-6BE16
+           $01000000-$01ffffff  TS-6BE16
 
-$01000000 ～ $01100000          JUPITER-X (SRAM)
-$01800000 ～ $01800003          JUPITER-X (システムレジスタ)
-$02000000 ～ $02ffffff          JUPITER-X (XRAM)
+           $01000000-$01100000  JUPITER-X (SRAM)
+           $01800000-$01800003  JUPITER-X (システムレジスタ)
+           $02000000-$02ffffff  JUPITER-X (XRAM)
 
-$10000000 ～ $17ffffff          MK-HM2 (満開製作所製 未発売ハイメモリボード)
-                                https://twitter.com/punohito/status/1769933805710868481
-                                  $00ecf020 'VM01'
-                                  $00ecf024 REFRESH CONTROLLER
-                                  $00ecf028 MEMORY CLOCK REGISTER
-                                  $00ecf02c MEMORY BASE ADDRESS REGISTER
+           $10000000-$1fffffff  060turbo ※ハードウェア仕様上は128MBまで
+                                  ($10000000-$17ffffff)
 
-$10000000 ～ $1fffffff          060turbo ※ハードウェア仕様上は128MBまで
-                                           ($10000000 ～ $17ffffff)
-
+           $10000000-$17ffffff  MK-HM2  [参考情報後述]
 
 --------
 
 ・不明(資料求む)
 
-$00?????? ～ $00??????          X68K-SCAN
+           $00??????-$00??????  X68K-SCAN
 
-$00ef0000 ～ $00??????          XSCSI ボード
-$00ed8041                         ディップスイッチ
+           $00ef0000-$00??????  XSCSI ボード
+           $00ed8041              ディップスイッチ
                                 ((有)ボイス・アンド・イメージ・プロダクツ製)
+
+--------
+
+・MK-HM2 満開製作所製ハイメモリボード(X68030用、未発売)
+  https://twitter.com/punohito/status/1769933805710868481
+
+  $00ecf020 'VM01'
+  $00ecf024 REFRESH CONTROLLER
+  $00ecf028 MEMORY CLOCK REGISTER
+  $00ecf02c MEMORY BASE ADDRESS REGISTER
+
+--------
+
+・URL
+
+Kepler X
+  https://keplerx.ohnaka.jp/
+
+Neptune-X
+  http://www.amy.hi-ho.ne.jp/shimada/neptune/data.html
+
+PhantomX
+  http://retropc.net/gimons/phantomx/index.html
+
+X68000 Z ZUSB
+  https://github.com/yunkya2/x68kz-zusb
 
 
 [EOF]
