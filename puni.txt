@@ -116,6 +116,7 @@ puni.txt
   X68k Programming Series #1 X68000 Develop.
     Vol.1 Programmer's Guide                    中村祐一(他),SOFT BANK
   Oh!X(各種記事)                                村田敏幸(他),SOFT BANK
+  X68000 マシン語プログラミング 入門編          村田敏幸,SOFT BANK
   C COMPILER PRO-68K ver2.0
     プログラマーズマニュアル                    SHARP
     アセンブラマニュアル                        〃
