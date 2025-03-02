@@ -421,17 +421,17 @@ $ff0c   _KFLUSH         バッファフラッシュ後に標準入力から入�
 
 　モードの引数 MODE により動作モードが切り替わる。この値は各機能に対応する DOS
 コール番号の下位バイトに相当する。
-    MODE = $01 …… 標準入力から1バイト入力(エコーあり) (KFLUSHGP)
-    MODE = $06 …… 文字入出力 (KFLUSHIO)
-    MODE = $07 …… 標準入力から1バイト入力(ブレークチェックなし) (KFLUSHIN)
-    MODE = $08 …… 標準入力から1バイト入力(ブレークチェックあり) (KFLUSHGC)
-    MODE = $0a …… 標準入力から文字列入力(ブレークチェックあり) (KFLUSHGS)
+    MODE = $01 …… 標準入力から1バイト入力(エコーあり) (XC: KFLUSHGP)
+    MODE = $06 …… 文字入出力 (XC: KFLUSHIO)
+    MODE = $07 …… 標準入力から1バイト入力(ブレークチェックなし) (XC: KFLUSHIN)
+    MODE = $08 …… 標準入力から1バイト入力(ブレークチェックあり) (XC: KFLUSHGC)
+    MODE = $0a …… 標準入力から文字列入力(ブレークチェックあり) (XC: KFLUSHGS)
 
 　なお Human68k の実際の動作では、MODE が未定義の値の場合はバッファフラッシュ
 のみを行い d0.l = 0 を返す。『X68000 マシン語プログラミング 入門編』P.165 では
 MODE = -1 で呼び出す手法が紹介されている。ただしこれは保証された使用法ではない。
 
-MODE = $01 …… 標準入力から1バイト入力(エコーあり) (_KFLUSHGP)
+MODE = $01 …… 標準入力から1バイト入力(エコーあり) (XC: KFLUSHGP)
     　標準入力から1バイトの入力(キー入力)を行い、入力された文字を標準出力に出
     力(エコー)する。詳しくは DOS _GETCHAR ($ff01) を参照のこと。
 
@@ -444,7 +444,7 @@ MODE = $01 …… 標準入力から1バイト入力(エコーあり) (_KFLUSHGP
         DOS _KFLUSH
         addq.l  #2,sp
 
-MODE = $06 …… 文字入出力 (KFLUSHIO)
+MODE = $06 …… 文字入出力 (XC: KFLUSHIO)
     　標準入力から1バイトの入力を行うか、または標準出力に1バイトの出力を行う。
     詳しくは DOS _INPOUT ($ff06) を参照のこと。
 
@@ -466,7 +466,7 @@ MODE = $06 …… 文字入出力 (KFLUSHIO)
         DOS _KFLUSH
         addq.l  #4,sp
 
-MODE = $07 …… 標準入力から1バイト入力(ブレークチェックなし) (KFLUSHIN)
+MODE = $07 …… 標準入力から1バイト入力(ブレークチェックなし) (XC: KFLUSHIN)
     　標準入力から1バイトの入力(キー入力)を行い、その文字を返す。詳しくは DOS
     _INKEY ($ff07) を参照のこと。
 
@@ -479,7 +479,7 @@ MODE = $07 …… 標準入力から1バイト入力(ブレークチェックな
         DOS _KFLUSH
         addq.l  #2,sp
 
-MODE = $08 …… 標準入力から1バイト入力(ブレークチェックあり) (KFLUSHGC)
+MODE = $08 …… 標準入力から1バイト入力(ブレークチェックあり) (XC: KFLUSHGC)
     　標準入力から1バイトの入力(キー入力)を行い、その文字を返す。詳しくは DOS
     _GETC ($ff08) を参照のこと。
 
@@ -492,7 +492,7 @@ MODE = $08 …… 標準入力から1バイト入力(ブレークチェックあ
         DOS _KFLUSH
         addq.l  #2,sp
 
-MODE = $0a …… 標準入力から文字列入力(ブレークチェックあり) (KFLUSHGS)
+MODE = $0a …… 標準入力から文字列入力(ブレークチェックあり) (XC: KFLUSHGS)
     　INPPTR で指定した入力バッファに、標準入力から入力(キー入力)した改行まで
     の文字列を書き込む。詳しくは DOS _GETS ($ff0a) を参照のこと。
 
@@ -1959,26 +1959,26 @@ $ff44   _IOCTRL         デバイスドライバの ioctrl による直接入出
 の IOCTRL ビット(bit 14)が0の場合は使用できない。
 
 　モードの引数 MD により動作モードが切り替わる。
-    MD =  0 …… ファイルの装置情報を調べる (IOCTRLGT)
-    MD =  1 …… ファイルに装置情報を設定する (IOCTRLST)
-    MD =  2 …… ファイルからデータを読み込む (IOCTRLRH)
-    MD =  3 …… ファイルにデータを書き込む (IOCTRLWH)
-    MD =  4 …… ドライブからデータを読み込む (IOCTRLRD)
-    MD =  5 …… ドライブにデータを書き込む (IOCTRLWD)
-    MD =  6 …… ファイルの入力ステータスを調べる (IOCTRLIS)
-    MD =  7 …… ファイルの出力ステータスを調べる (IOCTRLOS)
-    MD =  9 …… ドライブがローカルかリモートかを調べる (IOCTRLDVGT)
-    MD = 10 …… ファイルがローカルかリモートかを調べる (IOCTRLFDGT)
-    MD = 11 …… リトライ数と待機時間を設定する (IOCTRLRTSET)
-    MD = 12 …… ファイルの特殊コントロールを行なう (IOCTRLFDCTL)
-    MD = 13 …… ドライブの特殊コントロールを行なう (IOCTRLDVCTL)
+    MD =  0 …… ファイルの装置情報を調べる (XC: IOCTRLGT)
+    MD =  1 …… ファイルに装置情報を設定する (XC: IOCTRLST)
+    MD =  2 …… ファイルからデータを読み込む (XC: IOCTRLRH)
+    MD =  3 …… ファイルにデータを書き込む (XC: IOCTRLWH)
+    MD =  4 …… ドライブからデータを読み込む (XC: IOCTRLRD)
+    MD =  5 …… ドライブにデータを書き込む (XC: IOCTRLWD)
+    MD =  6 …… ファイルの入力ステータスを調べる (XC: IOCTRLIS)
+    MD =  7 …… ファイルの出力ステータスを調べる (XC: IOCTRLOS)
+    MD =  9 …… ドライブがローカルかリモートかを調べる (XC: IOCTRLDVGT)
+    MD = 10 …… ファイルがローカルかリモートかを調べる (XC: IOCTRLFDGT)
+    MD = 11 …… リトライ数と待機時間を設定する (XC: IOCTRLRTSET)
+    MD = 12 …… ファイルの特殊コントロールを行なう (XC: IOCTRLFDCTL)
+    MD = 13 …… ドライブの特殊コントロールを行なう (XC: IOCTRLDVCTL)
 
-　なお、MD = 0 (IOCTRLGT)、9 (IOCTRLDVGT)、10 (IOCTRLFDGT) で得られる装置情報
-について XC コンパイラのリファレンスマニュアルでは bit 13 が特殊ブロックデバイ
+　なお、MD = 0 (XC: IOCTRLGT)、9 (XC: IOCTRLDVGT)、10 (XC: IOCTRLFDGT) で得ら
+れる装置情報について XC リファレンスマニュアルでは bit 13 が特殊ブロックデバイ
 ス、bit 12 がリモートの情報を表すとの記述があるが、実際には bit 13 のみでリモ
 ートを表す。bit 12 は Human68k からは参照されておらず、使用されていない。
 
-MD =  0 …… ファイルの装置情報を調べる (IOCTRLGT)
+MD =  0 …… ファイルの装置情報を調べる (XC: IOCTRLGT)
     　FILENO で指定したファイルハンドルの装置情報を調べる。
 
     引数    MD.w        コントロールモード(0)
@@ -2006,7 +2006,7 @@ MD =  0 …… ファイルの装置情報を調べる (IOCTRLGT)
         DOS _IOCTRL
         addq.l #4,sp
 
-MD =  1 …… ファイルに装置情報を設定する (IOCTRLST)
+MD =  1 …… ファイルに装置情報を設定する (XC: IOCTRLST)
     　FILENO で指定したファイルハンドルに装置情報を設定する。変更できるのはキ
     ャラクタデバイスの COOKED/RAW モードの属性(bit 5)のみ。
 
@@ -2033,7 +2033,7 @@ MD =  1 …… ファイルに装置情報を設定する (IOCTRLST)
         DOS _IOCTRL
         addq.l #6,sp
 
-MD =  2 …… ファイルからデータを読み込む (IOCTRLRH)
+MD =  2 …… ファイルからデータを読み込む (XC: IOCTRLRH)
     　FILENO で指定したファイルハンドルから、PTR で指定したバッファに LEN で指
     定したバイト数だけ読み込む。
 
@@ -2052,7 +2052,7 @@ MD =  2 …… ファイルからデータを読み込む (IOCTRLRH)
         DOS _IOCTRL
         lea (12,sp),sp
 
-MD =  3 …… ファイルにデータを書き込む (IOCTRLWH)
+MD =  3 …… ファイルにデータを書き込む (XC: IOCTRLWH)
     　FILENO で指定したファイルハンドルに、PTR で指定したバッファから LEN で指
     定したバイト数だけ書き込む。
 
@@ -2063,9 +2063,9 @@ MD =  3 …… ファイルにデータを書き込む (IOCTRLWH)
 
     返値    d0.l    実際に書き込んだバイト数(負数ならエラーコード)
 
-    コード例は MD = 2 (IOCTRLRH) の項目を参照のこと。
+    コード例は MD = 2 (XC: IOCTRLRH) の項目を参照のこと。
 
-MD =  4 …… ドライブからデータを読み込む (IOCTRLRD)
+MD =  4 …… ドライブからデータを読み込む (XC: IOCTRLRD)
     　DRIVE で指定したドライブから、PTR で指定したバッファに LEN で指定したバ
     イト数だけ読み込む。
     　リモートドライブに対しては使用できず、エラーが返る。
@@ -2085,7 +2085,7 @@ MD =  4 …… ドライブからデータを読み込む (IOCTRLRD)
         DOS _IOCTRL
         lea (12,sp),sp
 
-MD =  5 …… ドライブにデータを書き込む (IOCTRLWD)
+MD =  5 …… ドライブにデータを書き込む (XC: IOCTRLWD)
     　DRIVE で指定したドライブに、PTR で指定したバッファから LEN で指定したバ
     イト数だけ書き込む。
     　リモートドライブに対しては使用できず、エラーが返る。
@@ -2097,9 +2097,9 @@ MD =  5 …… ドライブにデータを書き込む (IOCTRLWD)
 
     返値    d0.l    実際に書き込んだバイト数(負数ならエラーコード)
 
-    コード例は MD = 4 (IOCTRLRD) の項目を参照のこと。
+    コード例は MD = 4 (XC: IOCTRLRD) の項目を参照のこと。
 
-MD =  6 …… ファイルの入力ステータスを調べる (IOCTRLIS)
+MD =  6 …… ファイルの入力ステータスを調べる (XC: IOCTRLIS)
     　FILENO で指定したファイルハンドルの入力ステータスを調べる。
 
     引数    MD.w        コントロールモード(6)
@@ -2114,7 +2114,7 @@ MD =  6 …… ファイルの入力ステータスを調べる (IOCTRLIS)
         DOS _IOCTRL
         addq.l #4,sp
 
-MD =  7 …… ファイルの出力ステータスを調べる (IOCTRLOS)
+MD =  7 …… ファイルの出力ステータスを調べる (XC: IOCTRLOS)
     　FILENO で指定したファイルハンドルの出力ステータスを調べる。
 
     引数    MD.w        コントロールモード(7)
@@ -2123,9 +2123,9 @@ MD =  7 …… ファイルの出力ステータスを調べる (IOCTRLOS)
     返値    d0.l    出力ステータス(0:不可 -1:可 それ以外の負数ならエラーコード)
                     リモートドライブの場合は常に -1 が返る。
 
-    コード例は MD = 6 (IOCTRLIS) の項目を参照のこと。
+    コード例は MD = 6 (XC: IOCTRLIS) の項目を参照のこと。
 
-MD =  9 …… ドライブがローカルかリモートかを調べる (IOCTRLDVGT)
+MD =  9 …… ドライブがローカルかリモートかを調べる (XC: IOCTRLDVGT)
     　DRIVE で指定したドライブがローカルかリモートかを調べる。
 
     引数    MD.w        コントロールモード(9)
@@ -2147,13 +2147,13 @@ MD =  9 …… ドライブがローカルかリモートかを調べる (IOCTRL
         DOS _IOCTRL
         addq.l #4,sp
 
-MD = 10 …… ファイルがローカルかリモートかを調べる (IOCTRLFDGT)
+MD = 10 …… ファイルがローカルかリモートかを調べる (XC: IOCTRLFDGT)
     　FILE で指定したドライブがローカルかリモートかを調べる。
 
-    　実際には MD = 0 (IOCTRLGT) と同じ処理が実行されている。引数、返値、コー
+    　実際には MD = 0 (XC: IOCTRLGT) と同じ処理が実行されている。引数、返値、コー
     ド例はそちらを参照のこと。
 
-MD = 11 …… リトライ数と待機時間を設定する (IOCTRLRTSET)
+MD = 11 …… リトライ数と待機時間を設定する (XC: IOCTRLRTSET)
     　指定した COUNT 及び TIME をリトライ数、待機時間に設定する。
 
     引数    MD.w        コントロールモード(11)
@@ -2169,7 +2169,7 @@ MD = 11 …… リトライ数と待機時間を設定する (IOCTRLRTSET)
         DOS _IOCTRL
         addq.l #6,sp
 
-MD = 12 …… ファイルの特殊コントロールを行なう (IOCTRLFDCTL)
+MD = 12 …… ファイルの特殊コントロールを行なう (XC: IOCTRLFDCTL)
     　ファイルハンドルによる特殊コントロールを行なう。
 
     引数    MD.w        コントロールモード(12)
@@ -2204,7 +2204,7 @@ MD = 12 …… ファイルの特殊コントロールを行なう (IOCTRLFDCTL)
         として説明され、ドライブ番号を指定する仕様に変更された。
         参考: https://twitter.com/kamadox/status/1781955615910461638
 
-MD = 13 …… ドライブの特殊コントロールを行なう (IOCTRLDVCTL)
+MD = 13 …… ドライブの特殊コントロールを行なう (XC: IOCTRLDVCTL)
     　ドライブによる特殊コントロールを行なう。
 
     引数    MD.w        コントロールモード(13)
@@ -2382,14 +2382,14 @@ $ff4b   _EXEC           プログラムのロード/実行
 　指定した実行ファイルのロード、実行、またはパス検索を行う。
 
 　モードの引数 MODE により動作モードが切り替わる。
-    MODE = $00 …… ファイルをロード、実行する (LOADEXEC)
-    MODE = $01 …… ファイルをロードする (LOAD)
-    MODE = $02 …… パス検索を行う (PATHCHK)
-    MODE = $03 …… アドレスを指定してファイルをロードする (LOADONLY)
-    MODE = $04 …… ロード済みプログラムを実行する  (EXECONLY)
-    MODE = $05 …… オーバーレイXファイルのモジュール番号を調べる (BINDNO)
+    MODE = $00 …… ファイルをロード、実行する (XC: LOADEXEC)
+    MODE = $01 …… ファイルをロードする (XC: LOAD)
+    MODE = $02 …… パス検索を行う (XC: PATHCHK)
+    MODE = $03 …… アドレスを指定してファイルをロードする (XC: LOADONLY)
+    MODE = $04 …… ロード済みプログラムを実行する (XC: EXECONLY)
+    MODE = $05 …… オーバーレイXファイルのモジュール番号を調べる (XC: BINDNO)
 
-MODE = $00 …… ファイルをロード、実行する (LOADEXEC)
+MODE = $00 …… ファイルをロード、実行する (XC: LOADEXEC)
     　CMDLINE でコマンドラインを、ENVPTR で環境を指定して、FILE で指定したファ
     イルをロード、実行する。
 
@@ -2422,7 +2422,7 @@ MODE = $00 …… ファイルをロード、実行する (LOADEXEC)
         DOS _EXEC
         lea (14,sp),sp
 
-MODE = $01 …… ファイルをロードする (LOAD)
+MODE = $01 …… ファイルをロードする (XC: LOAD)
     　CMDLINE でコマンドラインを、ENVPTR で環境を指定して、FILE で指定したファ
     イルをロードする。正常終了した場合は必ず MODE = 4 を実行すること。
 
@@ -2439,12 +2439,12 @@ MODE = $01 …… ファイルをロードする (LOAD)
             a3.l    環境のポインタ
             a4.l    実行アドレス
 
-    　ENVPTR、MODULE、TYPE については MODE = $00 (LOADEXEC) の場合と同じ。
+    　ENVPTR、MODULE、TYPE については MODE = $00 (XC: LOADEXEC) の場合と同じ。
 
     コード例
-        MODE = $00 (LOADEXEC) と同様。
+        MODE = $00 (XC: LOADEXEC) と同様。
 
-MODE = $02 …… パス検索を行う (PATHCHK)
+MODE = $02 …… パス検索を行う (XC: PATHCHK)
     　ENVPTR で指定した環境から path を検索して、FILE で指定したコマンド行をフ
     ルパスのファイル名とコマンドラインに分け、FILE と CMDLINE の各ポインタに書
     き込む。
@@ -2458,7 +2458,7 @@ MODE = $02 …… パス検索を行う (PATHCHK)
     　ファイル名バッファ FILE は90バイト以上、コマンドラインバッファ CMDLINE
     は256バイト以上必要。
 
-    　ENVPTR については MODE = $00 (LOADEXEC) の場合と同じ。
+    　ENVPTR については MODE = $00 (XC: LOADEXEC) の場合と同じ。
 
     コード例
         pea (ENVPTR)
@@ -2468,7 +2468,7 @@ MODE = $02 …… パス検索を行う (PATHCHK)
         DOS _EXEC
         lea (14,sp),sp
 
-MODE = $03 …… アドレスを指定してファイルをロードする (LOADONLY)
+MODE = $03 …… アドレスを指定してファイルをロードする (XC: LOADONLY)
     　LOADADR でロードアドレスを、LIMIT でリミットアドレスを指定して、FILE で
     指定したファイルをロードする。
 
@@ -2480,7 +2480,7 @@ MODE = $03 …… アドレスを指定してファイルをロードする (LOA
 
     返値    d0.l    プログラムの長さ(負数ならエラーコード)
 
-    　MODULE、TYPE については MODE = $00 (LOADEXEC) の場合と同じ。
+    　MODULE、TYPE については MODE = $00 (XC: LOADEXEC) の場合と同じ。
 
     コード例
         pea (LIMIT)
@@ -2491,9 +2491,9 @@ MODE = $03 …… アドレスを指定してファイルをロードする (LOA
         DOS _EXEC
         lea (14,sp),sp
 
-MODE = $04 …… ロード済みプログラムを実行する  (EXECONLY)
-    　EXECADR で指定したアドレスからプログラムを実行する。MODE = $01 (LOAD) で
-    ロードした後、実行する時に使用する。
+MODE = $04 …… ロード済みプログラムを実行する (XC: EXECONLY)
+    　EXECADR で指定したアドレスからプログラムを実行する。MODE = $01 (XC: LOAD)
+    でロードした後、実行する時に使用する。
 
     引数    EXECADR.l   実行アドレス
 
@@ -2506,7 +2506,7 @@ MODE = $04 …… ロード済みプログラムを実行する  (EXECONLY)
         DOS _EXEC
         addq.l #6,sp
 
-MODE = $05 …… オーバーレイXファイルのモジュール番号を調べる (BINDNO)
+MODE = $05 …… オーバーレイXファイルのモジュール番号を調べる (XC: BINDNO)
     　FILE で指定したオーバーレイXファイル中の、FILE2 で指定したファイルのモジ
     ュール番号を調べる。
 
@@ -3051,11 +3051,11 @@ $ff8f   _ASSIGN         仮想ドライブ/ディレクトリの割り当ての�
 　仮想ドライブ・仮想ディレクトリの割り当ての収得、設定、解除を行なう。
 
 　コントロールモードの引数 MD により動作モードが切り替わる。
-    MD = 0 …… 割り当てを収得する (GETASSIGN)
-    MD = 1 …… 割り当てを設定する (MAKEASSIGN)
-    MD = 4 …… 割り当てを解除する (RASSIGN)
+    MD = 0 …… 割り当てを収得する (XC: GETASSIGN)
+    MD = 1 …… 割り当てを設定する (XC: MAKEASSIGN)
+    MD = 4 …… 割り当てを解除する (XC: RASSIGN)
 
-MD = 0 …… 割り当てを収得する (GETASSIGN)
+MD = 0 …… 割り当てを収得する (XC: GETASSIGN)
     　BUFFER1 で指定したドライブの割り当てを収得し、BUFFER2 に書き込む。
 
     引数    BUFFER1.l   仮想ドライブ・仮想ディレクトリのポインタ
@@ -3074,7 +3074,7 @@ MD = 0 …… 割り当てを収得する (GETASSIGN)
         DOS _ASSIGN
         lea (10,sp),sp
 
-MD = 1 …… 割り当てを設定する (MAKEASSIGN)
+MD = 1 …… 割り当てを設定する (XC: MAKEASSIGN)
     　割り当てモード MODE で指定した値に従って、BUFFER1 で指定したドライブに
     BUFFER2で指定したディレクトリを割り当てる。
 
@@ -3109,7 +3109,7 @@ MD = 1 …… 割り当てを設定する (MAKEASSIGN)
         DOS _ASSIGN
         lea (12,sp),sp
 
-MD = 4 …… 割り当てを解除する (RASSIGN)
+MD = 4 …… 割り当てを解除する (XC: RASSIGN)
     　BUFFER1 で指定したドライブの割り当てを解除する。
 
     引数    BUFFER1.l   仮想ドライブ・仮想ディレクトリのポインタ
