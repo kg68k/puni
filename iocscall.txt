@@ -1113,6 +1113,7 @@ $2a     _B_CLR_ST       画面の複数行消去
 
 不具合
     該当環境: ROM IOCS 全バージョン、IOCS.X
+    修正環境: HIOCS.X
     　画面全体(引数 d1.b = 2)を消去した場合、d0.l に0以外の値を返す。
         ROM IOCS version 1.2 以下  ……… $0000ffff
         ROM IOCS version 1.3、IOCS.X …… $00000020
