@@ -77,28 +77,35 @@ scsicall.txt
   かも知れません。
 
 trap.txt
-  trap 例外処理マニュアル(ROM IOCS version 1.10/1.30 及び Human68k
-  version 3.02 対応)。
+  trap 例外処理マニュアル(ROM IOCS version 1.10/1.30 及び Human68k version
+  3.02 対応)。
 
 vector.txt
   割り込みベクタ一覧。
 
 code.txt
-  おまけ その1: ANK コード表。
+  ANK 文字コード表。
 
 condition.txt
-  おまけ その2: 条件表。
+  条件表。
 
 _fdformat.txt
-  おまけ その3: FD フォーマット表。
+  フロッピーディスクのフォーマット表。
 
 lang_c.txt
-  おまけ その4: C 言語便利表。エスケープシーケンスと、演算子の優先順位と結合規
-  則です。
+  C 言語便利表。エスケープシーケンスと、演算子の優先順位と結合規則です。
 
 _mediabyte.txt
-  おまけ その5: メディアバイト表。
-  filesystem.txt から抜き出しただけです。
+  メディアバイト表。filesystem.txt から抜き出しただけです。
+
+appendix/devname.txt
+  デバイス名の一覧。
+
+appendix/io_board.txt
+  SHARP 製 I/O ボードの一覧。
+
+appendix/memmap..txt
+  各j長ボードのメモリマップ。
 
 puni.txt
   このファイルです。
@@ -181,8 +188,7 @@ ROM
 
 ☆ 連絡先 ☆
 
-TcbnErik / 立花@桑島技研
-  https://github.com/kg68k/
+TcbnErik /  https://github.com/kg68k/
 
 
 [EOF]
