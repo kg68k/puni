@@ -72,14 +72,23 @@ PRN       HUMAN.SYS, PRNDRV.SYS, PRNDRV1.SYS, PRNDRV2.SYS, PRNDRV3.SYS
 
 ・デバイス名(キャラクタデバイス、ユーザー拡張)
 
+CRTM16*/  crtmod16.x
+          CRT モード拡張。無効デバイス名。
+
 DEVYN*/   DEVYN.SYS
           CONFIG.SYS 拡張。無効デバイス名。
 
 @DISK9SC  9SCDRV.X
           フロッピーディスク拡張。
 
+**EXEC**  execd
+          ファイル実行属性。無効デバイス名。
+
 INTSW*/-  INTSWDRV.X
           バックグラウンド処理有効時の NMI スイッチ有効化。無効デバイス名。
+
+JOY*/     JOYDRV3.X
+          ジョイスティック変換。無効デバイス名。
 
 M32, M44, M48, S32, S44, S48    MercuryDriver.SYS
           Mercury-Unit PCM 再生(Monaural/Stereo, 32/44.1/48kHz)。
@@ -95,6 +104,9 @@ M32, M44, M48, S32, S44, S48    MercuryDriver.SYS
 
 ?Twenty?  (V)wentyOne.X, (v)twentyone.sys
           ファイル名拡張。無効デバイス名。
+
+"Witch?"  KeyWitch.x
+          キー入力拡張。無効デバイス名。
 
 XCON      condrv(em).sys
           バックログ出力。
