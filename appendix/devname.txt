@@ -4,9 +4,6 @@
 
 ・デバイス名(キャラクタデバイス)
 
-@IOCS     IOCS.X
-          フォントデータ読み込み。
-
 AUX       HUMAN.SYS, RSDRV.SYS
           補助入出力(RS-232C)。
 
@@ -35,6 +32,9 @@ FAST:IOB  FASTIO.X
 FDDEV*/*  FDDEVICE.X
           フロッピーディスクドライブ拡張。無効デバイス名。
 
+FILES**/  FILES.SYS
+          FILES for ASK3(ASK サンプルアクセサリ)。無効デバイス名。
+
 FLOAT*/-  FLOAT1.X, FLOAT2.X, FLOAT3.X, FLOAT4.X
           浮動小数点演算パッケージ。無効デバイス名。
 
@@ -43,6 +43,12 @@ GPBUS     GPIBDRV.SYS
 
 HIST/**/  HISTORY.X
           行入力ヒストリ。無効デバイス名。
+
+@IOCS     IOCS.X
+          フォントデータ読み込み。
+
+KNJSEL*/  KANJISEL.SYS
+          部種別漢字 for ASK3(ASK サンプルアクセサリ)。無効デバイス名。
 
 LPT       HUMAN.SYS
           プリンタ出力(漢字 IN/漢字 OUT コード出力なし)。PRN デバイスを伴う。
@@ -66,6 +72,9 @@ PRN       HUMAN.SYS, PRNDRV.SYS, PRNDRV1.SYS, PRNDRV2.SYS, PRNDRV3.SYS
 ?SXTools  FSX.X
           SX-Window システム。デバイス名先頭の ? の部分は文字コード $01 となっ
           ているため無効デバイス名だが、TwentyOne +S のときは有効。
+
+XFER***/  MODESW.SYS
+          モード切替 for ASK3(ASK サンプルアクセサリ)。無効デバイス名。
 
 
 ==============================================================================
