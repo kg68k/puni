@@ -123,7 +123,7 @@
 
  1      かな漢字変換モードの設定
 
-引数    MODE    かな漢字変換モード
+引数    MODE.l  かな漢字変換モード
             0: かな漢字変換なし(通常の入力モード)
             1: 一括変換(辞書の先読みなし)
             2: 一括変換(辞書の先読みあり)
@@ -1016,36 +1016,38 @@
 
 62      文字列を属性付加文字列に変換する
 
-引数    STR     シフト JIS 文字列のアドレス
-        MBUF    MEAN 文字列格納バッファ
-        KIND    表示属性(0:通常 1:反転)
+引数    STR.l   シフト JIS 文字列のアドレス
+        MBUF.l  MEAN 文字列格納バッファ
+        KIND.l  表示属性(0:通常 1:反転)
 
-        ACSII コードとシフト JIS コードからなる文字列を MEAN 文字列に変換して
-        バッファに書き込む。
+    　ACSII コードとシフト JIS コードからなる文字列を MEAN 文字列に変換してバ
+    ッファに書き込む。
 
-        pea     (STR)
-        pea     (MBUF)
-        move.l  #KIND,-(sp)
-        move.l  #62,-(sp)
-        DOS     _KNJCTRL
-        lea     (16,sp),sp
+コード例
+    move.l #KIND,-(sp)
+    pea (MBUF)
+    pea (STR)
+    move.l #62,-(sp)
+    DOS _KNJCTRL
+    lea (16,sp),sp
 
 ==============================================================================
 
 63      属性付加文字列中の任意文字の属性を変更する
 
-        MBUF    MEAN 文字列のバッファ
-        LEN     変更する文字数
-        KIND    表示属性(0:通常 1:反転)
+引数    MBUF.l  MEAN 文字列のバッファ
+        LEN.l   変更する文字数
+        KIND.l  表示属性(0:通常 1:反転)
 
-        MEAN 文字列中の MBUF のアドレスから、LEN で指定された文字分の表示属性
-        を変更する。
+    　MEAN 文字列中の MBUF のアドレスから、LEN で指定された文字分の表示属性を
+    変更する。
 
-        move.l  #LEN,-(sp)
-        pea     (MBUF)
-        move.l  #KIND,-(sp)
-        move.l  #62,-(sp)
-        DOS     _KNJCTRL
-        lea     (16,sp),sp
+コード例
+    move.l #KIND,-(sp)
+    move.l #LEN,-(sp)
+    pea (MBUF)
+    move.l #62,-(sp)
+    DOS _KNJCTRL
+    lea (16,sp),sp
 
 ==============================================================================
