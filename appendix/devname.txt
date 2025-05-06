@@ -102,6 +102,9 @@ JOY*/     JOYDRV3.X
 M32, M44, M48, S32, S44, S48    MercuryDriver.SYS
           Mercury-Unit PCM 再生(Monaural/Stereo, 32/44.1/48kHz)。
 
+MACS, @MACS     MACSDRV.x
+          アニメーションサーバー。どちらかのデバイス名のみが組み込まれる。
+
 ///PATCH  patexec.sys
           実行ファイルパッチ。無効デバイス名。
 
