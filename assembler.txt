@@ -713,67 +713,68 @@ JMP 命令の2命令に変更する。
 ・アセンブラ疑似命令：別名定義
 
 条件分岐命令
-    BT   = BRA
-    BHS  = BCC
-    BLO  = BCS
-    BNZ  = BNE
-    BZE  = BEQ
+    BT  = BRA
+    BHS = BCC
+    BLO = BCS
+    BNZ = BNE
+    BZE = BEQ
 
-    JBT   = JBRA
-    JBHS  = JBCC
-    JBLO  = JBCS
-    JBNZ  = JBNE
-    JBZE  = JBEQ
+    JBT  = JBRA
+    JBHS = JBCC
+    JBLO = JBCS
+    JBNZ = JBNE
+    JBZE = JBEQ
 
 条件セット命令
-    SHS  = SCC
-    SLO  = SCS
-    SNZ  = SNE
-    SZE  = SEQ
+    SHS = SCC
+    SLO = SCS
+    SNZ = SNE
+    SZE = SEQ
 
 条件ループ命令
-    DBHS  = DBCC
-    DBLO  = DBCS
-    DBNZ  = DBNE
-    DBZE  = DBEQ
+    DBHS = DBCC
+    DBLO = DBCS
+    DBNZ = DBNE
+    DBZE = DBEQ
 
 条件トラップ命令
-    TRAPHS  = TRAPCC
-    TRAPLO  = TRAPCS
-    TRAPNZ  = TRAPNE
-    TRAPZE  = TRAPEQ
+    TRAPHS = TRAPCC
+    TRAPLO = TRAPCS
+    TRAPNZ = TRAPNE
+    TRAPZE = TRAPEQ
 
 加減算命令
-    DEC.size  = SUBQ.size #1
-    INC.size  = ADDQ.size #1
+    DEC.size = SUBQ.size #1
+    INC.size = ADDQ.size #1
 
-    CLR.W An  = SUBA.W An,An
-      ※上位ワードの値が$0000になるとは限らないので注意すること。
-    CLR.L An  = SUBA.L An,An
+    CLR.W An = SUBA.W An,An
+        ※上位ワードの値が$0000になるとは限らないので注意すること。HAS060X.X
+          では混乱を防ぐため、CLR.W An および CLR.L An 命令は削除されている。
+    CLR.L An = SUBA.L An,An
 
 条件の否定
-  　Bcc/JBcc/DBcc/Scc/TRAPcc 命令のコンディションコード cc を Ncc と記述するこ
-  とにより、条件を逆にすることができる。
-    NCC  = CS
-    NCS  = CC
-    NEQ  = NE
-    NF   = T
-    NGE  = LT
-    NGT  = LE
-    NHI  = LS
-    NHS  = CS
-    NLE  = GT
-    NLO  = CC
-    NLS  = HI
-    NLT  = GE
-    NMI  = PL
-    NNE  = EQ
-    NNZ  = EQ
-    NPL  = MI
-    NT   = F
-    NVC  = VS
-    NVS  = VC
-    NZE  = NE
+  Bcc/JBcc/DBcc/Scc/TRAPcc 命令のコンディションコード cc を Ncc と記述すること
+  により、逆の条件を指定できる。
+    NCC = CS
+    NCS = CC
+    NEQ = NE
+    NF  = T  (Bcc/JBcc は除く)
+    NGE = LT
+    NGT = LE
+    NHI = LS
+    NHS = CS
+    NLE = GT
+    NLO = CC
+    NLS = HI
+    NLT = GE
+    NMI = PL
+    NNE = EQ
+    NNZ = EQ
+    NPL = MI
+    NT  = F  (Bcc/JBcc は除く)
+    NVC = VS
+    NVS = VC
+    NZE = NE
 
 ==============================================================================
 
