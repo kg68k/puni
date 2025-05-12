@@ -81,6 +81,25 @@ XFER***/  MODESW.SYS
 
 ・デバイス名(キャラクタデバイス、ユーザー拡張)
 
+030SYSp*  030SYSpatch.x
+          X68030(68EC030 を 68030 に換装したもの)管理。無効デバイス名。
+
+_30SYSp*  _30SYSpatch.x
+          X68030(68EC030 を 68030 に換装したもの)管理。無効デバイス名。
+
+?060SP    060sp.x
+          JUPITER-X 用 68060 Software Package。デバイス名先頭の ? の部分は文字
+          コード $01 となっているため無効デバイス名だが、TwentyOne +S のときは
+          有効。
+
+/*060T*/  060turbo.sys
+          060turbo 管理。RAMDISK を使用する場合は RAMDISK (ブロックデバイス)と
+          して組み込まれる。
+
+?40TURBO  040SYSpatch.x
+          040turbo 管理。デバイス名先頭の ? の部分は文字コード $01 となってい
+          るため無効デバイス名だが、TwentyOne +S のときは有効。
+
 CRTM16*/  crtmod16.x
           CRT モード拡張。無効デバイス名。
 
@@ -93,11 +112,21 @@ DEVYN*/   DEVYN.SYS
 **EXEC**  execd
           ファイル実行属性。無効デバイス名。
 
+FPSP      fpsp.x (yamapu 氏版)
+          040turbo、JUPITER-X 用 FPSP。
+
+****FPSP  fpsp.x (ちゃぷに氏版)
+          040turbo 用 FPSP。無効デバイス名。
+
 INTSW*/-  INTSWDRV.X
           バックグラウンド処理有効時の NMI スイッチ有効化。無効デバイス名。
 
 JOY*/     JOYDRV3.X
           ジョイスティック変換。無効デバイス名。
+
+?JUPITER  jupiter.x, Jdash.sys
+          040Excel、060Excel 管理。デバイス名先頭の ? の部分は文字コード $01
+          となっているため無効デバイス名だが、TwentyOne +S のときは有効。
 
 M32, M44, M48, S32, S44, S48    MercuryDriver.SYS
           Mercury-Unit PCM 再生(Monaural/Stereo, 32/44.1/48kHz)。
@@ -122,6 +151,9 @@ MACS, @MACS     MACSDRV.x
 
 XCON      condrv(em).sys
           バックログ出力。
+
+@XT30DRV  xt30drv.x
+          Xellent30 支援ツール。
 
 
 ==============================================================================
@@ -154,14 +186,20 @@ SCSIDRV   SCSIDRV.SYS
 CDROM     cddev.sys
           CD-ROM ドライブ。
 
-WINDRV    WINDRV.SYS
-          リモートドライブ(Windows)。
-
-XEIJHFS   (HEiJ, [rom$00e9f020])
-          X68000 Emulator in Java のホストファイルシステム。
-
 *EMUHOST  WindrvXM.SYS
           リモートドライブ(Windows)。デバイス名は ASCII 文字で8文字。
+
+_GRAD__   grad.r
+          RAM ディスク(メインメモリ、GVRAM)。
+
+hounds    hounds.sys
+          hounds クライアント。
+
+__LZD__   lzdsys.x
+          ファイル圧縮。
+
+nfs       nfs.sys
+          Human-NFS クライアント。
 
 *SUSIE:)  susie.x
           SCSI ドライブ。CONFIG.SYS の DEVICE= 行での組み込み時のみ使用され、
@@ -171,11 +209,11 @@ XEIJHFS   (HEiJ, [rom$00e9f020])
           SCSI ドライブ。CONFIG.SYS の DEVICE= 行での組み込み時は *SUSIE* デバ
           イスを伴う。
 
-_GRAD__   grad.r
-          RAM ディスク(メインメモリ、GVRAM)。
+WINDRV    WINDRV.SYS
+          リモートドライブ(Windows)。
 
-__LZD__   lzdsys.x
-          ファイル圧縮。
+XEIJHFS   (HEiJ, [rom$00e9f020])
+          X68000 Emulator in Java のホストファイルシステム。
 
 
 ==============================================================================
