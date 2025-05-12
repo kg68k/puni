@@ -103,6 +103,14 @@ _30SYSp*  _30SYSpatch.x
 CRTM16*/  crtmod16.x
           CRT モード拡張。無効デバイス名。
 
+/dev/en0  ether_ne.sys, RASETHER.SYS
+          Neptune-X によるイーサネット接続。無効デバイス名。
+          ether_ne.sys をベースにした RaSCSI 用の RASETHER.SYS も同じデバイス
+          名を持つ。
+
+/dev/ep0  ppp.sys
+          PPP によるイーサネット接続。無効デバイス名。
+
 DEVYN*/   DEVYN.SYS
           CONFIG.SYS 拡張。無効デバイス名。
 
@@ -186,8 +194,10 @@ SCSIDRV   SCSIDRV.SYS
 CDROM     cddev.sys
           CD-ROM ドライブ。
 
-*EMUHOST  WindrvXM.SYS
+*EMUHOST  WindrvXM.SYS, RASDRV.SYS
           リモートドライブ(Windows)。デバイス名は ASCII 文字で8文字。
+          WindrvXM.SYS をベースにした RaSCSI 用の RASDRV.SYS も同じデバイス名
+          を持つ。
 
 _GRAD__   grad.r
           RAM ディスク(メインメモリ、GVRAM)。
@@ -200,6 +210,9 @@ __LZD__   lzdsys.x
 
 nfs       nfs.sys
           Human-NFS クライアント。
+
+PXVDISK   PXVDISK.SYS
+          PhantomX VDISK ディスクイメージ。
 
 *SUSIE:)  susie.x
           SCSI ドライブ。CONFIG.SYS の DEVICE= 行での組み込み時のみ使用され、
