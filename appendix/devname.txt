@@ -136,15 +136,32 @@ HFLT07**  HFLOAT.X
 INTSW*/-  INTSWDRV.X
           バックグラウンド処理有効時の NMI スイッチ有効化。無効デバイス名。
 
+JMOUSE*/  JOYMOUSE.X
+          JOYDRV3.X マウス拡張。無効デバイス名。
+
 JOY*/     JOYDRV3.X
           ジョイスティック変換。無効デバイス名。
+
+JOYDRV*/  JOYDRV.X
+          ジョイスティック変換。無効デバイス名。
+
+JOYPAT*/  JOYPAT.X
+          JOYDRV3.X 拡張。無効デバイス名。
 
 ?JUPITER  jupiter.x, Jdash.sys
           040Excel、060Excel 管理。デバイス名先頭の ? の部分は文字コード $01
           となっているため無効デバイス名だが、TwentyOne +S のときは有効。
 
+***LZXed
+          ITA lzx で圧縮されたデバイスドライバ(ブロックデバイスのドライバを圧
+          縮した場合もキャラクタデバイスのデバイスヘッダになる)。ドライバ初期
+          化時に元のコードが展開され、デバイスヘッダも上書きされるのでメモリ上
+          には残らない。
+
 @LZXLOAD  lzxloader.sys
-          LZX (F&I / 市川富士男版)で圧縮されたデバイスドライバの展開。
+          F&I(市川富士男)版の LZX で圧縮されたデバイスドライバの展開。なお、圧
+          縮された個々のデバイスドライバのファイルにはデバイスヘッダが埋め込ま
+          れないため、lzxloader.sys なしでの組み込みはできない。
 
 M32, M44, M48, S32, S44, S48    MercuryDriver.SYS
           Mercury-Unit PCM 再生(Monaural/Stereo, 32/44.1/48kHz)。
