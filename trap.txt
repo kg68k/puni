@@ -4,17 +4,17 @@
 
 ・TRAP 例外処理一覧
 
-trap #0   ユーザ定義(Ko-Window)
-trap #1   ユーザ定義(bgdrv, mpcm, NATURAL)
-trap #2   ユーザ定義(pcm8*)
-trap #3   ユーザ定義(zmusic, zmsc3, middrv)
-trap #4   ユーザ定義(mxdrv, madrv, mld, mcdrv, mndrv)
-trap #5   ユーザ定義(cdc, PIlib)
+trap #0   ユーザ定義 (Ko-Window)
+trap #1   ユーザ定義 (bgdrv, mpcm, NATURAL)
+trap #2   ユーザ定義 (pcm8*)
+trap #3   ユーザ定義 (zmusic, zmsc3, middrv)
+trap #4   ユーザ定義 (mxdrv, madrv, mld, mcdrv, mndrv)
+trap #5   ユーザ定義 (cdc, PIlib)
 trap #6   ユーザ定義
-trap #7   ユーザ定義
+trap #7   ユーザ定義 (EX-System)
 
-trap #8   ブレークポイント(ROM デバッガ)
-trap #9   ブレークポイント(DB.X, SCD.X)
+trap #8   ブレークポイント (ROM デバッガ)
+trap #9   ブレークポイント (DB.X, SCD.X)
 trap #10  リセット／電原オフ処理
 trap #11  BREAK キー処理
 trap #12  COPY キー処理
