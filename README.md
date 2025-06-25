@@ -70,7 +70,7 @@ X680x0でプログラミング(主にアセンブリ言語)をする時に役立
   * デバイス名の一覧。
 * [appendix/io_board.txt](appendix/io_board.txt)
   * SHARP製I/Oボードの一覧。
-* [appendix/memmap..txt](appendix/memmap..txt)
+* [appendix/memmap.txt](appendix/memmap.txt)
   * 拡張ボードのメモリマップ。
 
 
