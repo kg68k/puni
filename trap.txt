@@ -4,8 +4,8 @@
 
 ・TRAP 例外処理一覧
 
-trap #0   ユーザ定義 (Ko-Window)
-trap #1   ユーザ定義 (bgdrv, mpcm, NATURAL)
+trap #0   ユーザ定義 (Ko-Window, pmd)
+trap #1   ユーザ定義 (bgdrv, mpcm, natural, faldrv)
 trap #2   ユーザ定義 (pcm8*)
 trap #3   ユーザ定義 (zmusic, zmsc3, middrv)
 trap #4   ユーザ定義 (mxdrv, madrv, mld, mcdrv, mndrv)
