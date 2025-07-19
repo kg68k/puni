@@ -169,6 +169,18 @@ M32, M44, M48, S32, S44, S48    MercuryDriver.SYS
 MACS, @MACS     MACSDRV.x
           アニメーションサーバー。どちらかのデバイス名のみが組み込まれる。
 
+MIDI    MIDIDRV.X
+          MIDI 制御。
+
+MIDI, MIDIA, MIDIB      MUSICDRV.X (version 1.00)
+          MIDI 制御。OPM デバイスを伴う。
+
+MIDI, MIDIA, MIDIB, OPM1      MUSICDRV.X (version 2.01)
+          MIDI 制御。
+ 
+MIDI, MIDIA, MIDIAE, MIDIB, MIDIBE      MUSICDRV.X (version 2.03)
+          MIDI 制御。
+
 ///PATCH  patexec.sys
           実行ファイルパッチ。無効デバイス名。
 
