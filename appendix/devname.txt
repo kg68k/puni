@@ -169,7 +169,10 @@ M32, M44, M48, S32, S44, S48    MercuryDriver.SYS
 MACS, @MACS     MACSDRV.x
           アニメーションサーバー。どちらかのデバイス名のみが組み込まれる。
 
-MIDI    MIDIDRV.X
+MAGIC***  MAGIC.X, MAGIC4.X
+          Oh!X 掲載の高速グラフィックパッケージ MAGIC。
+
+MIDI      MIDIDRV.X
           MIDI 制御。
 
 MIDI, MIDIA, MIDIB      MUSICDRV.X (version 1.00)
