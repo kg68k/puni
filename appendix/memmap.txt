@@ -94,6 +94,8 @@
 ││
 ││       $00ecc080-$00ecc0ff  Mercury-Unit V4
 │└
+│         $00ecd000-$00ecd007  X68000 Z Moonshot mapper
+│
 │┌─── $00ece000-$00ece3ff  Neptune-X (#0) URL後述
 ││
 ││       $00ece300-$00ece33f  Nereid (#0)
@@ -163,6 +165,16 @@
   $00ecf024 REFRESH CONTROLLER
   $00ecf028 MEMORY CLOCK REGISTER
   $00ecf02c MEMORY BASE ADDRESS REGISTER
+
+--------
+
+・X68000 Z Moonshot mapper
+  https://toyoshim.github.io/Moonshot/
+
+  $000ecd000 mapper_feature
+  $000ecd002 mapper_address
+  $000ecd004 mapper_data
+  $000ecd006 mapper_commit
 
 --------
 
