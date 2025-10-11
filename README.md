@@ -18,6 +18,10 @@ X680x0でプログラミング(主にアセンブリ言語)をする時に役立
 * [bioswork.txt](bioswork.txt)
   * IOCSワークの一覧(ROM IOCS version 1.0～1.3 対応)。
   * システム代替ソフトウェアの作成用です。
+* [code.txt](code.txt)
+  * ANK文字コード表。
+* [condition.txt](condition.txt)
+  * 条件表(コンディションコード)。
 * [doscall.txt](doscall.txt)
   * DOSコールレファレンス(Human68k version 3.02 対応)。
   * 返値の項にレジスタ名が表記されていないものは d0.l が使用されます。
@@ -25,20 +29,22 @@ X680x0でプログラミング(主にアセンブリ言語)をする時に役立
   * 浮動小数点演算ファンクションコールレファレンス(FLOAT V2 対応)。
   * ドライバの不具合動作については、その数が多いことや対象ファイルの種類が
     多いなどの理由で記述していません。
+* [fpcall.txt](fpcall.txt)
+  * かな漢字変換ファンクションコールレファレンス(ASK68K V2/V3 対応)。
+* [fs_devdrv.txt](fs_devdrv.txt)
+  * デバイスドライバ。
 * [fs_ospatch.txt](fs_ospatch.txt)
   * ファイルシステムの処理ルーチンの解説(Human68k version 3.02 対応)。
   * 処理内容の解説は Human68k を解析した結果から推測しています。
     一部の用語は記述の都合上勝手に決めたものです。
-* [fs_devdrv.txt](fs_devdrv.txt)
-  * デバイスドライバ。
-* [fpcall.txt](fpcall.txt)
-  * かな漢字変換ファンクションコールレファレンス(ASK68K V2/V3 対応)。
 * [iocscall.txt](iocscall.txt)
   * IOCSコールレファレンス(ROM IOCS version 1.0～1.3 対応)。
   * 返値の項にレジスタ名が表記されていないものは d0.l が使用されます。
     また、返値がないものでも d0.l は常に破壊されると考えて下さい。
 * [kbdctrl.txt](kbdctrl.txt)
   * キーボード制御コマンドコード。
+* [lang_c.txt](lang_c.txt)
+  * C言語便利表。エスケープシーケンスと、演算子の優先順位と結合規則です。
 * [mmio.txt](mmio.txt)
   * メモリマップドI/O一覧(X68000/X68030 対応)。
 * [number.txt](number.txt)
@@ -56,14 +62,8 @@ X680x0でプログラミング(主にアセンブリ言語)をする時に役立
   * trap例外処理マニュアル(ROM IOCS version 1.0～1.3、Human68k version 3.02 対応)。
 * [vector.txt](vector.txt)
   * 割り込みベクタ一覧。
-* [code.txt](code.txt)
-  * ANK文字コード表。
-* [condition.txt](condition.txt)
-  * 条件表(コンディションコード)。
 * [_fdformat.txt](_fdformat.txt)
   * フロッピーディスクのフォーマット表。
-* [lang_c.txt](lang_c.txt)
-  * C言語便利表。エスケープシーケンスと、演算子の優先順位と結合規則です。
 * [_mediabyte.txt](_mediabyte.txt)
   * メディアバイト表。filesystem.txt から抜き出しただけです。
 * [appendix/devname.txt](appendix/devname.txt)
