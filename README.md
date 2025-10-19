@@ -49,6 +49,8 @@ X680x0でプログラミング(主にアセンブリ言語)をする時に役立
   * メモリマップドI/O一覧(X68000/X68030 対応)。
 * [number.txt](number.txt)
   * 整数の表現範囲及び浮動小数点実数の形式。
+* [opmdrv.txt](opmdrv.txt)
+  * OPMDRV\*.XのOPMコールレファレンス。
 * [oswork.txt](oswork.txt)
   * OSワークの一覧と各種の表の解説(Human68k version 3.02 対応)。
   * システム代替ソフトウェアの作成用です。
@@ -140,6 +142,7 @@ X680x0でプログラミング(主にアセンブリ言語)をする時に役立
   * iocscall.lzh (著者不明)
   * HUMAN.DOC、FCB.DOC (著者不明)
   * X30_SYSPORT.DOC、X68_SRAM.DOC、X68_VECTOR.DOC (著者失念)
+  * MUSIC.DOC (MUSICDRV.X マニュアル、SAN MUSICAL SERVICE)
 
 (順不同、敬称略)
 
