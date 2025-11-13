@@ -244,9 +244,9 @@ CDROM     cddev.sys
           CD-ROM ドライブ。
 
 *EMUHOST  WindrvXM.SYS, RASDRV.SYS
-          リモートドライブ(Windows)。デバイス名は ASCII 文字で8文字。
-          WindrvXM.SYS をベースにした RaSCSI 用の RASDRV.SYS も同じデバイス名
-          を持つ。
+          Windows ファイルアクセス。リモートドライブ。デバイス名は ASCII 文字
+          で8文字。WindrvXM.SYS をベースにした RaSCSI 用の RASDRV.SYS も同じデ
+          バイス名を持つ。
 
 _GRAD__   grad.r
           RAM ディスク(メインメモリ、GVRAM)。
@@ -263,6 +263,9 @@ nfs       nfs.sys
 PXVDISK   PXVDISK.SYS
           PhantomX VDISK ディスクイメージ。
 
+SMBFS     smbfs.x
+          SMB(Windows ファイル共有)クライアント。リモートドライブ。
+
 *SUSIE:)  susie.x
           SCSI ドライブ。CONFIG.SYS の DEVICE= 行での組み込み時のみ使用され、
           *SUSIE* デバイスを伴う。デバイス名は ASCII 文字で8文字。
@@ -272,7 +275,7 @@ PXVDISK   PXVDISK.SYS
           イスを伴う。
 
 WINDRV    WINDRV.SYS
-          リモートドライブ(Windows)。
+          Windows ファイルアクセス。リモートドライブ。
 
 XEIJHFS   (HEiJ, [rom$00e9f020])
           X68000 Emulator in Java のホストファイルシステム。
