@@ -100,6 +100,9 @@ _30SYSp*  _30SYSpatch.x
           040turbo 管理。デバイス名先頭の ? の部分は文字コード $01 となってい
           るため無効デバイス名だが、TwentyOne +S のときは有効。
 
+BAG       BAGDRV.SYS
+          文字列のバッファリング。電脳倶楽部 Vol.1 に収録。
+
 CRTM16*/  crtmod16.x
           CRT モード拡張。無効デバイス名。
 
@@ -192,6 +195,10 @@ MIDI, MIDIA, MIDIAE, MIDIB, MIDIBE      MUSICDRV.X (version 2.03)
 
 *SCSITRP  SCSIIOCS.SYS
           SxSI、内蔵 SCSI ポート用 SCSI IOCS。無効デバイス名。
+
+TAP       TAPDRV.SYS
+          文字列のバッファリングと画面表示。電脳倶楽部 Vol.1 に収録のほか、書
+          籍『X68000マシン語プログラミング 入門編』にも同等ドライバが掲載。
 
 ?Twenty?  (V)wentyOne.X, (v)twentyone.sys
           ファイル名拡張。無効デバイス名。
