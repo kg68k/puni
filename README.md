@@ -19,7 +19,7 @@ X680x0でプログラミング(主にアセンブリ言語)をする時に役立
   * IOCSワークの一覧(ROM IOCS version 1.0～1.3 対応)。
   * システム代替ソフトウェアの作成用です。
 * [code.txt](code.txt)
-  * ANK文字コード表。
+  * ANK文字コード表と制御文字。
 * [condition.txt](condition.txt)
   * 条件表(コンディションコード)。
 * [doscall.txt](doscall.txt)
