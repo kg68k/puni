@@ -493,7 +493,7 @@ $ffd45e  $12_911024  X68000 Compact
 $fbf400  $13_921127  X68030 / X68030 Compact
 
 $fef400  $16_xxxxxx  XEiJ (X68000 Emulator in Java) IPLROM 1.6
-         参考: https://twitter.com/kamadox/status/1508778031007285255
+         参考: https://x.com/kamadox/status/1508778031007285255
 
 *1 ... IOCS _ROMVER が $10_870507 を返す ROM は3種類あり一部のコードが異なるが、
        1/4角 ANK フォントのアドレスはいずれも同じ。

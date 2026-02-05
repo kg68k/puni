@@ -159,7 +159,7 @@
 --------
 
 ・MK-HM2 満開製作所製ハイメモリボード(X68030用、未発売)
-  https://twitter.com/punohito/status/1769933805710868481
+  https://x.com/punohito/status/1769933805710868481
 
   $00ecf020 'VM01'
   $00ecf024 REFRESH CONTROLLER

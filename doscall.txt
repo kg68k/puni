@@ -2498,7 +2498,7 @@ MD = 12 …… ファイルの特殊コントロールを行なう (XC: IOCTRLFD
             int IOCTRLFDCTL(drive, f_code, buffer);
             int drive; /* ドライブ番号(0=カレント、1=A:) */
         として説明され、ドライブ番号を指定する仕様に変更された。
-        参考: https://twitter.com/kamadox/status/1781955615910461638
+        参考: https://x.com/kamadox/status/1781955615910461638
 
 MD = 13 …… ドライブの特殊コントロールを行なう (XC: IOCTRLDVCTL)
     　ドライブによる特殊コントロールを行なう。
