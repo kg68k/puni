@@ -67,13 +67,22 @@ X680x0でプログラミング(主にアセンブリ言語)をする時に役立
 * [_fdformat.txt](_fdformat.txt)
   * フロッピーディスクのフォーマット表。
 * [_mediabyte.txt](_mediabyte.txt)
-  * メディアバイト表。filesystem.txt から抜き出しただけです。
+  * メディアバイト表。fs_devdrv.txt から抜き出しただけです。
 * [appendix/devname.txt](appendix/devname.txt)
   * デバイス名の一覧。
 * [appendix/io_board.txt](appendix/io_board.txt)
   * SHARP製I/Oボードの一覧。
 * [appendix/memmap.txt](appendix/memmap.txt)
   * 拡張ボードのメモリマップ。
+* [schema/](schema/) ファイル形式。
+  * ファイル名
+    [BEEP.SYS](schema/beep_sys.txt)
+    [KEY.SYS](schema/key_sys.txt)
+    [TITLE.SYS](schema/title_sys.txt)
+    [USKCG.SYS](schema/uskcg_sys.txt)
+  * 拡張子
+    [.X](schema/_x.txt)
+    [.Z](schema/_z.txt)
 
 
 ## 参考資料
