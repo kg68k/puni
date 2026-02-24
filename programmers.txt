@@ -651,18 +651,19 @@ HD IPL
 
 ==============================================================================
 
-・FDC リザルトステータス
+・FDC ステータスレジスタ
 
-リザルトステータス 0(ST0)
+ステータスレジスタ0 (ST0)
         bit  7   6   5   4   3   2   1   0
           ┌─┬─┬─┬─┬─┬─┬─┬─┐
-          │　IC　│SE│EC│NR│HD│　US　│
+          │  IC  │SE│EC│NR│HD│  │  │
           └─┴─┴─┴─┴─┴─┴─┴─┘
+                                   US1  US0
 
-        bit 7～6  IC    Interrupt Code(割り込み要因を示す)
+        bit 7～6  IC    Interrupt Code (割り込み要因)
                         %00: コマンドの正常終了 (NT: Normal Terminate)
                         %01: コマンドの異常終了 (AT: abnormal Terminate)
-                        %10: 与えられたコマンドは無効(Invalid)であった
+                        %10: 与えられたコマンドは無効であった
                                                 (IC: Invalid Command)
                         %11: デバイスに状態遷移があった
                                                 (AI: Attention Interrupt)
@@ -671,25 +672,24 @@ HD IPL
                         %1: SEEK/RECALIBRATE コマンド実行終了
         bit 4   EC      Equipment Check
                         %0: 通常動作
-                        %1: ドライブから Fault 信号を受けった / RECALIBRATE
-                            コマンド実行エラー(トラック 0 が見つからない)
+                        %1: ドライブから Fault 信号を受け取った / RECALIBRATE
+                            コマンド実行エラー(トラック0が見つからない)
         bit 3   NR      Not Ready
                         %0: 通常動作
                         %1: 指定されたドライブはレディでない
-        bit 2   HD      Head Address(割り込み要求時のヘッド番号)
+        bit 2   HD      Head Address (割り込み要求時のヘッド番号)
                         %0: 表面
                         %1: 裏面
-        bit 1～0  US1～US0
-                        Unit Select n(割り込み要求時のドライブ番号)
+        bit 1～0  US1～US0  Unit Select 1/0 (割り込み要求時のドライブ番号)
                         %00: ドライブ #0
-                        %01: 〃   #1
-                        %10: 〃   #2
-                        %11: 〃   #3
+                        %01: ドライブ #1
+                        %10: ドライブ #2
+                        %11: ドライブ #3
 
-リザルトステータス 1(ST1)
+ステータスレジスタ1 (ST1)
         bit  7   6   5   4   3   2   1   0
           ┌─┬─┬─┬─┬─┬─┬─┬─┐
-          │EN│　│DE│OR│　│ND│NW│MA│
+          │EN│ 0│DE│OR│ 0│ND│NW│MA│
           └─┴─┴─┴─┴─┴─┴─┴─┘
 
         bit 7   EN      End of Cylinder
@@ -713,21 +713,20 @@ HD IPL
                         %0: 通常動作
                         %1: アドレスマークが見つからない
 
-リザルトステータス 2(ST2)
+ステータスレジスタ2 (ST2)
         bit  7   6   5   4   3   2   1   0
           ┌─┬─┬─┬─┬─┬─┬─┬─┐
-          │　│CM│DD│NC│SH│SN│BC│MD│
+          │ 0│CM│DD│WC│SH│SN│BC│MD│
           └─┴─┴─┴─┴─┴─┴─┴─┘
 
         bit 6   CM      Control Mark
-                        %0: READ DELETED DATA 実行時に DAM を検出した
-                            通常動作
+                        %0: 通常動作
                         %1: READ DATA/READ DIAGNOSTIC/SCAN 実行時に DDAM を検
-                            出した
+                            出、または READ DELETED DATA 実行時に DAM を検出
         bit 5   DD      Data Error in Data Field
                         %0: 通常動作
                         %1: データの CRC エラーを検出した
-        bit 4   NC      No Cylinder
+        bit 4   WC      Wrong Cylinder
                         %0: 通常動作
                         %1: ST1 の ND ビットが %1 のとき、ID の C バイトが一致
                             せず、かつ $ff でもない
@@ -745,11 +744,12 @@ HD IPL
                         %0: 通常動作
                         %1: データアドレスマークが見つからない
 
-リザルトステータス 3(ST3)
+ステータスレジスタ3 (ST3)
         bit  7   6   5   4   3   2   1   0
           ┌─┬─┬─┬─┬─┬─┬─┬─┐
-          │FT│WP│RY│T0│TS│HD│　US　│
+          │FT│WP│RY│T0│TS│HD│  │  │
           └─┴─┴─┴─┴─┴─┴─┴─┘
+                                   US1  US0
 
         bit 7   FT      ドライブの Fault 信号の状態
         bit 6   WP      ドライブの Write Protect 信号の状態
@@ -757,7 +757,7 @@ HD IPL
         bit 4   T0      ドライブの Track0 信号の状態
         bit 3   TS      ドライブの Two Side 信号の状態
         bit 2   HD      コマンドフェーズで指定された HD の値
-        bit 1～0  US1～US0
+        bit 1～0  US1～US0  Unit Select 1/0
                         コマンドフェーズで指定された US1、US0 の値
 
 ※ ST3 は SENSE DEVICE STATUS コマンドでのみ返される。
