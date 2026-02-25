@@ -716,7 +716,7 @@ HD IPL
 ステータスレジスタ2 (ST2)
         bit  7   6   5   4   3   2   1   0
           ┌─┬─┬─┬─┬─┬─┬─┬─┐
-          │ 0│CM│DD│WC│SH│SN│BC│MD│
+          │ 0│CM│DD│NC│SH│SN│BC│MD│
           └─┴─┴─┴─┴─┴─┴─┴─┘
 
         bit 6   CM      Control Mark
@@ -726,7 +726,7 @@ HD IPL
         bit 5   DD      Data Error in Data Field
                         %0: 通常動作
                         %1: データの CRC エラーを検出した
-        bit 4   WC      Wrong Cylinder
+        bit 4   NC      No Cylinder
                         %0: 通常動作
                         %1: ST1 の ND ビットが %1 のとき、ID の C バイトが一致
                             せず、かつ $ff でもない
