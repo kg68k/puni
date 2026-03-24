@@ -148,6 +148,9 @@ JOY*/     JOYDRV3.X
 JOYDRV*/  JOYDRV.X
           ジョイスティック変換。無効デバイス名。
 
+/joynet/  joynetd.x
+          イーサネットじょい君。無効デバイス名。
+
 JOYPAT*/  JOYPAT.X
           JOYDRV3.X 拡張。無効デバイス名。
 
