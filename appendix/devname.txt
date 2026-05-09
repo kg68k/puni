@@ -47,6 +47,9 @@ HIST/**/  HISTORY.X
 @IOCS     IOCS.X
           フォントデータ読み込み。
 
+JOY       AJOY.X
+          アナログジョイスティック。
+
 KNJSEL*/  KANJISEL.SYS
           部種別漢字 for ASK3(ASK サンプルアクセサリ)。無効デバイス名。
 
