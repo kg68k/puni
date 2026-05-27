@@ -114,6 +114,11 @@ CRTM16*/  crtmod16.x
           ether_ne.sys をベースにした RaSCSI 用の RASETHER.SYS も同じデバイス
           名を持つ。
 
+/dev/en0  zusbether.x, dyptether.x
+          X68000 Z ZUSB によるイーサネット接続。無効デバイス名。
+          zusbether.x をベースにした DaynaPORT 用の dyptether.x も同じデバイス
+          名を持つ。
+
 /dev/ep0  ppp.sys
           PPP によるイーサネット接続。無効デバイス名。
 
@@ -276,6 +281,9 @@ nfs       nfs.sys
 PXVDISK   PXVDISK.SYS
           PhantomX VDISK ディスクイメージ。
 
+SCHDISK   zusbfddrv.sys
+          X68000 Z USB FDD ドライバ。
+
 SMBFS     smbfs.x
           SMB(Windows ファイル共有)クライアント。リモートドライブ。
 
@@ -293,5 +301,10 @@ WINDRV    WINDRV.SYS
 XEIJHFS   (HEiJ, [rom$00e9f020])
           X68000 Emulator in Java のホストファイルシステム。
 
+ZUSBSCH   zusbmodrv.sys
+          zusbscsi.sys 用の USB MO ドライバ。
+
+/ZUSCSI/  zusbscsi.sys
+          X68000 Z USB SCSI IOCS ドライバ。
 
 ==============================================================================
