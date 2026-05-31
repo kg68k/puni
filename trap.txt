@@ -10,7 +10,7 @@ trap #2   ユーザ定義 (pcm8*)
 trap #3   ユーザ定義 (zmusic, zmsc3, middrv)
 trap #4   ユーザ定義 (mxdrv, madrv, mld, mcdrv, mndrv)
 trap #5   ユーザ定義 (cdc, PIlib)
-trap #6   ユーザ定義
+trap #6   ユーザ定義 (PIlib)
 trap #7   ユーザ定義 (EX-System)
 
 trap #8   ブレークポイント (ROM デバッガ)
