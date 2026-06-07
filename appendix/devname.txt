@@ -144,6 +144,9 @@ HFLT07**  HFLOAT.X
           浮動小数点演算パッケージ。無効デバイス名。デバイス名の 07 の部分はバ
           ージョン番号と思われる。
 
+HIMEM///  HIMEM.SYS
+          TS-6BE16 管理。無効デバイス名。
+
 INTSW*/-  INTSWDRV.X
           バックグラウンド処理有効時の NMI スイッチ有効化。無効デバイス名。
 
@@ -211,6 +214,9 @@ TAP       TAPDRV.SYS
           文字列のバッファリングと画面表示。電脳倶楽部 Vol.1 に収録のほか、書
           籍『X68000マシン語プログラミング 入門編』にも同等ドライバが掲載。
 
+TS16*DRV  TS16DRV.X
+          TS-6BE16 管理。無効デバイス名。
+
 ?Twenty?  (V)wentyOne.X, (v)twentyone.sys
           ファイル名拡張。無効デバイス名。
 
@@ -268,6 +274,9 @@ CDROM     cddev.sys
 
 _GRAD__   grad.r
           RAM ディスク(メインメモリ、GVRAM)。
+
+HIRDISK   HIRDISK.SYS
+          TS-6BE16 用 RAM ディスク。
 
 hounds    hounds.sys
           hounds クライアント。

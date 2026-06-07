@@ -218,6 +218,7 @@ $f2     _A_JOYGET       アナログジョイスティック制御
 $f3     _MUSICDRV       MUSICDRV 制御
 $f4     (未定義)        (ユーザ拡張) Mercury Driver 制御
 $f5     _SCSIDRV        SCSI IOCS
+$f8     (未定義)        (ユーザ拡張) TS-6BE16 ハイメモリ制御
 $fd     _ABORTRST       アボートする為に環境を再設定する
 $fe     _IPLERR         再起動する
 $ff     _ABORTJOB       アボート
@@ -4620,8 +4621,8 @@ $f4     (未定義)        (ユーザ拡張) Mercury Driver 制御
 
 引数    d1.l    機能番号
 
-        Mercury-Unit 用ドライバ MercuryDriver.SYS で追加されたファンクションコ
-        ールを呼び出す。
+    　Mercury-Unit 用ドライバ MercuryDriver.SYS で追加されたファンクションコー
+    ルを呼び出す。
 
 ==============================================================================
 
@@ -4634,6 +4635,26 @@ $f5     _SCSIDRV        SCSI IOCS
     ール番号が定義されている。
 
     　詳しくは当資料の scsicall.txt を参照のこと。
+
+==============================================================================
+
+$f8     (未定義)        (ユーザ拡張) TS-6BE16 ハイメモリ制御
+
+引数    d1.w    機能番号
+
+    　ハイメモリ増設ボード TS-6BE16 用のドライバ HIMEM.SYS や TS16DRV.X で追加
+    されたファンクションコールを呼び出す。ハイメモリの仕様は異なるが、アクセラ
+    レータ 060turbo 用のドライバ 060turbo.sys でも上位互換のファンクションコー
+    ルが追加される。
+
+    　ファンクションコール番号($f8)を定義する公式のシンボルはないが、各ドライ
+    バなどに同梱されているファイルでは以下のようになっている。
+        同梱元          ファイル名      シンボル名
+        HIMEM.SYS       HILIB.S         himem_iocs
+        TS16DRV.X       TS16CALL.MAC    TS16
+        060turbo.sys    t00iocs.equ     _HIMEM
+        ruka-macro      iocscall.mac    _HIMEM
+        XEiJ            iocscall.mac    _TS16DRV
 
 ==============================================================================
 
