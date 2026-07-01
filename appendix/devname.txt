@@ -109,6 +109,9 @@ _30SYSp*  _30SYSpatch.x
 BAG       BAGDRV.SYS
           文字列のバッファリング。電脳倶楽部 Vol.1 に収録。
 
+BGENB*/-  bgenabler.x
+          バックグラウンドタスク機能の拡張。無効デバイス名。
+
 CRTM16*/  crtmod16.x
           CRT モード拡張。無効デバイス名。
 
