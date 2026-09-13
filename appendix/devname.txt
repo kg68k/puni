@@ -287,6 +287,9 @@ _GRAD__   grad.r
 HIRDISK   HIRDISK.SYS
           TS-6BE16 用 RAM ディスク。
 
+HOSTFS1   HOSTFS.SYS
+          WebX68k のホストファイルシステム。リモートドライブ。
+
 hounds    hounds.sys
           hounds クライアント。
 
