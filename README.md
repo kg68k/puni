@@ -87,6 +87,8 @@ X680x0でプログラミング(主にアセンブリ言語)をする時に役立
 
 ## 参考資料
 
+* Motorola 公式資料
+  * MC68901UM.pdf - MC68HC901 Multi-Function Peripheral User's Manual (Motorola, Inc., 1995)
 * ROM
   * IOCS ROM version 1.0 (X68000 初代、1987-05-07版)
   * IOCS ROM version 1.0 (X68000 ACE)
