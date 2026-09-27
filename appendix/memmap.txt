@@ -94,8 +94,10 @@
 ││
 ││       $00ecc080-$00ecc0ff  Mercury-Unit V4
 │└
-│         $00ecd000-$00ecd007  X68000 Z Moonshot mapper
-│
+│┌─── $00ecd000-$00ecd0ff  VMPU68 (1.1.0)
+││
+││       $00ecd000-$00ecd007  X68000 Z Moonshot mapper
+│└
 │┌─── $00ece000-$00ece3ff  Neptune-X (#0) URL後述
 ││
 ││       $00ece300-$00ece33f  Nereid (#0)
@@ -192,6 +194,9 @@ Neptune-X
 
 PhantomX
   http://retropc.net/gimons/phantomx/index.html
+
+VMPU68
+  https://github.com/hasegawa-tomoki/vmpu68
 
 X68000 Z ZUSB
   https://github.com/yunkya2/x68kz-zusb
