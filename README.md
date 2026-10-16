@@ -83,6 +83,8 @@ X680x0でプログラミング(主にアセンブリ言語)をする時に役立
     [TITLE.SYS](schema/title_sys.txt)
     [USKCG.SYS](schema/uskcg_sys.txt)
   * 拡張子
+    [.P16](schema/_p16.txt)
+    [.PCM](schema/_pcm.txt)
     [.X](schema/_x.txt)
     [.Z](schema/_z.txt)
 
